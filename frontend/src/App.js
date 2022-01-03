@@ -1,16 +1,19 @@
 // import './App.css';
 import * as React from "react";
 import Home from "./pages/Home";
-import LogIn from "./pages/LogIn";
+import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import {Routes, Route, Link} from 'react-router-dom';
+import Navbar from "./Components/Navbar";
+
+
 function App() {
   return (
     <div>
-      <h1>Hey there</h1>
+      <Navbar />
       <Routes>
-      <Route  path="/" element={<Home />} />
-      <Route exact path="/Login" element={<LogIn />} />
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/Login" element={<Login />} />
       <Route exact path="/Profile" element={<Profile />} />
       </Routes>
     </div>
