@@ -1,0 +1,31 @@
+{
+  "name": "bookface-catbook",
+  "version": "1.0.0",
+  "description": "Facebook-like app",
+  "main": "/backend/server.js",
+  "scripts": {
+    "client-install": "npm install --prefix frontend",
+    "test": "node server.js",
+    "server": "nodemon server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShivaniKhatri96/BookFace-CatBook.git"
+  },
+  "author": "Alisan Cavus, Daniel Diaz, Shivani Kathri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShivaniKhatri96/BookFace-CatBook/issues"
+  },
+  "homepage": "https://github.com/ShivaniKhatri96/BookFace-CatBook#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
