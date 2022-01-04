@@ -1,0 +1,30 @@
+.dropdow {
+    margin: 100px auto;
+    width: 400px;
+    user-select:none;
+
+}
+
+
+
+.dropdown .dropdown-content {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+    color: #333;
+    font-weight: 500;
+    width: 96%;
+}
+
+.dropdown .dropdown-content .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ;
+}
+
+.dropdown .dropdown-content .dropdown-item:hover{
+    background: #f4f4f4;
+}
