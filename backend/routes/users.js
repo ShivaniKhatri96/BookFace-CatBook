@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const { createUser } = require("../models/User");
 
 //dummy data. to be removed once we have the final db
 router.get("/users/dummyDB", (req, res) => {
-  const dummyDB = [
-    { id: 1, login: "dani", password: "danipass", profilePic: null },
-    { id: 2, login: "ali", password: "alipass", profilePic: null },
-    { id: 3, login: "shiv", password: "shivpass", profilePic: null },
-  ];
-
-  res.json(dummyDB);
+  createUser().then(res.status(201).send("201 - User created"));
 });
+
+// get /users           -returns list of all users
+// get /users/:login    -returns information of a specific user
+// post /users/         -creates a new user
+// delete /users/:login -deletes user
 
 module.exports = router;

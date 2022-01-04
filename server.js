@@ -25,29 +25,29 @@ const mongoose = require("mongoose");
 const app = express();
 const port = process.env.PORT || 5000;
 
-//setting routes
-const users = require("./backend/routes/users");
-const comments = require("./backend/routes/comments");
-
 //setting middleware
 app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-//mongo config
-const db = require("./backend/config/keys").mongoURI;
-
-//connecting to Mongo
-mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
-
-//using routes
+//setting routes
+const users = require("./backend/routes/users");
+const comments = require("./backend/routes/comments");
 app.use("/users", users);
 app.use("/comments", comments);
+
+//mongo config and connection
+const db = require("./backend/config/keys").mongoURI;
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("Connected to MongoDB."))
+  .catch((err) => console.log(err));
 
 //starting server
 app.listen(port, () => {
   console.log(`Catbook backend listening at http://localhost:${port}`);
 });
+
+// const { createUser } = require("./backend/models/User");
+// app.get("/users/dummyDB", (req, res) => {
+//   createUser().then(res.status(201).send("201 - User created"));
+// });

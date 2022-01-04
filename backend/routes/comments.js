@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+router.get("/comments", (req, res) => {
+  res.json("this works");
+});
 // get /comments/       -returns list of all comments
 // get /comments/:id    -returns information of a specific comment
 // post /comments/      -creates a new comment
