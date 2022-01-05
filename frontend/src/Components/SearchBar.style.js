@@ -29,14 +29,15 @@ export const Container = styled.div`
       box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
       border: none;
 
-      @media (min-width: 768px) {
-        width: 50%;
+      @media (max-width: 768px) {
+        width: 200px;;
         
       }
     `}
 
     @media (max-width: 768px) {
-        display:none;
+        width: 200px;
+    }
 `;
 
 export const SearchInput = styled.input`

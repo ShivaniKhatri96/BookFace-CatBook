@@ -11,14 +11,18 @@ const animateOpacity = keyframes`
 `;
 
 export const NavbarContainer = styled.nav`
-  width: 100%;
-  height: ${(props) => (props.extendNavBar ? '60vh' : '100px')};
+  min-width: min-content;
+  height: ${(props) => (props.extendNavBar ? '90vh' : '100px')};
   background-color: #f9fbb2;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+
 
   @media (max-width: 768px) {
+    min-width: min-content;
   }
 `;
 
@@ -101,14 +105,15 @@ export const NavbarLeft = styled.div`
   flex: 25%;
   display: flex;
   align-items: center;
-  padding-left: 5%;
+  margin-left: 50px;
+  
 `;
 
 export const NavbarRight = styled.div`
   flex: 75%;
   display: flex;
   justify-content: flex-end;
-  padding-right: 50px;
+  margin-right: 50px;
   align-items: center;
   flex-wrap: nowrap;
 `;
@@ -122,6 +127,7 @@ export const NavbarInner = styled.div`
 
 export const NavbarExtended = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   animation: ${animateOpacity} 0.3s ease-in;
@@ -183,7 +189,7 @@ export const NavbarLinklog = styled.div`
   text-decoration: none;
   border: ${(props) => (props.isActiveTrue ? "1px solid rgba(0, 0, 0, 0.5)" : "1px solid rgba(0, 0, 0, 0.1);")};
   border-radius: 50px;
-  padding: 20px 16px 16px 16px;
+  padding: 25px ;
   margin: 2px 0 9px 0;
   display: flex;
   justify-content: center;
@@ -226,7 +232,7 @@ export const DropdownMenu = styled.div`
     opacity: 1;
     transform: translateY(-10px);
     transition:  opacity 150ms ease-in-out;
-    height: 17rem;
+    height: 10rem;
     margin-top: 3rem;
     display:flex;
     flex-direction: column;

@@ -24,11 +24,11 @@ import LogoImg from '../assets/logo.svg';
 import { HiMenu } from 'react-icons/hi';
 import { GrClose } from 'react-icons/gr';
 import { FaHome } from 'react-icons/fa';
-import { IoMdArrowDropdownCircle } from 'react-icons/io';
-import { RiLogoutCircleRLine } from 'react-icons/ri'
-import { MdNotificationsNone } from 'react-icons/md'
+import { RiLogoutCircleRLine } from 'react-icons/ri';
+import { MdNotificationsNone } from 'react-icons/md';
+import { CgProfile } from 'react-icons/cg';
+import { HiOutlineMenu, HiOutlineMenuAlt4 } from 'react-icons/hi';
 import SearchBar from './SearchBar';
-
 
 function Navbar() {
   const [extendNav, setExtendNav] = useState(false);
@@ -41,7 +41,7 @@ function Navbar() {
           <Logo src={LogoImg} />
         </NavbarLeft>
         <NavbarRight>
-          <SearchDiv>  
+          <SearchDiv>
             <SearchBar />
           </SearchDiv>
           <NavbarList>
@@ -52,23 +52,23 @@ function Navbar() {
             </NavbarListItems>
             <NavbarListItems>
               <NavbarLink to="/Notifications">
-                < MdNotificationsNone />
+                <MdNotificationsNone />
+              </NavbarLink>
+            </NavbarListItems>
+            <NavbarListItems>
+              <NavbarLink to="/Profile">
+                <CgProfile />
               </NavbarLink>
             </NavbarListItems>
             <NavbarListItems>
               <NavbarLinkDiv isActiveTrue={isActive}>
                 <Dropdown>
                   <DropdownBtn onClick={() => setIsActive((e) => !e)}>
-                    <IoMdArrowDropdownCircle />
+                    {isActive ? <HiOutlineMenuAlt4 /> : <HiOutlineMenu />}
                   </DropdownBtn>
                   {isActive && (
                     <DropdownMenu>
-                      <NavbarLinkDrop to="./Profile" className="dropdown-item">
-                        Profile
-                      </NavbarLinkDrop>
-                      <NavbarLinkDrop to="./Settings" className="dropdown-item">
-                        Settings
-                      </NavbarLinkDrop>
+                      <NavbarLinkDrop to="./Settings">Settings</NavbarLinkDrop>
                       <NavbarLinklog>
                         <RiLogoutCircleRLine />
                       </NavbarLinklog>
@@ -90,23 +90,26 @@ function Navbar() {
       {extendNav && (
         <NavbarExtended>
           <NavbarList>
-          <NavbarListItems>
+            <NavbarListItems>
               <SearchBar />
             </NavbarListItems>
             <NavbarListItems>
               <NavbarLinkExtended to="/">Home</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-              <NavbarLinkExtended to="/Settings">Settings</NavbarLinkExtended>
+            <NavbarLinkExtended to="/Profile">Profile</NavbarLinkExtended>
+            </NavbarListItems>
+           
+            <NavbarListItems>
+              <NavbarLinkExtended to="/Notifications">
+                Notifications
+              </NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-              <NavbarLinkExtended to="/Login">Login</NavbarLinkExtended>
+            <NavbarLinkExtended to="/Settings">Settings</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-              <NavbarLinkExtended to="/Notifications">Notifications</NavbarLinkExtended>
-            </NavbarListItems>
-            <NavbarListItems>
-              <NavbarLinkExtended to="/Profile">Profile</NavbarLinkExtended>
+              <NavbarLinkExtended to="/">Logout</NavbarLinkExtended>
             </NavbarListItems>
           </NavbarList>
         </NavbarExtended>
