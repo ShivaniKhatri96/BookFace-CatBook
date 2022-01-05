@@ -99,7 +99,6 @@ function Navbar() {
             <NavbarListItems>
             <NavbarLinkExtended to="/Profile">Profile</NavbarLinkExtended>
             </NavbarListItems>
-           
             <NavbarListItems>
               <NavbarLinkExtended to="/Notifications">
                 Notifications
