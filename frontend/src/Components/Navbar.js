@@ -22,9 +22,9 @@ import { HiMenu } from 'react-icons/hi';
 import { GrClose } from 'react-icons/gr';
 import { FaHome } from 'react-icons/fa';
 import { IoMdLogIn } from 'react-icons/io';
-import { Link } from 'react-router-dom';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
-import './dropdown.css';
+import SearchBar from './SearchBar';
+
 
 function Navbar() {
   const [extendNav, setExtendNav] = useState(false);
@@ -35,6 +35,7 @@ function Navbar() {
       <NavbarInner>
         <NavbarLeft>
           <Logo src={LogoImg} />
+          <SearchBar />
         </NavbarLeft>
         <NavbarRight>
           <NavbarList>

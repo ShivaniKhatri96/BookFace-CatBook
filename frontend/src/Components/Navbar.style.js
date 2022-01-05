@@ -92,14 +92,14 @@ export const NavbarLinkExtended = styled(Link)`
 `;
 
 export const NavbarLeft = styled.div`
-  flex: 30%;
+  flex: 50%;
   display: flex;
   align-items: center;
   padding-left: 5%;
 `;
 
 export const NavbarRight = styled.div`
-  flex: 70%;
+  flex: 50%;
   display: flex;
   justify-content: flex-end;
   padding-right: 50px;
