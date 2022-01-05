@@ -23,13 +23,13 @@ export const Container = styled.div`
   ${({ hover }) =>
     hover &&
     css`
-      width: 100%;
+      width: 50%;
       -webkit-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
       box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
       border: none;
 
       @media (min-width: 768px) {
-        width: 100%;
+        width: 50%;
         
       }
     `}
@@ -41,7 +41,6 @@ export const Container = styled.div`
 export const SearchInput = styled.input`
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   line-height: 30px;
@@ -72,7 +71,7 @@ const fadeIn = keyframes`
 const IconCommonCss = css`
   height: 1.2rem;
   width: 1.2rem;
-  fill: #fff;
+  fill: black;
   z-index: 10;
   animation: ${fadeIn} 1s linear;
 `;
@@ -86,6 +85,6 @@ export const IconRightArrow = styled(BsArrowRight)`
   align-self: flex-end;
   cursor: pointer;
   &:hover {
-    fill: #fff;
+    fill: black;
   }
 `;

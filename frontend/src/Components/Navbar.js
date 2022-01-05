@@ -84,6 +84,9 @@ function Navbar() {
       {extendNav && (
         <NavbarExtended>
           <NavbarList>
+          <NavbarListItems>
+              <SearchBar />
+            </NavbarListItems>
             <NavbarListItems>
               <NavbarLinkExtended to="/">Home</NavbarLinkExtended>
             </NavbarListItems>
@@ -94,9 +97,7 @@ function Navbar() {
               <NavbarLinkExtended to="/Login">Login</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-              <NavbarLinkExtended to="/Notifications">
-                Notifications
-              </NavbarLinkExtended>
+              <NavbarLinkExtended to="/Notifications">Notifications</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
               <NavbarLinkExtended to="/Profile">Profile</NavbarLinkExtended>
