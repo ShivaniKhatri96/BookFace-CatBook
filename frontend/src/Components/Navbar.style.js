@@ -74,26 +74,7 @@ export const NavbarLink = styled(Link)`
   }
 `;
 
-export const NavbarLinkDiv = styled.div`
-  text-decoration: none;
-  border: 2px solid rgba(0, 0, 0, 0);
-  border-radius: 1rem;
-  padding: 15px 15px 20px 15px;
-  transition: border 0.3s ease-out;
- 
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-
-  &:visited {
-    color: black;
-  }
-
-  &:hover {
-    border: 2px solid rgba(0, 0, 0, 0.5);
-  }
-`;
 
 export const NavbarLinkExtended = styled(Link)`
   text-decoration: none;
@@ -165,15 +146,55 @@ export const OpenMenuButton = styled.button`
   }
 `;
 
+export const NavbarLinkDiv = styled.div`
+  text-decoration: none;
+  border: ${(props) => (props.isActiveTrue ? "2px solid rgba(0, 0, 0, 0.5)" : "2px solid rgba(0, 0, 0, 0);")};
+  border-radius: 1rem;
+  padding: 15px 15px 20px 15px;
+  transition: border 0.3s ease-out;
+ 
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &:visited {
+    color: black;
+  }
+
+  &:hover {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+  }
+`;
+
 export const Dropdown = styled.div`
   text-decoration: none;
   display: grid;
+  position: relative;
  
 
   @media (max-width: 768px) {
     display: none;
   }
 `;
+ 
+export const DropdownMenu = styled.div`
+    position: absolute;
+    right: -4rem;
+    top: calc(100% + .1rem);
+    background-color:#f9fbb2;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0 ,0 , .2);
+    opacity: 1;
+    transform: translateY(-10px);
+    transition:  opacity 150ms ease-in-out;
+    height: 15rem;
+    margin-top: 3rem;
+    display:flex;
+    flex-direction: column;
+
+`
 
 export const DropdownBtn = styled.div`
     display: flex;

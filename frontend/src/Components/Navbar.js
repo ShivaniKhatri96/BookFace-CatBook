@@ -14,6 +14,7 @@ import {
   Dropdown,
   NavbarLinkDiv,
   DropdownBtn,
+  DropdownMenu,
 } from './Navbar.style';
 
 import LogoImg from '../assets/logo.svg';
@@ -22,9 +23,8 @@ import { GrClose } from 'react-icons/gr';
 import { FaHome } from 'react-icons/fa';
 import { IoMdLogIn } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import { IoMdArrowDropdownCircle} from 'react-icons/io';
-import './dropdown.css'
-
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import './dropdown.css';
 
 function Navbar() {
   const [extendNav, setExtendNav] = useState(false);
@@ -49,11 +49,26 @@ function Navbar() {
               </NavbarLink>
             </NavbarListItems>
             <NavbarListItems>
-                <NavbarLinkDiv>
-                    <Dropdown>
-                        <DropdownBtn onClick={(e) => setIsActive(!isActive)}><IoMdArrowDropdownCircle/></DropdownBtn>
-                    </Dropdown>
-                </NavbarLinkDiv>
+              <NavbarLinkDiv isActiveTrue={isActive}>
+                <Dropdown>
+                  <DropdownBtn onClick={() => setIsActive((e) => !e)}>
+                    <IoMdArrowDropdownCircle />
+                  </DropdownBtn>
+                  {isActive && (
+                    <DropdownMenu>
+                      <NavbarLink to="./Profile" className="dropdown-item">
+                        Profile
+                      </NavbarLink>
+                      <NavbarLink to="./Settings" className="dropdown-item">
+                        Settings
+                      </NavbarLink>
+                      <NavbarLink to="./Notifications" className="dropdown-item">
+                        Notifications
+                      </NavbarLink>
+                    </DropdownMenu>
+                  )}
+                </Dropdown>
+              </NavbarLinkDiv>
             </NavbarListItems>
           </NavbarList>
           <OpenMenuButton
@@ -78,7 +93,9 @@ function Navbar() {
               <NavbarLinkExtended to="/Login">Login</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-              <NavbarLinkExtended to="/Notifications">Notifications</NavbarLinkExtended>
+              <NavbarLinkExtended to="/Notifications">
+                Notifications
+              </NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
               <NavbarLinkExtended to="/Profile">Profile</NavbarLinkExtended>
