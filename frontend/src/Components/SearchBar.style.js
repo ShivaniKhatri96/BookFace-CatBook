@@ -5,14 +5,15 @@ import styled, { css, keyframes } from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 53px;
+  height: 53px;
   box-sizing: border-box;
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
+  padding: 10px;
   background: transparent;
   transition: all 0.5s;
+  margin: 18px;
 
 
   display: flex;
@@ -71,7 +72,7 @@ const fadeIn = keyframes`
 const IconCommonCss = css`
   height: 1.2rem;
   width: 1.2rem;
-  fill: black;
+  fill: #fff;
   z-index: 10;
   animation: ${fadeIn} 1s linear;
 `;

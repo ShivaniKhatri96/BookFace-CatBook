@@ -12,7 +12,7 @@ const animateOpacity = keyframes`
 
 export const NavbarContainer = styled.nav`
   width: 100%;
-  height: ${(props) => (props.extendNavBar ? '50vh' : '100px')};
+  height: ${(props) => (props.extendNavBar ? '60vh' : '100px')};
   background-color: #f9fbb2;
   display: flex;
   justify-content: space-between;
@@ -61,6 +61,7 @@ export const NavbarLink = styled(Link)`
   padding: 15px 15px 9px 15px;
   transition: border 0.3s ease-out;
   margin: 5px;
+  
 
   @media (max-width: 768px) {
     display: none;
@@ -80,6 +81,10 @@ export const NavbarLink = styled(Link)`
 export const NavbarLinkExtended = styled(Link)`
   text-decoration: none;
   margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border 0.3s ease-out;
 
   :focus,
   :active,
@@ -93,14 +98,14 @@ export const NavbarLinkExtended = styled(Link)`
 `;
 
 export const NavbarLeft = styled.div`
-  flex: 50%;
+  flex: 25%;
   display: flex;
   align-items: center;
   padding-left: 5%;
 `;
 
 export const NavbarRight = styled.div`
-  flex: 50%;
+  flex: 75%;
   display: flex;
   justify-content: flex-end;
   padding-right: 50px;
@@ -152,7 +157,37 @@ export const NavbarLinkDiv = styled.div`
   border: ${(props) => (props.isActiveTrue ? "1px solid rgba(0, 0, 0, 0.5)" : "1px solid rgba(0, 0, 0, 0.1);")};
   border-radius: 50px;
   padding: 16px 16px 16px 16px;
-  margin-bottom: 5px;
+  margin: 2px 0 9px 0;
+  transition: border 0.3s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border 0.3s ease-out;
+ 
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &:visited {
+    color: black;
+  }
+
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+`;
+
+
+export const NavbarLinklog = styled.div`
+  text-decoration: none;
+  border: ${(props) => (props.isActiveTrue ? "1px solid rgba(0, 0, 0, 0.5)" : "1px solid rgba(0, 0, 0, 0.1);")};
+  border-radius: 50px;
+  padding: 20px 16px 16px 16px;
+  margin: 2px 0 9px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: border 0.3s ease-out;
  
 
@@ -191,10 +226,12 @@ export const DropdownMenu = styled.div`
     opacity: 1;
     transform: translateY(-10px);
     transition:  opacity 150ms ease-in-out;
-    height: 15rem;
+    height: 17rem;
     margin-top: 3rem;
     display:flex;
     flex-direction: column;
+    width: 10rem;
+    
     
 
 `
@@ -209,3 +246,39 @@ export const DropdownBtn = styled.div`
     display: none;
   }
 `
+export const SearchDiv = styled.div`
+    width: 35rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+    @media (max-width: 768px) {
+    display: none;
+  }
+
+`
+
+export const NavbarLinkDrop = styled(Link)`
+  text-decoration: none;
+  border: ${(props) => (props.isActiveTrue ? "1px solid rgba(0, 0, 0, 0.5)" : "1px solid rgba(0, 0, 0, 0.1);")};
+  border-radius: 50px;
+  padding: 20px 16px 16px 16px;
+  margin: 2px 0 9px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border 0.3s ease-out;
+  
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &:visited {
+    color: black;
+  }
+
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+`;

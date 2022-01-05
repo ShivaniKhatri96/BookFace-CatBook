@@ -15,14 +15,18 @@ import {
   NavbarLinkDiv,
   DropdownBtn,
   DropdownMenu,
+  SearchDiv,
+  NavbarLinklog,
+  NavbarLinkDrop,
 } from './Navbar.style';
 
 import LogoImg from '../assets/logo.svg';
 import { HiMenu } from 'react-icons/hi';
 import { GrClose } from 'react-icons/gr';
 import { FaHome } from 'react-icons/fa';
-import { IoMdLogIn } from 'react-icons/io';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { RiLogoutCircleRLine } from 'react-icons/ri'
+import { MdNotificationsNone } from 'react-icons/md'
 import SearchBar from './SearchBar';
 
 
@@ -35,9 +39,11 @@ function Navbar() {
       <NavbarInner>
         <NavbarLeft>
           <Logo src={LogoImg} />
-          <SearchBar />
         </NavbarLeft>
         <NavbarRight>
+          <SearchDiv>  
+            <SearchBar />
+          </SearchDiv>
           <NavbarList>
             <NavbarListItems>
               <NavbarLink to="/">
@@ -45,8 +51,8 @@ function Navbar() {
               </NavbarLink>
             </NavbarListItems>
             <NavbarListItems>
-              <NavbarLink to="/Login">
-                <IoMdLogIn />
+              <NavbarLink to="/Notifications">
+                < MdNotificationsNone />
               </NavbarLink>
             </NavbarListItems>
             <NavbarListItems>
@@ -57,15 +63,15 @@ function Navbar() {
                   </DropdownBtn>
                   {isActive && (
                     <DropdownMenu>
-                      <NavbarLink to="./Profile" className="dropdown-item">
+                      <NavbarLinkDrop to="./Profile" className="dropdown-item">
                         Profile
-                      </NavbarLink>
-                      <NavbarLink to="./Settings" className="dropdown-item">
+                      </NavbarLinkDrop>
+                      <NavbarLinkDrop to="./Settings" className="dropdown-item">
                         Settings
-                      </NavbarLink>
-                      <NavbarLink to="./Notifications" className="dropdown-item">
-                        Notifications
-                      </NavbarLink>
+                      </NavbarLinkDrop>
+                      <NavbarLinklog>
+                        <RiLogoutCircleRLine />
+                      </NavbarLinklog>
                     </DropdownMenu>
                   )}
                 </Dropdown>
