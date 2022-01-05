@@ -9,10 +9,11 @@ export const Container = styled.div`
   height: 50px;
   box-sizing: border-box;
   border-radius: 50px;
-  border: 2px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px;
   background: transparent;
   transition: all 0.5s;
+
 
   display: flex;
   justify-content: center;
@@ -23,8 +24,8 @@ export const Container = styled.div`
     hover &&
     css`
       width: 100%;
-      -webkit-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
-      box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
       border: none;
 
       @media (min-width: 768px) {
@@ -32,6 +33,9 @@ export const Container = styled.div`
         
       }
     `}
+
+    @media (max-width: 768px) {
+        display:none;
 `;
 
 export const SearchInput = styled.input`
