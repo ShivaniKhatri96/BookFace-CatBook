@@ -8,10 +8,11 @@ import {
   Img,
   Spa,
   Team1,
+  Spa1,
 } from './Footer.style';
 import Shiv from '../assets/shiv.jpg';
 import Dan from '../assets/dan.png';
-import Ali from '../assets/ali.jpg';
+import Ali from '../assets/ali.png';
 
 
 function Footer() {
@@ -43,7 +44,7 @@ function Footer() {
       </Team>
       <Team1>
           <Lnk>About</Lnk>
-          <Spa>Copright &copy; 2022</Spa>
+          <Spa1>Copright &copy; 2022</Spa1>
           <Lnk>Privacy Policy</Lnk>
       </Team1>
     </FooterContainer>

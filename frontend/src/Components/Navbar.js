@@ -20,7 +20,7 @@ import {
   NavbarLinkDrop,
 } from './Navbar.style';
 
-import LogoImg from '../assets/logo.svg';
+import LogoImg from '../assets/catbook.svg';
 import { HiMenu } from 'react-icons/hi';
 import { GrClose } from 'react-icons/gr';
 import { FaHome } from 'react-icons/fa';

@@ -142,12 +142,17 @@ export const NavbarExtended = styled.div`
 `;
 
 export const Logo = styled.img`
-  max-width: 200px;
-  max-height: 200px;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  
+ 
+  
 
   @media (max-width: 800px) {
     max-width: 150px;
     max-height: 150px;
+    
   }
 `;
 

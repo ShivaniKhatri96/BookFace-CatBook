@@ -129,6 +129,15 @@ export const Spa = styled.span`
     
 `
 
+export const Spa1 = styled.span`
+   text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    align-items: center;
+
+    
+`
 
 
 export const Lnk = styled.a`
