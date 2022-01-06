@@ -232,7 +232,7 @@ export const DropdownMenu = styled.div`
     background-color:#f9fbb2;
     padding: .75rem;
     border-radius: 1rem;
-    box-shadow: 0 2px 5px 0 rgba(0, 0 ,0 , .2);
+    box-shadow: 0 2px 5px 0 rgba(0, 0 ,0 , 0.2);
     opacity: 1;
     transform: translateY(-10px);
     transition:  opacity 150ms ease-in-out;

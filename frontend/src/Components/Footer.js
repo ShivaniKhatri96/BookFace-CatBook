@@ -7,18 +7,18 @@ import {
   TeamTitle,
   Img,
   Spa,
-  SpaShiv,
+  Team1,
 } from './Footer.style';
 import Shiv from '../assets/shiv.jpg';
 import Dan from '../assets/dan.png';
 import Ali from '../assets/ali.jpg';
-import { useState } from 'react';
+
 
 function Footer() {
   return (
     <FooterContainer>
       <Team>
-        <TeamTitle>   CatBook Dev Team </TeamTitle>
+        <TeamTitle>CatBook Dev Team</TeamTitle>
         <TeamList>
           <TeamListMember>
             <Lnk href="https://github.com/ShivaniKhatri96" target="_blank">
@@ -41,6 +41,11 @@ function Footer() {
           </TeamListMember>
         </TeamList>
       </Team>
+      <Team1>
+          <Lnk>About</Lnk>
+          <Spa>Copright &copy; 2022</Spa>
+          <Lnk>Privacy Policy</Lnk>
+      </Team1>
     </FooterContainer>
   );
 }

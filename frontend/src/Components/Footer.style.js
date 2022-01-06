@@ -8,6 +8,8 @@ export const FooterContainer = styled.div`
   padding: 0;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  
   
   
 
@@ -25,6 +27,18 @@ export const Team = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 
+
+ 
+ 
+`;
+
+export const Team1 = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  flex-direction: row;
+  
+
  
  
 `;
@@ -32,7 +46,6 @@ export const Team = styled.div`
 export const TeamTitle = styled.div`
   display: flex;
   justify-content: center;
-  flex-direction: row;
   margin: 5px;
   text-decoration: underline;
 `;
@@ -54,7 +67,24 @@ export const TeamList = styled.ul`
   }
 `;
 
+export const Img = styled.img`
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    border-radius:50px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transform: translatex(50px);
+    transition: transform 500ms;
+    
 
+    @media (max-width: 800px) {
+    justfiy-content: flex-start;
+    transform: translatex( 0 );
+    margin: 3px;
+    
+    }
+
+`
 
 export const TeamListMember = styled.li`
   list-style-type: none;
@@ -65,6 +95,7 @@ export const TeamListMember = styled.li`
   justify-content: space-around;
   align-items: center;
   margin: 0 20px;
+  
 
   @media (max-width: 800px) {
     justfiy-content: flex-start;
@@ -72,20 +103,28 @@ export const TeamListMember = styled.li`
     
     }
   
+  &:hover ${Img} {
+    transform: translateX( -50px);
+    transition: transform 500ms;
+  }
 `;
 
 export const Spa = styled.span`
     opacity: 0;
+    height: 2.1rem;
     transform: translateX( -50px);
-    transition: transform 1s, opacity 1s;
+    transition: transform 500ms, opacity 500ms;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 50px;
     padding: 7px;
+    display: flex;
+    align-items: center;
+    
 
     @media (max-width: 800px) {
       opacity: 1;
       transform: translateX( 0px);
-      
+      display: flex;
     }
     
 `
@@ -107,8 +146,12 @@ export const Lnk = styled.a`
       opacity: 1;
       transform: translateX( 0px );
       border: 1px solid rgba(0, 0, 0, 0.5);
-      transition: transform 300ms, opacity 1s, border 1s;
+      transition: transform 500ms, opacity 500ms, border 500ms;
     }
+
+   
+
+    
 
     @media (max-width: 800px) {
         justify-content: center;
@@ -116,17 +159,7 @@ export const Lnk = styled.a`
 `
 
 
-export const Img = styled.img`
-    width: 50px;
-    height: 50px;
-    margin: 0 5px;
-    border-radius:50px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
 
-    
-
-
-`
 
 
 
