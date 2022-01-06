@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const { User } = require("../models/User");
 
-router.get("/comments", (req, res) => {
+router.get("/", (req, res) => {
   res.json("this works");
 });
 // get /comments/       -returns list of all comments

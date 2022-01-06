@@ -9,9 +9,12 @@ const UserSchema = new Schema({
   profile_pic: String,
   comments: [
     {
+      replyTo: String,
+      repliedBy: [String],
       content: String,
       img_link: String,
       likes: Number,
+      date: { type: Date, default: Date.now },
     },
   ],
   profile_pic: String,
@@ -21,21 +24,9 @@ const UserSchema = new Schema({
     mentions: [{ comment_link: String, mention_viewed: Boolean }],
     friend_req: [{ login: String, req_viewed: Boolean }],
   },
+  userSince: { type: Date, default: Date.now },
 });
 
 const User = mongoose.model("users", UserSchema);
 
-async function createUser() {
-  const user = await User.create({
-    login: "Trololo6",
-    password: "tmobile",
-    email: "papa@papa.com",
-    comments: [
-      {
-        content: "this is all",
-      },
-    ],
-  });
-}
-
-module.exports = { createUser };
+module.exports = { User };

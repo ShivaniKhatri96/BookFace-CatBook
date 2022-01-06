@@ -5,13 +5,6 @@
 // get /login           -login/signup page
 // get /profile/:login  -user profile page
 
-//backend/routes/users
-//----------------------
-// get /users           -returns list of all users
-// get /users/:login    -returns information of a specific user
-// post /users/         -creates a new user
-// delete /users/:login -deletes user
-
 //backend/routes/comments
 //-----------------------
 // get /comments/       -returns list of all comments
@@ -46,8 +39,3 @@ mongoose
 app.listen(port, () => {
   console.log(`Catbook backend listening at http://localhost:${port}`);
 });
-
-// const { createUser } = require("./backend/models/User");
-// app.get("/users/dummyDB", (req, res) => {
-//   createUser().then(res.status(201).send("201 - User created"));
-// });
