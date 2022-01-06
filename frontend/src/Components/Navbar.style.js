@@ -11,7 +11,6 @@ const animateOpacity = keyframes`
 `;
 
 export const NavbarContainer = styled.nav`
-  min-width: min-content;
   height: ${(props) => (props.extendNavBar ? '80vh' : '100px')};
   background-color: #f9fbb2;
   display: flex;
@@ -22,11 +21,11 @@ export const NavbarContainer = styled.nav`
 
 
   @media (max-width: 800px) {
-    min-width: min-content;
+
   }
 
-  @media (width: 768px) {
-    height: 60vh; 
+  @media (width: 800px) {
+    height: ${(props) => (props.extendNavBar ? '60vh' : '100px')}
   }
 `;
 
