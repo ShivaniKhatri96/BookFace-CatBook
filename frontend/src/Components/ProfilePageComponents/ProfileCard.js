@@ -9,8 +9,10 @@ import {
   SpaText,
 } from './ProfileCard.style';
 
+
 function ProfileCard() {
   return (
+    <>
     <Main>
       <CoverPhoto />
       <ProfileMain>
@@ -22,6 +24,8 @@ function ProfileCard() {
         </ProfileName>
       </ProfileMain>
     </Main>
+    </>
+    
   );
 }
 

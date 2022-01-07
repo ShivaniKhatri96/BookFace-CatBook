@@ -21,3 +21,22 @@ body {
     
 }
 
+.post-input::placeholder{
+   text-align: center;
+   margin: 0 10px;
+   align-self: center;
+   font-weight: 300;
+   font-size: 1rem;
+   
+}
+
+.post-input:focus::placeholder{
+    text-align: center;
+    margin: 0 10px;
+    align-self: center;
+    
+ }
+ 
+
+
+
