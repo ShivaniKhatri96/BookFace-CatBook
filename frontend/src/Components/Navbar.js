@@ -27,6 +27,7 @@ import { FaHome } from 'react-icons/fa';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
 import { MdNotificationsNone } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
+import { AiFillSetting } from 'react-icons/ai'
 import { HiOutlineMenu, HiOutlineMenuAlt4 } from 'react-icons/hi';
 import SearchBar from './SearchBar';
 
@@ -68,7 +69,7 @@ function Navbar() {
                   </DropdownBtn>
                   {isActive && (
                     <DropdownMenu>
-                      <NavbarLinkDrop to="./Settings">Settings</NavbarLinkDrop>
+                      <NavbarLinkDrop to="./Settings"><AiFillSetting/></NavbarLinkDrop>
                       <NavbarLinklog>
                         <RiLogoutCircleRLine />
                       </NavbarLinklog>

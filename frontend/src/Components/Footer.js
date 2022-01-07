@@ -7,7 +7,6 @@ import {
   TeamTitle,
   Img,
   Spa,
-  Team1,
   Spa1,
 } from './Footer.style';
 import Shiv from '../assets/shiv.jpg';
@@ -42,11 +41,9 @@ function Footer() {
           </TeamListMember>
         </TeamList>
       </Team>
-      <Team1>
-          <Lnk>About</Lnk>
-          <Spa1>Copright &copy; 2022</Spa1>
-          <Lnk>Privacy Policy</Lnk>
-      </Team1>
+      <Team>
+          <Spa1>Copright&copy; 2022</Spa1>
+      </Team>
     </FooterContainer>
   );
 }
