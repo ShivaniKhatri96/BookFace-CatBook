@@ -18,14 +18,15 @@ export const NavbarContainer = styled.nav`
   flex-direction: column;
   margin: 0;
   padding: 0;
+  width: 100%;
 
-
-  @media (max-width: 800px) {
-
+  @media (min-width: 1092px) {
+    height: ${(props) => (props.extendNavBar ? '60vh' : '100px')};
+    width: 100%;
   }
 
-  @media (width: 800px) {
-    height: ${(props) => (props.extendNavBar ? '60vh' : '100px')}
+  @media (min-width: 768px) and (max-width: 1091px) {
+    height: ${(props) => (props.extendNavBar ? '100vh' : '100px')};
   }
 `;
 
@@ -36,7 +37,7 @@ export const NavbarList = styled.ul`
 
 }
 
-  @media (max-width: 800px) {
+  @media (max-width: 1092px) {
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -70,7 +71,7 @@ export const NavbarLink = styled(Link)`
   margin: 5px;
   
 
-  @media (max-width: 800px) {
+  @media (max-width: 1092px) {
     display: none;
   }
 
@@ -135,10 +136,11 @@ export const NavbarExtended = styled.div`
   align-items: center;
   animation: ${animateOpacity} 0.3s ease-in;
 
-  @media (min-width: 800px) {
+  @media (min-width: 1092px) {
     display: none;
   }
 
+  
 `;
 
 export const Logo = styled.img`
@@ -149,7 +151,7 @@ export const Logo = styled.img`
  
   
 
-  @media (max-width: 800px) {
+  @media (max-width: 1092px) {
     max-width: 150px;
     max-height: 150px;
     
@@ -162,9 +164,12 @@ export const OpenMenuButton = styled.button`
   color: black;
   cursor: pointer;
 
-  @media (min-width: 800px) {
-    display: none;
+  @media (min-width:1092px )  {
+        display: none;
+    }
+ 
   }
+  
 `;
 
 export const NavbarLinkDiv = styled.div`
@@ -180,7 +185,7 @@ export const NavbarLinkDiv = styled.div`
   transition: border 0.3s ease-out;
  
 
-  @media (max-width: 800px) {
+  @media (max-width: 1092px) {
     display: none;
   }
 
@@ -206,7 +211,7 @@ export const NavbarLinklog = styled.div`
   transition: border 0.3s ease-out;
  
 
-  @media (max-width: 800px) {
+  @media (max-width: 1092px) {
     display: none;
   }
 
@@ -225,7 +230,7 @@ export const Dropdown = styled.div`
   position: relative;
  
 
-  @media (max-width: 800px) {
+  @media (max-width: 1092px) {
     display: none;
   }
 `;
@@ -257,7 +262,7 @@ export const DropdownBtn = styled.div`
     cursor: pointer;
     justify-content: space-between; 
 
-    @media (max-width: 800px) {
+    @media (max-width: 1092px) {
     display: none;
   }
 `
@@ -267,7 +272,7 @@ export const SearchDiv = styled.div`
     justify-content: flex-end;
     align-items: center;
     
-    @media (max-width: 800px) {
+    @media (max-width: 1092px) {
     display: none;
   }
 
@@ -285,7 +290,7 @@ export const NavbarLinkDrop = styled(Link)`
   transition: border 0.3s ease-out;
   
 
-  @media (max-width: 800px) {
+  @media (max-width: 1092px) {
     display: none;
   }
 

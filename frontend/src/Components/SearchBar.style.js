@@ -29,13 +29,13 @@ export const Container = styled.div`
       box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
       border: none;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1092px) {
         width: 200px;;
         
       }
     `}
 
-    @media (max-width: 768px) {
+    @media (max-width: 1092px) {
         width: 200px;
     }
 `;
