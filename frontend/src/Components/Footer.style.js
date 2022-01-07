@@ -134,6 +134,7 @@ export const Lnk = styled.a`
 export const Spa1 = styled.span`
   display: flex;
   justify-content: center;
+  align-items: center
   margin: 5px;
   text-decoration: none;
 
