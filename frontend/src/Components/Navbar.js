@@ -69,9 +69,9 @@ function Navbar() {
                   </DropdownBtn>
                   {isActive && (
                     <DropdownMenu>
-                      <NavbarLinkDrop to="./Settings"><AiFillSetting/></NavbarLinkDrop>
+                      <NavbarLinkDrop to="./Settings"><AiFillSetting/> Settings </NavbarLinkDrop>
                       <NavbarLinklog>
-                        <RiLogoutCircleRLine />
+                        <RiLogoutCircleRLine /> Logout
                       </NavbarLinklog>
                     </DropdownMenu>
                   )}

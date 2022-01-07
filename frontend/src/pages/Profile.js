@@ -1,8 +1,8 @@
+import ProfileCard from "../components/ProfilePageComponents/ProfileCard";
+
 const Profile = () => {
     return (
-        <div>
-            Profile
-        </div>
+        <ProfileCard/>
     )
 }
 export default Profile;

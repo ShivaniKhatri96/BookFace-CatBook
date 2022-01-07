@@ -4,10 +4,10 @@ import {
   Team,
   TeamList,
   TeamListMember,
-  TeamTitle,
   Img,
   Spa,
   Spa1,
+  Team1,
 } from './Footer.style';
 import Shiv from '../assets/shiv.jpg';
 import Dan from '../assets/dan.png';
@@ -18,7 +18,6 @@ function Footer() {
   return (
     <FooterContainer>
       <Team>
-        <TeamTitle>CatBook Dev Team</TeamTitle>
         <TeamList>
           <TeamListMember>
             <Lnk href="https://github.com/ShivaniKhatri96" target="_blank">
@@ -41,9 +40,9 @@ function Footer() {
           </TeamListMember>
         </TeamList>
       </Team>
-      <Team>
-          <Spa1>Copright&copy; 2022</Spa1>
-      </Team>
+      <Team1>
+          <Spa1>Copyright &copy; 2022</Spa1>
+      </Team1>
     </FooterContainer>
   );
 }

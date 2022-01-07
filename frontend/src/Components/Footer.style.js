@@ -26,7 +26,9 @@ export const TeamTitle = styled.div`
   display: flex;
   justify-content: center;
   margin: 5px;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 100;
+  font-size: 0.8rem;
 `;
 
 export const TeamList = styled.ul`
@@ -134,12 +136,21 @@ export const Lnk = styled.a`
 export const Spa1 = styled.span`
   display: flex;
   justify-content: center;
-  align-items: center
-  margin: 5px;
+  align-items: center;
+  margin: 5px 20px;
   text-decoration: none;
+  text-decoration: none;
+  font-weight: 100;
+  font-size: 0.8rem;
 
   @media (max-width: 800px) {
     width: 100%;
     padding: 0;
   }
+`;
+
+export const Team1 = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 `;

@@ -16,6 +16,7 @@ export const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  align-items: center;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -144,12 +145,9 @@ export const NavbarExtended = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 125px;
-  height: 125px;
-  display: flex;
-  
+  width: 110px;
+  height: 110px;
  
-  
 
   @media (max-width: 1092px) {
     max-width: 150px;
@@ -203,7 +201,7 @@ export const NavbarLinklog = styled.div`
   text-decoration: none;
   border: ${(props) => (props.isActiveTrue ? "1px solid rgba(0, 0, 0, 0.5)" : "1px solid rgba(0, 0, 0, 0.1);")};
   border-radius: 50px;
-  padding: 25px ;
+  padding: 16px ;
   margin: 2px 0 9px 0;
   display: flex;
   justify-content: center;
@@ -240,7 +238,7 @@ export const DropdownMenu = styled.div`
     right: -4rem;
     top: calc(100% + .1rem);
     background-color:#f9fbb2;
-    padding: .75rem;
+    padding: .70rem;
     border-radius: 1rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0 ,0 , 0.2);
     opacity: 1;
@@ -251,6 +249,7 @@ export const DropdownMenu = styled.div`
     display:flex;
     flex-direction: column;
     width: 10rem;
+    z-index: 100;
     
     
 
