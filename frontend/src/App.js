@@ -3,15 +3,17 @@ import * as React from "react";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
+import SignUp from "./pages/Signup";
 import {Routes, Route, Link} from 'react-router-dom';
+
 function App() {
   return (
     <div>
-      <h1>Hey there</h1>
       <Routes>
-      <Route  path="/" element={<Home />} />
-      <Route exact path="/Login" element={<LogIn />} />
+      <Route  path="/Home" element={<Home />} />
+      <Route exact path="/" element={<LogIn />} />
       <Route exact path="/Profile" element={<Profile />} />
+      <Route exact path="/Signup" element={<SignUp />} />
       </Routes>
     </div>
   );
