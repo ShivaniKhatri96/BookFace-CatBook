@@ -50,11 +50,11 @@ export const Col1BoxSignup = styled.div`
   color: #ffffff;
 `;
 export const TextHeading = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   padding:5% 0 2% 0;
 `;
 export const TextContent = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 `;
 export const CircleIcon = styled(BsCheckCircleFill)`
 color:white;
