@@ -17,6 +17,11 @@ export const StyledInput = styled.input`
   }
   @media ${DeviceMin.md} {
     border-radius: 0.5rem;
+    padding: 0.6rem 0 0.6rem 1rem;
+    margin: 0.5rem 0 1.3rem 0;
+    font-size: 16px;
+  }
+  @media ${DeviceMin.xl} {
     padding: 1rem 0 1rem 1rem;
     margin: 0.5rem 0 1.3rem 0;
     font-size: 17px;

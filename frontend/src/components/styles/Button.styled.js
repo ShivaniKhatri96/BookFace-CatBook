@@ -23,15 +23,19 @@ cursor: pointer;
 @media ${DeviceMin.md} {
     width: 87%;
     border-radius: 0.5rem;
-    font-size: 18px;
-    margin: 0 0 1.5rem 0;
-    padding: 1rem 0 1rem 0;
+    font-size: 16px;
+    margin: 0 0 0.5rem 0;
+    padding: 0.6rem 0 0.6rem 0;
 }
 @media ${DeviceMin.lg} {
     width: 86%;
+    margin: 0 0 1.5rem 0;
 }
 @media ${DeviceMin.xl} {
     width: 85%;
+    margin: 0 0 1.5rem 0;
+    padding: 1rem 0 1rem 0;
+    font-size: 17px;
 }
 @media ${DeviceMin.xxl} {
     width: 84%;

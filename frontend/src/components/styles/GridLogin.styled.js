@@ -83,13 +83,20 @@ export const Col2Login = styled.div`
   }
   @media ${DeviceMin.md} {
     width: 50%;
-    margin: 5.5% 0 2.5% 0;
+    margin: 5.5% 0 5.5% 0;
     padding-left: 5.5%;
     h1 {
-      margin-bottom: 2rem;
+      margin-bottom: 1.2rem;
     }
   }
   @media ${DeviceMin.lg} {
-   margin-bottom: 5%;
+    h1 {
+      margin-bottom: 1.4rem;
+    }
+  }
+  @media ${DeviceMin.xl} {
+    h1 {
+      margin-bottom: 2rem;
+    }
   }
 `;

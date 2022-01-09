@@ -15,7 +15,7 @@ export const StyledLinkDiv = styled.div`
   }
   @media ${DeviceMin.md} {
     font-size: 16px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 `;
 export const StyledLink = styled(Link)`
