@@ -83,7 +83,7 @@ export const Col2Login = styled.div`
   }
   @media ${DeviceMin.md} {
     width: 50%;
-    margin: 5.5% 0 5.5% 0;
+    margin: 5.5% 0 10% 0;
     padding-left: 5.5%;
     h1 {
       margin-bottom: 1.2rem;
