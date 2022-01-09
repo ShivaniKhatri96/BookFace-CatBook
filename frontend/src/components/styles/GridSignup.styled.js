@@ -29,7 +29,6 @@ export const Col1Signup = styled.div`
 `;
 export const Col2Signup = styled.div`
   width: 50%;
-  border-radius: 0.5rem;
   margin: 3.5% 0 1.5% 0;
   padding-left: 5.5%;
   font-weight: bold;

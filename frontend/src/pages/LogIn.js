@@ -1,6 +1,14 @@
-import { GridLogin, RowLogin, Col1Login, Col2Login } from "../components/styles/GridLogin.styled";
+import {
+  GridLogin,
+  RowLogin,
+  Col1Login,
+  Col2Login,
+} from "../components/styles/GridLogin.styled";
 import { StyledButton } from "../components/styles/Button.styled";
-import { StyledLinkDiv, StyledLink } from "../components/styles/Anchor.styled";
+import {
+  StyledLinkDiv,
+  StyledLink,
+} from "../components/styles/StyledLink.styled";
 import Input from "../components/Inputbox";
 const LogIn = () => {
   return (
@@ -29,7 +37,10 @@ const LogIn = () => {
               <br />
               <StyledButton>Log In</StyledButton>
             </form>
-            <StyledLinkDiv>Don't have an account? <StyledLink to="./Signup">Sign Up</StyledLink></StyledLinkDiv>
+            <StyledLinkDiv>
+              Don't have an account?{" "}
+              <StyledLink to="./Signup">Sign Up</StyledLink>
+            </StyledLinkDiv>
           </Col2Login>
         </RowLogin>
       </GridLogin>

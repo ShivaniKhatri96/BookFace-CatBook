@@ -6,10 +6,13 @@ import {
   Col1BoxSignup,
   TextContent,
   TextHeading,
-  CircleIcon
+  CircleIcon,
 } from "../components/styles/GridSignup.styled";
 import { StyledButton } from "../components/styles/Button.styled";
-import { StyledLinkDiv, StyledLink } from "../components/styles/Anchor.styled";
+import {
+  StyledLinkDiv,
+  StyledLink,
+} from "../components/styles/StyledLink.styled";
 import Input from "../components/Inputbox";
 const SignUp = () => {
   return (
@@ -18,14 +21,14 @@ const SignUp = () => {
         <RowSignup>
           <Col1Signup>
             <Col1BoxSignup>
-            <CircleIcon />
+              <CircleIcon />
               <TextHeading>Quick and free sign-up</TextHeading>
               <TextContent>
                 Enter your email address to create an account
               </TextContent>
             </Col1BoxSignup>
             <Col1BoxSignup>
-            <CircleIcon />
+              <CircleIcon />
               <TextHeading>Responsive Design</TextHeading>
               <TextContent>
                 You can view CatBook on all types of screen like mobile, ipad,
@@ -33,7 +36,7 @@ const SignUp = () => {
               </TextContent>
             </Col1BoxSignup>
             <Col1BoxSignup>
-            <CircleIcon />
+              <CircleIcon />
               <TextHeading> Stay Connected</TextHeading>
               <TextContent>
                 You can share your thoughts, ideas, and pictures with your cat
