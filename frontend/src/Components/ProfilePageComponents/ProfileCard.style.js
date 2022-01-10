@@ -3,8 +3,8 @@ import Ali from '../../assets/ali.png';
 
 export const Main = styled.div`
   min-height: min-content;
-  width: 70%;
-  margin: 0 auto;
+  width: 80%;
+  margin: 0 auto 0 auto;
   margin-top: 10px;
   background-color: #f8fcda;
   border: 1px solid rgba(0, 0, 0, 0.2);

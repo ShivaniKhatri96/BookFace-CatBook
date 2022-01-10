@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
-  height: 150px;
+  height: 100px;
   background-color: #f9fbb2;
   margin-top: auto;
   padding: 0;

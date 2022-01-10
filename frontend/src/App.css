@@ -27,16 +27,34 @@ body {
    align-self: center;
    font-weight: 300;
    font-size: 1rem;
+   margin: 0 5px;
+   padding-left: 10px;
+   letter-spacing: .1rem;
    
 }
 
+
+
 .post-input:focus::placeholder{
-    text-align: center;
-    margin: 0 10px;
     align-self: center;
+    outline: 0;
+    outline-style: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-left: 10px;
+    letter-spacing: .1rem;
+    
     
  }
+
+ .post-input:focus{
+     outline: 0;
+     border: 1px solid rgba(0,0,0,0.5);
+     letter-spacing: .1rem;
+ }
  
+
 
 
 

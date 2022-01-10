@@ -8,9 +8,19 @@ import {
   SpaTitle,
   SpaText,
 } from './ProfileCard.style';
+import { useState } from 'react'
 
 
 function ProfileCard() {
+
+  const [ userProfile , setUserProfile ] = useState({
+    userId: 1,
+    userName: 'Alisan',
+    userSurname: 'Cavus',
+    userAboutMe: 'Hi I am Levi. The cutest cat in da world!!',
+    userPosts: [{}],
+    
+})
   return (
     <>
     <Main>
@@ -18,9 +28,9 @@ function ProfileCard() {
       <ProfileMain>
         <ProfilePhoto> </ProfilePhoto>
         <ProfileName>
-          <Spa> Alisan Cavus </Spa>
+          <Spa> {`${userProfile.userName} ${userProfile.userSurname}` } </Spa>
           <SpaTitle> About Me </SpaTitle>
-          <SpaText> Hi I am Levi. I am the cutest cat in da world!! </SpaText>
+          <SpaText> {userProfile.userAboutMe} </SpaText>
         </ProfileName>
       </ProfileMain>
     </Main>
