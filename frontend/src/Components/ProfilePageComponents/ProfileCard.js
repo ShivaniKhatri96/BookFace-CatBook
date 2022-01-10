@@ -18,7 +18,7 @@ function ProfileCard() {
     userName: 'Alisan',
     userSurname: 'Cavus',
     userAboutMe: 'Hi I am Levi. The cutest cat in da world!!',
-    userPosts: [{}],
+    userPosts: [],
     
 })
   return (

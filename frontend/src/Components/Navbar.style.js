@@ -145,8 +145,9 @@ export const NavbarExtended = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
+  margin-top: -10px;
  
 
   @media (max-width: 1092px) {
@@ -246,7 +247,7 @@ export const DropdownMenu = styled.div`
     transition:  opacity 150ms ease-in-out;
     height: 10rem;
     margin-top: 3rem;
-    display:flex;
+    display: flex;
     flex-direction: column;
     width: 10rem;
     z-index: 100;

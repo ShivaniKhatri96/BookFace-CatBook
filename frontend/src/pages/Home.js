@@ -1,8 +1,10 @@
+import ProfileMakePost from "../components/ProfilePageComponents/ProfileMakePost";
+
 const Home = () => {
     return (
-        <div>
-            Home page
-        </div>
+        <>
+            <ProfileMakePost />
+        </>
     )
 }
 export default Home;

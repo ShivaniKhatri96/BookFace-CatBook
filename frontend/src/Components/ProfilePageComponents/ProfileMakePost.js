@@ -31,8 +31,6 @@ import ReactPlayer from 'react-player';
 import { v4 as uuidv4 } from 'uuid';
 
 function ProfileMakePost() {
- 
-
   const [postOpen, setPostOpen] = useState(false);
   const [addVideo, setAddVideo] = useState(false);
   const [addPhoto, setAddPhoto] = useState(false);
@@ -44,7 +42,7 @@ function ProfileMakePost() {
   const [newPost, setNewPost] = useState([
     {
       usersPostId: 3333,
-      usersPostText: 'hayvan',
+      usersPostText: 'catmeow',
       usersPostPhoto:
         'https://images.pexels.com/photos/10754454/pexels-photo-10754454.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
       usersPostVideo:
@@ -64,9 +62,11 @@ function ProfileMakePost() {
     `${userProfile.userName} , what's in your mind today?`
   );
 
+  
   const handleSubmitThePost = async (e) => {
+    e.preventDefault();
     if (postText !== '') {
-      e.preventDefault();
+      
 
       let newUsersPost = {
         usersPostId: uuidv4(),
@@ -77,8 +77,6 @@ function ProfileMakePost() {
 
       const addToArray = async () => {
         setNewPost([newUsersPost, ...newPost]);
-       
-        
       };
 
       await addToArray();
@@ -90,14 +88,17 @@ function ProfileMakePost() {
       setAddPhoto(false);
       setPostOpen(false);
     } else {
-      e.preventDefault()
-      setMessage(`C'mon ${userProfile.userName}, we know you want to share something!`)
+     
+      setMessage(
+        `C'mon ${userProfile.userName}, we know you want to share something!`
+      );
     }
   };
 
   // console.log(newPost)
+  console.log()
+  console.log(newPost);
   console.log(userProfile)
-  
 
   return (
     <form onSubmit={handleSubmitThePost}>
@@ -200,7 +201,7 @@ function ProfileMakePost() {
             <InputPost
               className="post-input"
               type="text"
-              placeholder="What's on your mind ?"
+              placeholder={`What's in your mind, ${userProfile.userName} ?`}
               onClick={() => setPostOpen((e) => !e)}
             />
           </PostMain>
