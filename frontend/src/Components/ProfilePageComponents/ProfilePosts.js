@@ -1,18 +1,19 @@
-import { CatPostsTitle, SpaTitle4, TitleWrapper } from "./ProfilePosts.style"
-import { Main} from "./ProfileCard.style"
+import { CatPostsTitle, SpaTitle4, TitleWrapper,ProfilePostsMain  } from "./ProfilePosts.style"
+
 import PostCard from "./PostCard"
 
-function CatPosts() {
+function ProfilePosts() {
     return (
-        <Main>
+        <ProfilePostsMain >
             <CatPostsTitle>
                 <TitleWrapper>
                     <SpaTitle4 > YOUR POSTS </SpaTitle4>
                 </TitleWrapper>
             </CatPostsTitle>
             <PostCard/>
-        </Main>
+            <PostCard/>
+        </ProfilePostsMain >
     )
 }
 
-export default CatPosts
+export default ProfilePosts

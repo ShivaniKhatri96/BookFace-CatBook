@@ -6,9 +6,10 @@ import { BiLike } from 'react-icons/bi';
 
 export const UserPostCard = styled.div`
   width: 80%;
-  margin: 1rem auto;
+  margin: 10px auto;
   min-height: max content;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: #f8fcda;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 `;
 
@@ -33,6 +34,7 @@ export const CardMainHeaderPhoto = styled.img`
 `;
 
 export const CardTitleName = styled.div`
+  width: 50%;
   display: flex;
   justify-content: center;
   align-self: center;
@@ -148,6 +150,7 @@ export const LikeButton = styled(BiLike)`
       transition: border 1s;
   } 
 `;
+
 
 
 export const LikeText = styled.span`

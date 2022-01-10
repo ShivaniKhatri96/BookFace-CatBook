@@ -49,8 +49,8 @@ function PostCard({ userProfile }) {
         <CardMainContentText>
             Just chilling outside on a sunny day!
         </CardMainContentText>
-        <CardMainContextPhoto />
-        <CardMainContentVideo />
+        <CardMainContextPhoto    /> 
+        <CardMainContentVideo    />
       </CardMainContentWrapper>
       <CardCommentLikeWrapper>
           <LikebuttonWrapper>

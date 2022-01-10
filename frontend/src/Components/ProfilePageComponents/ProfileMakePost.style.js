@@ -7,7 +7,7 @@ import Ali from '../../assets/ali.png';
 export const PostMain = styled.div`
   min-height: min-content;
   width: 80%;
-  margin: 10px auto;
+  margin: 10px auto ;
   background-color: #f8fcda;
   border-radius: 10px;
   display: flex;
