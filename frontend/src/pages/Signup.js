@@ -13,6 +13,8 @@ import {
   StyledLinkDiv,
   StyledLink,
 } from "../components/styles/StyledLink.styled";
+import { Label } from "../components/styles/Label.styled";
+import { Div } from "../components/styles/Div.styled";
 import Input from "../components/Inputbox";
 const SignUp = () => {
   return (
@@ -22,7 +24,7 @@ const SignUp = () => {
           <Col1Signup>
             <Col1BoxSignup>
               <CircleIcon />
-              <TextHeading>Quick and free sign-up</TextHeading>
+              <TextHeading>Quick and Free Sign-up</TextHeading>
               <TextContent>
                 Enter your email address to create an account
               </TextContent>
@@ -31,7 +33,7 @@ const SignUp = () => {
               <CircleIcon />
               <TextHeading>Responsive Design</TextHeading>
               <TextContent>
-                You can view CatBook on all types of screen like mobile, ipad,
+                View CatBook on all types of screen like mobile, ipad,
                 and desktop
               </TextContent>
             </Col1BoxSignup>
@@ -39,7 +41,7 @@ const SignUp = () => {
               <CircleIcon />
               <TextHeading> Stay Connected</TextHeading>
               <TextContent>
-                You can share your thoughts, ideas, and pictures with your cat
+                Share your thoughts, ideas, and pictures with your cat
                 friends from anywhere in the world
               </TextContent>
             </Col1BoxSignup>
@@ -47,7 +49,7 @@ const SignUp = () => {
           <Col2Signup>
             <h1>Create your account</h1>
             <form>
-              <label>Full Name</label>
+            <Label>Full Name</Label>
               <br />
               <Input
                 type="text"
@@ -55,7 +57,7 @@ const SignUp = () => {
                 placeholder="Enter your full name"
               ></Input>
               <br />
-              <label>Email</label>
+              <Label>Email</Label>
               <br />
               <Input
                 type="text"
@@ -63,7 +65,7 @@ const SignUp = () => {
                 placeholder="Enter your email address"
               ></Input>
               <br />
-              <label>Password</label>
+              <Label>Password</Label>
               <br />
               <Input
                 type="text"
@@ -71,7 +73,7 @@ const SignUp = () => {
                 placeholder="Type to create a password"
               ></Input>
               <br />
-              <label>Confirm Password</label>
+              <Label>Confirm Password</Label>
               <br />
               <Input
                 type="text"
@@ -81,9 +83,9 @@ const SignUp = () => {
               <br />
               <StyledButton>Sign Up</StyledButton>
             </form>
-            <div>
+            <Div>
               By signing up you agree to Terms of Service & privacy policy.
-            </div>
+            </Div>
             <StyledLinkDiv>
               Already have an account?{" "}
               <StyledLink to="./Login">Log In</StyledLink>

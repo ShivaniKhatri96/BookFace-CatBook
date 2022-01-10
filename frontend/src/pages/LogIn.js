@@ -9,6 +9,7 @@ import {
   StyledLinkDiv,
   StyledLink,
 } from "../components/styles/StyledLink.styled";
+import { Label } from "../components/styles/Label.styled";
 import Input from "../components/Inputbox";
 const LogIn = () => {
   return (
@@ -19,7 +20,7 @@ const LogIn = () => {
           <Col2Login>
             <h1>Log in</h1>
             <form>
-              <label>Email</label>
+              <Label>Email</Label>
               <br />
               <Input
                 type="text"
@@ -27,7 +28,7 @@ const LogIn = () => {
                 placeholder="Enter your email address"
               ></Input>
               <br />
-              <label>Password</label>
+              <Label>Password</Label>
               <br />
               <Input
                 type="text"
