@@ -34,7 +34,7 @@ export const InputPost = styled.input`
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   text-weight: 200;
-  font-size: 1.1rem;
+  font-size: 1rem;
 `;
 
 export const OpenedPostHeader = styled.div`
@@ -92,7 +92,7 @@ export const OpenedProfileName = styled.div`
   flex-direction: column;
 `;
 
-export const OpenedInputPost = styled.input`
+export const OpenedInputPost = styled.textarea`
   width: 90%;
   min-height: 5rem;
   margin: 0.5rem auto;
@@ -100,11 +100,11 @@ export const OpenedInputPost = styled.input`
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
-  &::-webkit-input-placeholder {
+  &::-webkit-textarea-placeholder {
     text-align: center;
-    font-weight: 200;
+    align-self: center;
 
   }
 `;
@@ -167,7 +167,7 @@ export const GetUrl = styled.input`
 
   &::-webkit-input-placeholder {
     text-align: center;
-    font-weight: 300;
+    font-weight: 100;
   }
 
   &:focus {
