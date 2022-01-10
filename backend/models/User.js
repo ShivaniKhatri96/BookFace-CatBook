@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const { CommentSchema } = require("../models/Comment"); //to remove for production
 
 //user schema
 const UserSchema = new Schema({
@@ -7,16 +8,7 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   email: { type: String, required: true, lowercase: true },
   profile_pic: String,
-  comments: [
-    {
-      replyTo: String,
-      repliedBy: [String],
-      content: String,
-      img_link: String,
-      likes: Number,
-      date: { type: Date, default: Date.now },
-    },
-  ],
+  comments: [CommentSchema],
   profile_pic: String,
   cover_pic: String,
   friend_list: [String],
