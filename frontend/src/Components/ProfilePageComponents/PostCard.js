@@ -17,10 +17,9 @@ import {
   LikeButton,
   LikebuttonWrapper,
   LikeText,
-  
 } from './PostCard.style';
 import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
-
+import ReactPlayer from 'react-player';
 
 function PostCard({ userProfile }) {
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
@@ -47,15 +46,18 @@ function PostCard({ userProfile }) {
       </CardMainHeader>
       <CardMainContentWrapper>
         <CardMainContentText>
-            Just chilling outside on a sunny day!
+          Just chilling inside on a sunny day!
         </CardMainContentText>
-        <CardMainContextPhoto    /> 
-        <CardMainContentVideo    />
+        <CardMainContextPhoto src="https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg"/>
+        <CardMainContentVideo>
+          <ReactPlayer url="https://www.youtube.com/watch?v=eX2qFMC8cFo&ab_channel=FunnyCatsLife"
+          width='100%' height='15rem'/>
+        </CardMainContentVideo>
       </CardMainContentWrapper>
       <CardCommentLikeWrapper>
-          <LikebuttonWrapper>
-            <LikeButton onClick={() => setLikedTimes((e) => e + 1)}/>
-            <LikeText> {likedtimes} Likes </LikeText>
+        <LikebuttonWrapper>
+          <LikeButton onClick={() => setLikedTimes((e) => e + 1)} />
+          <LikeText> {likedtimes} Likes </LikeText>
         </LikebuttonWrapper>
       </CardCommentLikeWrapper>
     </UserPostCard>

@@ -4,6 +4,7 @@ import { HiDotsHorizontal, HiDotsVertical } from 'react-icons/hi';
 import { BiLike } from 'react-icons/bi';
 
 
+
 export const UserPostCard = styled.div`
   width: 80%;
   margin: 10px auto;
@@ -105,15 +106,10 @@ export const CardMainContextPhoto = styled.img`
 
 export const CardMainContentVideo = styled.div`
   width: 100%;
-  margin: auto;
-  height: 100px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-weight: 200;
-  font-size: 1rem;
+  margin: 10px auto;
+  min-heigh: 10rem;
+  display: block;
+ 
 `;
 
 export const CardCommentLikeWrapper = styled.div`
