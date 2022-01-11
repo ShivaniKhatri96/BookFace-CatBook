@@ -1,14 +1,14 @@
 // IN THIS FILE:
-// get /users/all         -returns list of all users
-// get /users/:id         -returns information of a specific user
-// get /friends/:id       -returns user's friend list
-// get /users/logout      -logs user out
-// post /users/           -creates a new user
-// post /users/:login     -logs user in
-// patch /users/:id       -updates user info (login, password, email)
-// patch /profilePic/:id  -updates profile picture
-// patch /coverPic/:id    -updates profile cover picture
-// delete /users/:id      -deletes user
+// get      /users/all          -returns list of all users
+// get      /users/:id          -returns information on a specific user
+// get      /friends/:id        -returns user's friend list
+// get      /users/logout       -logs user out
+// post     /users/             -creates a new user
+// post     /users/:login       -logs user in
+// patch    /users/:id          -updates user info (login, password, email)
+// patch    /profilePic/:id     -updates profile picture
+// patch    /coverPic/:id       -updates profile cover picture
+// delete   /users/:id          -deletes user
 
 const express = require("express");
 const router = express.Router();
@@ -126,7 +126,7 @@ router.patch("/:id", (req, res) => {
             //if login is not empty, update login
             if (req.body.login) {
               User.updateOne(
-                { _id: req.params.id }, //change to id for deployment
+                { _id: req.params.id },
                 { login: req.body.login },
                 function (err, result) {
                   if (err) {
@@ -138,7 +138,7 @@ router.patch("/:id", (req, res) => {
             //if email is not empty, update email
             if (req.body.email) {
               User.updateOne(
-                { _id: req.params.id }, //change to id for deployment
+                { _id: req.params.id },
                 { email: req.body.email },
                 function (err, result) {
                   if (err) {
@@ -160,7 +160,7 @@ router.patch("/:id", (req, res) => {
         if (err) throw err;
         req.body.password = hash;
         User.updateOne(
-          { _id: req.params.id }, //change to id for deployment
+          { _id: req.params.id },
           { password: req.body.password },
           function (err, result) {
             if (err) {

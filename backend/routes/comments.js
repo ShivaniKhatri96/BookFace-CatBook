@@ -1,9 +1,10 @@
 // IN THIS FILE
-// get /comments/                       -returns all comments from all users
-// get /comments/all/:userId            -returns all comments from a specific user
-// get /comments/:userId/:commentId     -returns a specific comment
-// post /comments/:userId/              -creates a new comment
-// delete /comments/:userId/:commentId  -deletes a comment
+// get      /comments/                        -returns all comments from all users
+// get      /comments/all/:userId             -returns all comments from a specific user
+// get      /comments/:userId/:commentId      -returns a specific comment
+// post     /comments/:userId/                -creates a new comment
+// delete   /comments/:userId/:commentId      -if a comment has no replies, it deletes it; otherwise, it changes its contents to "Message deleted by user"
+// delete   /comments/nuke/:userId             -fully deletes all comments from a user
 
 const express = require("express");
 const { ConnectionStates } = require("mongoose");
@@ -20,25 +21,32 @@ router.get("/", (req, res) => {
 });
 
 //return all comments from a specific user
-//todo
+router.get("/:userId", (req, res) => {
+  User.findById(req.params.userId, { comments: 1 }, function (err, data) {
+    if (err) res.status(500).send(err);
+    res.status(200).send(data);
+  });
+});
 
 //return a specific comment
-router.get("/:userId/:commentId", (req, res) => {
-  User.findById(req.params.userId, function (err, data) {
-    if (err) res.status(500).send(err);
-    const test = data.children.id(req.params.commentId);
-    res.status(200).send(test);
+router.get("/single/:commentId", (req, res) => {
+  User.findOne({
+    "comments._id": req.params.commentId,
+  }).then((user) => {
+    res.status(200).send(user.comments.id(req.params.commentId));
   });
 });
 
 //post a new comment
 router.post("/:userId", (req, res) => {
-  User.findByIdAndUpdate(
+  var repliedById = "hola";
+  const test = User.findByIdAndUpdate(
     req.params.userId,
     {
       $push: {
         comments: {
           replyTo: req.body.replyTo,
+          repliedUserId: req.body.repliedUserId,
           repliedBy: req.body.repliedBy,
           content: req.body.content,
           img_link: req.body.img_link,
@@ -47,17 +55,49 @@ router.post("/:userId", (req, res) => {
       },
     },
     { upsert: true, new: true },
-    function (err) {
+    function (err, result) {
       if (err) res.status(500).send(err);
+      repliedById = result.comments[result.comments.length - 1]._id;
       res.status(201).send("Comment posted");
     }
   );
-  // if (req.body.replyTo) {
-  //   Comment.findById(req.params.replyTo, function (err, comment) {
-  //     console.log(comment);
-  //   });
-  // }
-  //it seems there is no way without user id. check how to add a schema as a type in another schema
+
+  //if comment is a reply, add comment ID to the list of replies of parent comment
+  if (req.body.replyTo) {
+    User.findOne({
+      "comments._id": req.body.replyTo,
+    }).then((user) => {
+      user.comments.id(req.body.replyTo).repliedBy.push(repliedById);
+      user.save();
+    });
+  }
+});
+
+//delete a comment
+router.delete("/:commentId", (req, res) => {
+  User.findOne({
+    "comments._id": req.params.commentId,
+  })
+    .then((user) => {
+      if (user.comments.id(req.params.commentId).repliedBy.length < 1) {
+        user.comments.pull(user.comments.id(req.params.commentId));
+      } else {
+        user.comments.id(req.params.commentId).content =
+          "Message deleted by user";
+      }
+      user.save();
+    })
+    .then(res.status(200).send("Comment deleted"));
+});
+
+//delete all comments from a user (FULLY DELETED)
+router.delete("/nuke/:userId", (req, res) => {
+  User.findById(req.params.userId)
+    .then((user) => {
+      user.comments = [];
+      user.save();
+    })
+    .then(res.status(200).send("All comments deleted"));
 });
 
 module.exports = router;

@@ -12,6 +12,6 @@ const CommentSchema = new Schema({
 });
 
 //creates a new collection
-const Comment = mongoose.model("comments", CommentSchema);
+//const Comment = mongoose.model("comments", CommentSchema);
 
 module.exports = { CommentSchema };
