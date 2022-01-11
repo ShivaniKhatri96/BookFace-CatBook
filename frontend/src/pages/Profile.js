@@ -1,6 +1,6 @@
-import ProfilePosts from "../components/ProfilePageComponents/ProfilePosts";
-import ProfileCard from "../components/ProfilePageComponents/ProfileCard";
-import ProfileMakePost from "../components/ProfilePageComponents/ProfileMakePost";
+import ProfilePosts from "../Components/ProfilePageComponents/ProfilePosts";
+import ProfileCard from "../Components/ProfilePageComponents/ProfileCard";
+import ProfileMakePost from "../Components/ProfilePageComponents/ProfileMakePost";
 
 const Profile = () => {
     return (

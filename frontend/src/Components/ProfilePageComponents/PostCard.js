@@ -51,7 +51,7 @@ function PostCard({ userProfile }) {
         <CardMainContextPhoto src="https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg"/>
         <CardMainContentVideo>
           <ReactPlayer url="https://www.youtube.com/watch?v=eX2qFMC8cFo&ab_channel=FunnyCatsLife"
-          width='100%' height='15rem'/>
+          width='100%' height='25rem'/>
         </CardMainContentVideo>
       </CardMainContentWrapper>
       <CardCommentLikeWrapper>

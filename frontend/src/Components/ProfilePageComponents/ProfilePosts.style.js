@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DeviceMax, DeviceMin } from '../Breakpoints'
 
 export const ProfilePostsMain = styled.div`
   min-height: min-content;
@@ -9,6 +10,19 @@ export const ProfilePostsMain = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   position: relative;
+
+  @media ${DeviceMax.xs} {
+    width: 100%;
+    margin-top: 0px;
+    
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+    border: none;
+    margin-top: 0px;
+  }
+  
 `;
 
 export const CatPostsTitle = styled.div`

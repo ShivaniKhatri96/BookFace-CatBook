@@ -20,6 +20,7 @@ import {
   EmptyVideoPlayer,
   AddedPhoto,
   SendButton,
+  OpenedSecondRow
 } from './ProfileMakePost.style';
 import { useState } from 'react';
 import {
@@ -62,12 +63,9 @@ function ProfileMakePost() {
     `${userProfile.userName} , what's in your mind today?`
   );
 
-  
   const handleSubmitThePost = async (e) => {
     e.preventDefault();
     if (postText !== '') {
-      
-
       let newUsersPost = {
         usersPostId: uuidv4(),
         usersPostText: postText,
@@ -88,7 +86,6 @@ function ProfileMakePost() {
       setAddPhoto(false);
       setPostOpen(false);
     } else {
-     
       setMessage(
         `C'mon ${userProfile.userName}, we know you want to share something!`
       );
@@ -96,9 +93,9 @@ function ProfileMakePost() {
   };
 
   // console.log(newPost)
-  console.log()
+  console.log();
   console.log(newPost);
-  console.log(userProfile)
+  console.log(userProfile);
 
   return (
     <form onSubmit={handleSubmitThePost}>
@@ -179,17 +176,18 @@ function ProfileMakePost() {
                   </AddVideoPhotoContent>
                 </>
               )}
-              <OpenedfirstRow>
-                <OpenedAddPhoto>
-                  <AddPhotoVideo> Add Photo or Video </AddPhotoVideo>
-                  <AddPhotoIcon onClick={() => setAddPhoto((e) => !e)}>
-                    <MdOutlineInsertPhoto />
-                  </AddPhotoIcon>
-                  <AddPhotoIcon onClick={() => setAddVideo((e) => !e)}>
-                    <MdVideoCameraBack />
-                  </AddPhotoIcon>
-                </OpenedAddPhoto>
-              </OpenedfirstRow>
+              <OpenedSecondRow>
+                <AddPhotoVideo>Add Photo or Video</AddPhotoVideo>
+                  <OpenedAddPhoto>
+                    <AddPhotoIcon onClick={() => setAddPhoto((e) => !e)}>
+                      <MdOutlineInsertPhoto />
+                    </AddPhotoIcon>
+                    <AddPhotoIcon onClick={() => setAddVideo((e) => !e)}>
+                      <MdVideoCameraBack />
+                    </AddPhotoIcon>
+                  </OpenedAddPhoto>
+                
+              </OpenedSecondRow>
               <SendButton type="submit" value="submit">
                 <MdSend />
               </SendButton>

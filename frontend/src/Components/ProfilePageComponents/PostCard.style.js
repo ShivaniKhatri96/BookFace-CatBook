@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Ali from '../../assets/ali.png';
 import { HiDotsHorizontal, HiDotsVertical } from 'react-icons/hi';
 import { BiLike } from 'react-icons/bi';
+import { DeviceMax, DeviceMin } from '../Breakpoints'
 
 
 
@@ -12,6 +13,20 @@ export const UserPostCard = styled.div`
   background-color: #f8fcda;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+
+  @media ${DeviceMax.xs} {
+    width: 100%;
+    border: none;
+    
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+    border: none;
+    
+    
+    
+  }
 `;
 
 export const CardMainHeader = styled.div`
@@ -22,7 +37,9 @@ export const CardMainHeader = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between; ;
+  justify-content: space-between; 
+
+  
 `;
 export const CardMainHeaderPhoto = styled.img`
   width: 75px;
@@ -32,6 +49,20 @@ export const CardMainHeaderPhoto = styled.img`
   background-image: url(${Ali});
   background-size: cover;
   background-position: center;
+
+  @media ${DeviceMax.xs} {
+    width: 100%;
+    margin: 0;
+    
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+    margin: 0;
+    
+    
+    
+  }
 `;
 
 export const CardTitleName = styled.div`
@@ -39,6 +70,18 @@ export const CardTitleName = styled.div`
   display: flex;
   justify-content: center;
   align-self: center;
+
+  @media ${DeviceMax.xs} {
+    display: none;
+    
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    display: none;
+    
+    
+    
+  }
 `;
 export const CardTitleInfos = styled.div`
   width: 30%;
@@ -72,6 +115,18 @@ export const ThreeDotsMenu = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+
+  @media ${DeviceMax.xs} {
+    width: 8rem;
+    
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 8rem;
+    
+    
+    
+  }
 `;
 
 export const CardTitleChange = styled.div`
@@ -107,7 +162,7 @@ export const CardMainContextPhoto = styled.img`
 export const CardMainContentVideo = styled.div`
   width: 100%;
   margin: 10px auto;
-  min-heigh: 10rem;
+  min-heigh: 50rem;
   display: block;
  
 `;
@@ -133,6 +188,19 @@ export const LikebuttonWrapper = styled.div`
   width: 20%;
   display: flex;
   justify-content: space-between;
+  @media ${DeviceMax.xs} {
+    width: 100%;
+    border: none;
+    
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+    border: none;
+    
+    
+    
+  }
 `;
 export const LikeButton = styled(BiLike)`
   border: 1px solid rgba(0, 0, 0, 0.2);

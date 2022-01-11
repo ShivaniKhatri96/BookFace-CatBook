@@ -1,5 +1,5 @@
-import PostCard from "../components/ProfilePageComponents/PostCard";
-import ProfileMakePost from "../components/ProfilePageComponents/ProfileMakePost";
+import PostCard from "../Components/ProfilePageComponents/PostCard";
+import ProfileMakePost from "../Components/ProfilePageComponents/ProfileMakePost";
 
 const Home = () => {
     return (

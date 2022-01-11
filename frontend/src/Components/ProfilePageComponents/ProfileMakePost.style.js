@@ -1,18 +1,30 @@
 import { AiFillCloseCircle } from 'react-icons/ai';
 import styled from 'styled-components';
 import Ali from '../../assets/ali.png';
+import { DeviceMax, DeviceMin } from '../Breakpoints'
 
 
 
 export const PostMain = styled.div`
   min-height: min-content;
   width: 80%;
-  margin: 10px auto ;
+  margin: 10px auto 10px auto;
   background-color: #f8fcda;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+
+  @media ${DeviceMax.xs} {
+    width: 100%;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+    
+    
+  }
+
 `;
 
 export const ProfilePhotoPost = styled.div`
@@ -24,6 +36,15 @@ export const ProfilePhotoPost = styled.div`
   background-image: url(${Ali});
   background-size: cover;
   background-position: center;
+
+  @media ${DeviceMax.xs} {
+    display: none;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    display: none;
+    
+  }
 `;
 
 export const InputPost = styled.input`
@@ -35,6 +56,14 @@ export const InputPost = styled.input`
   border: 1px solid rgba(0, 0, 0, 0.5);
   text-weight: 200;
   font-size: 1rem;
+
+  @media ${DeviceMax.xs} {
+    width: 100%;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+  }
 `;
 
 export const OpenedPostHeader = styled.div`
@@ -46,6 +75,20 @@ export const OpenedPostHeader = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+
+  @media ${DeviceMax.xs} {
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+  }
 `;
 
 export const SpaTitle2 = styled.div`
@@ -72,7 +115,15 @@ export const OpenedPostContent = styled.div`
 `;
 
 export const OpenedPostProfile = styled.div`
-  width: 150px;
+  width: 20%;
+
+  @media ${DeviceMax.xs} {
+    display: none;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    display: none;
+  }
 `;
 
 export const OpenedfirstRow = styled.div`
@@ -80,8 +131,53 @@ export const OpenedfirstRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+
+  @media ${DeviceMax.xs} {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
 `;
 
+export const OpenedSecondRow = styled.div`
+  height: min-content;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+  @media ${DeviceMax.xs} {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+
+  }
+`;
 export const OpenedProfileName = styled.div`
   width: 50%;
   margin: auto 10px;
@@ -90,6 +186,18 @@ export const OpenedProfileName = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+
+  @media ${DeviceMax.xs} {
+    width: 50%;
+    justify-content: center;
+    border: none;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 50%;
+    border: none;
+    justify-content: center;
+  }
 `;
 
 export const OpenedInputPost = styled.textarea`
@@ -107,33 +215,96 @@ export const OpenedInputPost = styled.textarea`
     align-self: center;
 
   }
+
+  
 `;
 
 export const OpenedAddPhoto = styled.div`
-  width: 90%;
-  height: 2rem;
-  margin: 10px auto;
+  width: 50%;
+  height: 3rem;
+  margin: 10px 0 ;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  justify-content: flex-end;
   align-items: center;
+  
 
-  //add media query
+  @media ${DeviceMax.xs} {
+    width: 50%;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+    
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 50%;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+  }
 `;
 
 export const AddPhotoVideo = styled.div`
+  width: 100%;
+  height: min-content;;
+  margin: 10px 0;
   font-weight: 200;
-  margin: 0 50px;
+  display: flex;
+  padding: 0 3rem;
+  justify-content: flex-start;
+  text-align: center;
+  align-self: center;
+  align-items: center;
+  
+  
+
+  @media ${DeviceMax.xs} {
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
 `;
 
 export const AddPhotoIcon = styled.div`
+  height: 2rem;
   margin: 50px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 10px;
   padding: 0 10px;
+
+  @media ${DeviceMax.xs} {
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 1rem;  
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 1rem; 
+  }
 
   
 `
@@ -143,6 +314,20 @@ export const AddVideoPhotoContent = styled.div`
   align-items: center;
   border-radius: 10px;
   margin: 10px auto;
+
+  @media ${DeviceMax.xs} {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media ${DeviceMax.xs && DeviceMax.sm} {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
   
 
 
@@ -150,7 +335,7 @@ export const AddVideoPhotoContent = styled.div`
 `
 
 export const CloseButtonVideo = styled(AiFillCloseCircle)`
-  margin: 0 0 0 0;
+  margin: .5rem;
 
 `;
 
@@ -193,6 +378,7 @@ export const EmptyVideoPlayer = styled.div`
   font-weight: 200;
   font-size: 1rem;
 
+
   
 `
 
@@ -205,7 +391,11 @@ export const AddedPhoto = styled.img`
 `
 
 export const SendButton = styled.button`
+ 
+  display: flex;
+  justify-content: center;
   align-self: center;
+  align-items: center;
   width: 10%;
   margin: auto;
   height: 2rem;
