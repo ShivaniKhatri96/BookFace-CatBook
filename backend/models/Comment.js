@@ -6,7 +6,7 @@ const CommentSchema = new Schema({
   replyTo: String,
   repliedBy: [String],
   content: String,
-  img_link: String,
+  media_link: String,
   likes: { type: Number, default: 0 },
   date: { type: Date, default: Date.now },
 });

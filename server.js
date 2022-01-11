@@ -25,9 +25,10 @@ require("./backend/config/passport")(passport);
 app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+const secretCat = require("./backend/config/keys").secret;
 app.use(
   session({
-    secret: "secret", //this will come from env file
+    secret: secretCat,
     resave: true,
     saveUninitialized: true,
   })
@@ -36,11 +37,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 //setting routes
 const users = require("./backend/routes/users");
-const comments = require("./backend/routes/comments");
-const pages = require("./backend/routes/pages");
 app.use("/users", users);
+const comments = require("./backend/routes/comments");
 app.use("/comments", comments);
+const pages = require("./backend/routes/pages");
 app.use("/pages", pages);
+const catAPI = require("./backend/routes/catAPI");
+app.use("/catAPI", catAPI);
 
 //mongo config and connection
 const db = require("./backend/config/keys").mongoURI;

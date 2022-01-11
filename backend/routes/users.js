@@ -1,14 +1,14 @@
 // IN THIS FILE:
-// get      /users/all          -returns list of all users
-// get      /users/:id          -returns information on a specific user
-// get      /friends/:id        -returns user's friend list
-// get      /users/logout       -logs user out
-// post     /users/             -creates a new user
-// post     /users/:login       -logs user in
-// patch    /users/:id          -updates user info (login, password, email)
-// patch    /profilePic/:id     -updates profile picture
-// patch    /coverPic/:id       -updates profile cover picture
-// delete   /users/:id          -deletes user
+// get      /users/all              -returns list of all users
+// get      /users/:id              -returns information on a specific user
+// get      /friends/:id            -returns user's friend list
+// get      /users/logout           -logs user out
+// post     /users/                 -creates a new user
+// post     /users/:login           -logs user in
+// patch    /users/:id              -updates user info (login, password, email)
+// patch    /profilePic/:id         -updates profile picture
+// patch    /coverPic/:id           -updates profile cover picture
+// delete   /users/:id              -deletes user
 
 const express = require("express");
 const router = express.Router();
@@ -25,6 +25,7 @@ router.get("/all", (req, res) => {
 });
 
 //return info on specific user (without password)
+//requires user id as a parameter
 router.get("/:id", (req, res) => {
   User.findOne(
     { login: req.params.id },
@@ -37,6 +38,7 @@ router.get("/:id", (req, res) => {
 });
 
 //return user's friend list
+//requires user id as a parameter
 router.get("/friends/:id", (req, res) => {
   User.findOne({ _id: req.params.id }, function (err, person) {
     if (err) res.status(500).send(err);
@@ -52,6 +54,7 @@ router.get("/logout", (req, res) => {
 });
 
 //create a new user
+//requires 'login', 'email' and 'password' fields in the request body
 router.post("/", (req, res) => {
   //deconstruct body
   var { login, email, password } = req.body;
@@ -105,7 +108,9 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
   res.send("Authorized");
 });
 
-//update user data (login, password, email)
+//update user info
+//requires user id as parameter
+//optional fields in the request body: 'login', 'email' and 'password'
 router.patch("/:id", (req, res) => {
   //check if login or body are not empty
   if (req.body.login || req.body.email) {
@@ -175,6 +180,8 @@ router.patch("/:id", (req, res) => {
 });
 
 //update profile pic
+//requires user id as parameter
+//requires a 'profilePic' field in the request body with the url of the image
 router.patch("/profilePic/:id", (req, res) => {
   User.updateOne(
     { _id: req.params.id },
@@ -187,6 +194,8 @@ router.patch("/profilePic/:id", (req, res) => {
 });
 
 //update cover pic
+//requires user id as parameter
+//requires a 'coverPic' field in the request body with the url of the image
 router.patch("/coverPic/:id", (req, res) => {
   User.updateOne(
     { _id: req.params.id },
@@ -199,6 +208,7 @@ router.patch("/coverPic/:id", (req, res) => {
 });
 
 //remove a user
+//requires user id as parameter
 router.delete("/:id", (req, res) => {
   User.deleteOne({ login: req.params.id }, function (err, person) {
     if (err) res.send(err);

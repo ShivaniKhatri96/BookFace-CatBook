@@ -21,6 +21,7 @@ router.get("/", (req, res) => {
 });
 
 //return all comments from a specific user
+//requires user id as parameter
 router.get("/:userId", (req, res) => {
   User.findById(req.params.userId, { comments: 1 }, function (err, data) {
     if (err) res.status(500).send(err);
@@ -29,6 +30,7 @@ router.get("/:userId", (req, res) => {
 });
 
 //return a specific comment
+//requires comment id as parameter
 router.get("/single/:commentId", (req, res) => {
   User.findOne({
     "comments._id": req.params.commentId,
@@ -38,6 +40,10 @@ router.get("/single/:commentId", (req, res) => {
 });
 
 //post a new comment
+//requires user id as parameter
+//requires 'content' field in the request body. Optional fields:
+//  'replyTo'     -id of the comment it's replying to. If it's a reply, this field is required.
+//  'media_link'  -url of the image / video
 router.post("/:userId", (req, res) => {
   var repliedById = "hola";
   const test = User.findByIdAndUpdate(
@@ -46,11 +52,9 @@ router.post("/:userId", (req, res) => {
       $push: {
         comments: {
           replyTo: req.body.replyTo,
-          repliedUserId: req.body.repliedUserId,
-          repliedBy: req.body.repliedBy,
+          //repliedBy: req.body.repliedBy,
           content: req.body.content,
-          img_link: req.body.img_link,
-          likes: req.body.likes,
+          media_link: req.body.media_link,
         },
       },
     },
@@ -74,6 +78,7 @@ router.post("/:userId", (req, res) => {
 });
 
 //delete a comment
+//requires comment id as parameter
 router.delete("/:commentId", (req, res) => {
   User.findOne({
     "comments._id": req.params.commentId,
@@ -91,6 +96,7 @@ router.delete("/:commentId", (req, res) => {
 });
 
 //delete all comments from a user (FULLY DELETED)
+//requires user id as parameter
 router.delete("/nuke/:userId", (req, res) => {
   User.findById(req.params.userId)
     .then((user) => {
