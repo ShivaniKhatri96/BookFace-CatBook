@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import {useLinkTo} from "@react-navigation/native";
+import { useNavigate } from "react-router";
 import {
   GridSignup,
   RowSignup,
@@ -19,7 +19,7 @@ import { Label } from "../components/styles/Label.styled";
 import { Div } from "../components/styles/Div.styled";
 import Input from "../components/Inputbox";
 const SignUp = () => {
-  // const linkTo = useLinkTo();
+  let navigate = useNavigate();
   const [newUser, setNewUser]= useState ({
     login:"", email:"",password:"",cPassword:""
   });
@@ -49,8 +49,7 @@ const SignUp = () => {
     });
      if(res.ok){
       console.log("Successful Registration");
-      // return linkTo("../pages/LogIn");
-      // history.push("../Home");
+      navigate("../");
     }else{
       console.log("Invalid Registration");
     }
