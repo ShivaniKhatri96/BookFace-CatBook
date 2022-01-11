@@ -23,7 +23,7 @@ const LogIn = () => {
               <Label>Email</Label>
               <br />
               <Input
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Enter your email address"
               ></Input>
@@ -31,7 +31,7 @@ const LogIn = () => {
               <Label>Password</Label>
               <br />
               <Input
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Enter your password"
               ></Input>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   GridSignup,
   RowSignup,
@@ -17,6 +18,34 @@ import { Label } from "../components/styles/Label.styled";
 import { Div } from "../components/styles/Div.styled";
 import Input from "../components/Inputbox";
 const SignUp = () => {
+  const [newUser, setNewUser]= useState ({
+    name:"", email:"",password:"",cPassword:""
+  });
+  let name, value;
+  const handleInputs = (e) => {
+    //e= event
+    console.log(e);
+    name= e.target.name;
+    value= e.target.value;
+    setNewUser({...newUser, [name]:value});
+    //[name]: if I am getting value from name= email, [name] will be email
+  }
+  const PostData = async (e) => {
+    e.preventDefault();
+    const {name, email, password, cPassword} = newUser;
+    //what is the route where I need to send form data???
+    //for now I am writing register
+    const res = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({
+        name, email, password, cPassword
+      })
+    })
+  }
+
   return (
     <div>
       <GridSignup>
@@ -33,52 +62,60 @@ const SignUp = () => {
               <CircleIcon />
               <TextHeading>Responsive Design</TextHeading>
               <TextContent>
-                View CatBook on all types of screen like mobile, ipad,
-                and desktop
+                View CatBook on all types of screen like mobile, ipad, and
+                desktop
               </TextContent>
             </Col1BoxSignup>
             <Col1BoxSignup>
               <CircleIcon />
               <TextHeading> Stay Connected</TextHeading>
               <TextContent>
-                Share your thoughts, ideas, and pictures with your cat
-                friends from anywhere in the world
+                Share your thoughts, ideas, and pictures with your cat friends
+                from anywhere in the world
               </TextContent>
             </Col1BoxSignup>
           </Col1Signup>
           <Col2Signup>
             <h1>Create your account</h1>
-            <form>
-            <Label>Full Name</Label>
+            <form method="POST">
+              <Label>Full Name</Label>
               <br />
               <Input
                 type="text"
                 name="name"
                 placeholder="Enter your full name"
+                value={newUser.name} 
+                onChange={handleInputs} 
               ></Input>
               <br />
               <Label>Email</Label>
               <br />
               <Input
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Enter your email address"
+                value={newUser.email} 
+                onChange={handleInputs} 
               ></Input>
               <br />
               <Label>Password</Label>
               <br />
               <Input
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Type to create a password"
+                value={newUser.password} 
+                onChange={handleInputs} 
               ></Input>
               <br />
               <Label>Confirm Password</Label>
               <br />
               <Input
-                type="text"
-                name="password"
+                type="password"
+                name="cPassword"
                 placeholder="Enter your password again"
+                value={newUser.cPassword} 
+                onChange={handleInputs} 
               ></Input>
               <br />
               <StyledButton>Sign Up</StyledButton>
