@@ -10,14 +10,37 @@ const express = require("express");
 const { ConnectionStates } = require("mongoose");
 const router = express.Router();
 const { User } = require("../models/User");
-const { CommentSchema } = require("../models/Comment"); //to remove for production
 
 //return all comments from all users
+//router.get("/", (req, res) => {
+//   User.find({}, { _id: 1, login: 1, comments: 1 }, function (err, comments) {
+//     if (err) res.status(500).send(err);
+//     res.status(200).send(comments);
+//   });
+// });
+
+// router.get("/", (req, res) => {
+//   User.find(
+//     {},
+//     { comments: 1 },
+//     { sort: { date: 1 } },
+//     function (err, comments) {
+//       if (err) res.status(500).send(err);
+//       res.status(200).send(comments);
+//     }
+//   );
+// });
+
 router.get("/", (req, res) => {
-  User.find({}, { _id: 1, login: 1, comments: 1 }, function (err, comments) {
-    if (err) res.status(500).send(err);
-    res.status(200).send(comments);
-  });
+  User.find(
+    {},
+    { comments: 1 },
+    { sort: { "comments.date": -1 } },
+    function (err, comments) {
+      if (err) res.status(500).send(err);
+      res.status(200).send(comments);
+    }
+  );
 });
 
 //return all comments from a specific user

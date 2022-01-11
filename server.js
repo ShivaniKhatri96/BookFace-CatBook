@@ -1,17 +1,3 @@
-//REQUESTS AND RESPONSES
-//React-router
-//------------
-// get /                -main page. Redirects to login if user not logged in
-// get /login           -login/signup page
-// get /profile/:login  -user profile page
-
-//backend/routes/comments
-//-----------------------
-// get /comments/       -returns list of all comments
-// get /comments/:id    -returns information of a specific comment
-// post /comments/      -creates a new comment
-// delete /comments/:id -deletes comment
-
 //setting the server
 const express = require("express");
 const mongoose = require("mongoose");
