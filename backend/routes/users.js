@@ -66,7 +66,7 @@ router.post("/", (req, res) => {
           res.send(err);
         } else {
           //check if the search returned any matches (meaning login/email already in use)
-          if (data) {
+          if (data.length > 0) {
             res
               .status(400)
               .send("Signup failed: Login or email already in use");

@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import {useLinkTo} from "@react-navigation/native";
 import {
   GridSignup,
   RowSignup,
@@ -18,8 +19,9 @@ import { Label } from "../components/styles/Label.styled";
 import { Div } from "../components/styles/Div.styled";
 import Input from "../components/Inputbox";
 const SignUp = () => {
+  // const linkTo = useLinkTo();
   const [newUser, setNewUser]= useState ({
-    name:"", email:"",password:"",cPassword:""
+    login:"", email:"",password:"",cPassword:""
   });
   let name, value;
   const handleInputs = (e) => {
@@ -30,20 +32,28 @@ const SignUp = () => {
     setNewUser({...newUser, [name]:value});
     //[name]: if I am getting value from name= email, [name] will be email
   }
-  const PostData = async (e) => {
+  const postData = async (e) => {
     e.preventDefault();
-    const {name, email, password, cPassword} = newUser;
-    //what is the route where I need to send form data???
-    //for now I am writing register
-    const res = await fetch("/register", {
+    console.log(JSON.stringify(newUser,null,2));
+    const {login, email, password} = newUser;
+    // const {name, email, password, cPassword} = newUser;
+    const res = await fetch("/users/", {
       method: "POST",
       headers: {
         "Content-Type" : "application/json"
       },
       body: JSON.stringify({
-        name, email, password, cPassword
+        // name, email, password, cPassword
+       login, email, password
       })
-    })
+    });
+     if(res.ok){
+      console.log("Successful Registration");
+      // return linkTo("../pages/LogIn");
+      // history.push("../Home");
+    }else{
+      console.log("Invalid Registration");
+    }
   }
 
   return (
@@ -77,14 +87,15 @@ const SignUp = () => {
           </Col1Signup>
           <Col2Signup>
             <h1>Create your account</h1>
-            <form method="POST">
-              <Label>Full Name</Label>
+            {/* <form method="POST"> */}
+            <form onSubmit={postData}>
+              <Label>User Name</Label>
               <br />
               <Input
                 type="text"
-                name="name"
+                name="login"
                 placeholder="Enter your full name"
-                value={newUser.name} 
+                value={newUser.login} 
                 onChange={handleInputs} 
               ></Input>
               <br />
@@ -125,7 +136,7 @@ const SignUp = () => {
             </Div>
             <StyledLinkDiv>
               Already have an account?{" "}
-              <StyledLink to="./Login">Log In</StyledLink>
+              <StyledLink to="../">Log In</StyledLink>
             </StyledLinkDiv>
           </Col2Signup>
         </RowSignup>
