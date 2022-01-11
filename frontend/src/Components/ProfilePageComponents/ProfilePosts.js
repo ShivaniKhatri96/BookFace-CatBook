@@ -11,7 +11,6 @@ function ProfilePosts() {
                 </TitleWrapper>
             </CatPostsTitle>
             <PostCard/>
-            <PostCard/>
         </ProfilePostsMain >
     )
 }
