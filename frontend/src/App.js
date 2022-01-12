@@ -19,6 +19,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Login" element={<Login />} />
+          {/* <Route exact path="/Signup" element={<SignUp />} /> */}
           <Route exact path="/Profile" element={<Profile />} />
           <Route exact path="/Settings" element={<Settings />} />
           <Route exact path="/Notifications" element={<Notifications />} />
@@ -28,5 +29,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
