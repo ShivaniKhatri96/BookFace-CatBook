@@ -4,7 +4,7 @@
 // get /friends/:id       -returns user's friend list
 // get /users/logout      -logs user out
 // post /users/           -creates a new user
-// post /users/:login     -logs user in
+// post /users/login     -logs user in
 // patch /users/:id       -updates user info (login, password, email)
 // patch /profilePic/:id  -updates profile picture
 // patch /coverPic/:id    -updates profile cover picture
