@@ -52,6 +52,7 @@ const SignUp = () => {
     setNewUser({ ...newUser, [name]: value });
     //[name]: if I am getting value from name= email, [name] will be email
   }  
+  
   //fetch is utilized to connect to database via server and push the data
   const postData = async (e) => {
     e.preventDefault();
