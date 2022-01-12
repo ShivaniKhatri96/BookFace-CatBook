@@ -73,7 +73,8 @@ router.get("/single/:commentId", (req, res) => {
 //requires user id as parameter
 //requires 'content' field in the request body. Optional fields:
 //  'replyTo'     -id of the comment it's replying to. If it's a reply, this field is required.
-//  'media_link'  -url of the image / video
+//  'img_link'  -url of the image
+//  'video_link'  -url of the video
 router.post("/:userId", (req, res) => {
   var repliedById = "hola";
   const test = User.findByIdAndUpdate(
