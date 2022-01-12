@@ -1,14 +1,16 @@
 // IN THIS FILE:
-// get      /users/all              -returns list of all users
-// get      /users/:id              -returns information on a specific user
-// get      /friends/:id            -returns user's friend list
-// get      /users/logout           -logs user out
-// post     /users/                 -creates a new user
-// post     /users/:login           -logs user in
-// patch    /users/:id              -updates user info (login, password, email)
-// patch    /profilePic/:id         -updates profile picture
-// patch    /coverPic/:id           -updates profile cover picture
-// delete   /users/:id              -deletes user
+// get      /users/all                          -returns list of all users
+// get      /users/:id                          -returns information on a specific user
+// get      /users/friends/:id                  -returns user's friend list
+// get      /users/logout                       -logs user out
+// post     /users/                             -creates a new user
+// post     /users/login                        -logs user in
+// post     /users/friends/send/:id             -sends a friend request
+// post     /users/friends/accept/:id           -accepts a friend request
+// patch    /users/:id                          -updates user info (login, password, email)
+// patch    /users/profilePic/:id               -updates profile picture
+// patch    /users/coverPic/:id                 -updates profile cover picture
+// delete   /users/:id                          -deletes user
 
 const express = require("express");
 const router = express.Router();
@@ -18,6 +20,11 @@ const passport = require("passport");
 
 //return list off all users (without passwords)
 router.get("/all", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   User.find({}, { password: 0 }, function (err, people) {
     if (err) res.status(500).send(err);
     res.status(200).send(people);
@@ -27,6 +34,11 @@ router.get("/all", (req, res) => {
 //return info on specific user (without password)
 //requires user id as a parameter
 router.get("/:id", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   User.findOne(
     { login: req.params.id },
     { password: 0 },
@@ -40,6 +52,11 @@ router.get("/:id", (req, res) => {
 //return user's friend list
 //requires user id as a parameter
 router.get("/friends/:id", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   User.findOne({ _id: req.params.id }, function (err, person) {
     if (err) res.status(500).send(err);
     res.status(200).send(person.friend_list);
@@ -48,6 +65,11 @@ router.get("/friends/:id", (req, res) => {
 
 //logout
 router.get("/logout", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   req.logout();
   res.send("User logged out");
   //res.redirect('/login');
@@ -107,6 +129,10 @@ router.post("/", (req, res) => {
 router.post("/login", passport.authenticate("local"), (req, res) => {
   res.send("Authorized");
 });
+
+// post     /users/friends/send/:id             -sends a friend request
+//
+// post     /users/friends/accept/:id           -accepts a friend request
 
 //update user info
 //requires user id as parameter

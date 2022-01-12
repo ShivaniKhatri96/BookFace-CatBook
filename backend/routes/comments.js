@@ -12,18 +12,23 @@ const router = express.Router();
 const { User } = require("../models/User");
 
 //return all comments from all users
-//router.get("/", (req, res) => {
-//   User.find({}, { _id: 1, login: 1, comments: 1 }, function (err, comments) {
-//     if (err) res.status(500).send(err);
-//     res.status(200).send(comments);
-//   });
-// });
+router.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  User.find({}, { _id: 1, login: 1, comments: 1 }, function (err, comments) {
+    if (err) res.status(500).send(err);
+    res.status(200).send(comments);
+  });
+});
 
 // router.get("/", (req, res) => {
 //   User.find(
 //     {},
-//     { comments: 1 },
-//     { sort: { date: 1 } },
+//     { _id: 0, comments: 1 },
+//     { sort: { "comments.date": -1 } },
 //     function (err, comments) {
 //       if (err) res.status(500).send(err);
 //       res.status(200).send(comments);
@@ -31,30 +36,32 @@ const { User } = require("../models/User");
 //   );
 // });
 
-router.get("/", (req, res) => {
-  User.find(
-    {},
-    { comments: 1 },
-    { sort: { "comments.date": -1 } },
-    function (err, comments) {
-      if (err) res.status(500).send(err);
-      res.status(200).send(comments);
-    }
-  );
-});
-
 //return all comments from a specific user
 //requires user id as parameter
 router.get("/:userId", (req, res) => {
-  User.findById(req.params.userId, { comments: 1 }, function (err, data) {
-    if (err) res.status(500).send(err);
-    res.status(200).send(data);
-  });
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  User.findById(
+    req.params.userId,
+    { login: 1, comments: 1 },
+    function (err, data) {
+      if (err) res.status(500).send(err);
+      res.status(200).send(data);
+    }
+  );
 });
 
 //return a specific comment
 //requires comment id as parameter
 router.get("/single/:commentId", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   User.findOne({
     "comments._id": req.params.commentId,
   }).then((user) => {
@@ -74,6 +81,7 @@ router.post("/:userId", (req, res) => {
     {
       $push: {
         comments: {
+          userId: req.params.userId,
           replyTo: req.body.replyTo,
           content: req.body.content,
           img_link: req.body.img_link,

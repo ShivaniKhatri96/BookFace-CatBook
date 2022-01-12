@@ -32,7 +32,7 @@ const catAPI = require("./backend/routes/catAPI");
 app.use("/catAPI", catAPI);
 
 //mongo config and connection
-const db = require("./backend/config/keys").mongoURI;
+const db = process.env.MONGODB_URI || require("./backend/config/keys").mongoURI; //this could throw an error on deployment
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB."))
