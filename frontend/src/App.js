@@ -7,8 +7,6 @@ import Notifications from "./pages/Notifications";
 import "./App.css";
 import Profile from "./pages/Profile";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
 import UserPostsProvider from "./Providers/UserPosts/UserPosts.provider";
 import SignUp from "./pages/Signup";
 
