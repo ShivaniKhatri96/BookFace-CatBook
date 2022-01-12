@@ -35,6 +35,11 @@ function PostCard() {
   }
 
   
+  const handleLikes = () => {
+    console.log(posts)
+  }
+
+  
   return (
     <>
       {posts.map((id, index) => (
@@ -71,12 +76,12 @@ function PostCard() {
                 <ReactPlayer url={id.postVideo} width="100%" height="25rem" />
               </CardMainContentVideo>
             ) : (
-              <> </>
+              <div></div>
             )}
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
-              <LikeButton onClick={(index) => setLikedTimes((e) => e + 1)} />
+              <LikeButton onClick={handleLikes} />
               <LikeText> {likedtimes} Likes </LikeText>
             </LikebuttonWrapper>
           </CardCommentLikeWrapper>

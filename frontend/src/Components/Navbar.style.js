@@ -70,6 +70,7 @@ export const NavbarLink = styled(Link)`
   padding: 15px 15px 9px 15px;
   transition: border 0.3s ease-out;
   margin: 5px;
+  color:black;
   
 
   @media (max-width: 1092px) {
@@ -77,6 +78,10 @@ export const NavbarLink = styled(Link)`
   }
 
   &:visited {
+    color: black;
+  }
+
+  &:focus {
     color: black;
   }
 
@@ -94,6 +99,7 @@ export const NavbarLinkExtended = styled(Link)`
   justify-content: center;
   align-items: center;
   transition: border 0.3s ease-out;
+  color: black;
 
   :focus,
   :active,
@@ -288,6 +294,7 @@ export const NavbarLinkDrop = styled(Link)`
   justify-content: center;
   align-items: center;
   transition: border 0.3s ease-out;
+  color: black;
   
 
   @media (max-width: 1092px) {
