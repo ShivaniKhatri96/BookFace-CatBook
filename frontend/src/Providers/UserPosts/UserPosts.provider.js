@@ -6,9 +6,11 @@ export const PostContext = createContext({
     ...USERPOSTS_INITIAL_STATE
 });
 
-const UserPostsProvider = ( { children }) => {
+const UserPostsProvider = ( { children } ) => {
     const [store , dispatch] = useReducer( userPostsReducer, USERPOSTS_INITIAL_STATE);
     const { posts } = store;
+
+    console.log(store)
 
     const createNewPost = posts => {
         dispatch({
@@ -17,16 +19,24 @@ const UserPostsProvider = ( { children }) => {
         })
     }
 
-    const removePost = posts => {
+    const removePost = deletes => {
         dispatch({
             type: UserPostsTypes.REMOVE_POST,
-            payload: posts
+            payload: deletes
+        })
+    }
+
+    const incrementLikes = likes => {
+        dispatch({
+            type: UserPostsTypes.INCEREMENT_LIKES,
+            payload: likes
         })
     }
     return <PostContext.Provider value={{
         posts,
         createNewPost,
-        removePost
+        removePost,
+        incrementLikes
     }}>
         {children}
     </PostContext.Provider>

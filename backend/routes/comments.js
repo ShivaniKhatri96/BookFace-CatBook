@@ -12,12 +12,18 @@ const router = express.Router();
 const { User } = require("../models/User");
 
 //return all comments from all users
-//router.get("/", (req, res) => {
-//   User.find({}, { _id: 1, login: 1, comments: 1 }, function (err, comments) {
-//     if (err) res.status(500).send(err);
-//     res.status(200).send(comments);
-//   });
-// });
+router.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept",
+  );
+
+  User.find({}, { _id: 1, login: 1, comments: 1 }, function (err, comments) {
+    if (err) res.status(500).send(err);
+    res.status(200).send(comments);
+  });
+});
 
 // router.get("/", (req, res) => {
 //   User.find(
@@ -31,17 +37,17 @@ const { User } = require("../models/User");
 //   );
 // });
 
-router.get("/", (req, res) => {
-  User.find(
-    {},
-    { comments: 1 },
-    { sort: { "comments.date": -1 } },
-    function (err, comments) {
-      if (err) res.status(500).send(err);
-      res.status(200).send(comments);
-    }
-  );
-});
+// router.get("/", (req, res) => {
+//   User.find(
+//     {},
+//     { comments: 1 },
+//     { sort: { "comments.date": -1 } },
+//     function (err, comments) {
+//       if (err) res.status(500).send(err);
+//       res.status(200).send(comments);
+//     }
+//   );
+// });
 
 //return all comments from a specific user
 //requires user id as parameter
@@ -86,7 +92,7 @@ router.post("/:userId", (req, res) => {
       if (err) res.status(500).send(err);
       repliedById = result.comments[result.comments.length - 1]._id;
       res.status(201).send("Comment posted");
-    }
+    },
   );
 
   //if comment is a reply, add comment ID to the list of replies of parent comment

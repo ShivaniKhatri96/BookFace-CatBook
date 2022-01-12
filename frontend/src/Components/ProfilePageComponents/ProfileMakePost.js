@@ -37,6 +37,7 @@ const INITIAL_STATE = {
   postText: "",
   postPhoto: "",
   postVideo: "",
+  postLiked: 0
 };
 
 function ProfileMakePost() {
@@ -70,7 +71,7 @@ function ProfileMakePost() {
     });
   };
 
-  console.log(newPost);
+  
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
@@ -86,9 +87,9 @@ function ProfileMakePost() {
       setNewPost(
         newPost.postText = "",
         newPost.postVideo = "",
-      newPost.postPhoto = ""
+        newPost.postPhoto = ""
       );
-      console.log(newPost);
+      
       // navigate('/')
     }
   };

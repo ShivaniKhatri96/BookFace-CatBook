@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import {
   UserPostCard,
   CardMainHeader,
@@ -21,23 +21,47 @@ import {
 import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
 import ReactPlayer from 'react-player';
 import { PostContext } from '../../Providers/UserPosts/UserPosts.provider';
+import axios from 'axios'
+
+const INITIAL_STATE = {
+  postText: "",
+  postPhoto: "",
+  postVideo: "",
+  postLiked: 0
+};
 
 function PostCard() {
-  const { posts ,removePost } = useContext(PostContext);
+  const { posts , removePost, incrementLikes } = useContext(PostContext);
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
-  const [likedtimes, setLikedTimes] = useState(0);
-  const handleDelete = () => {
-    removePost()
-  }
+  const [likedTimes, setLikedTimes] = useState({
+    ...INITIAL_STATE
+  });
 
-  const handleMenu = (e) => {
-    setOpenedEditMenu(!e)
-  }
+  // const handleDelete = (e) => {
+  //   removePost(e)
+  // }
 
   
-  const handleLikes = () => {
-    console.log(posts)
-  }
+    axios.get('http://localhost:5000/comments/').then((response) => {
+        console.table(response.data)
+    })
+
+
+  // const handleMenu = (e) => {
+  //   setOpenedEditMenu(!e)
+  // }
+
+  
+  // const handleLikes = () => {
+  //   console.log(likedTimes)
+  //   // setLikedTimes(likedTimes.postLiked +1)
+  //   // const config = {
+  //   //   ...likedTimes,
+  //   //   postLiked: likedTimes.postLiked
+    
+  //   // }
+  //   // incrementLikes(config)
+  // }
 
   
   return (
@@ -53,13 +77,13 @@ function PostCard() {
               {openedEditMenu ? (
                 <ThreeDotsMenu>
                   <RiEditFill />
-                  <RiDeleteBin5Line onClick={handleDelete(index)}/>
+                  <RiDeleteBin5Line />
                   <ThreeDotsVert
-                    onClick={() => handleMenu(index)}
+                    
                   />
                 </ThreeDotsMenu>
               ) : (
-                <ThreeDots onClick={() => handleMenu(index)}/>
+                <ThreeDots />
               )}
             </CardTitleChange>
           </CardMainHeader>
@@ -81,8 +105,8 @@ function PostCard() {
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
-              <LikeButton onClick={handleLikes} />
-              <LikeText> {likedtimes} Likes </LikeText>
+              <LikeButton />
+              <LikeText> {id.postLiked} Likes </LikeText>
             </LikebuttonWrapper>
           </CardCommentLikeWrapper>
         </UserPostCard>
