@@ -1,7 +1,7 @@
 import { AiFillCloseCircle } from 'react-icons/ai';
 import styled from 'styled-components';
 import Ali from '../../assets/ali.png';
-import { DeviceMax, DeviceMin } from '../Breakpoints'
+import { DeviceMax, DeviceMin } from '../../Components/styles/Breakpoints'
 
 
 

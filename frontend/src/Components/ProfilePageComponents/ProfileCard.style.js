@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Ali from '../../assets/ali.png';
-import { DeviceMax, DeviceMin } from '../Breakpoints'
+import { DeviceMax, DeviceMin } from '../../Components/styles/Breakpoints'
 
 export const Main = styled.div`
   height: min-content;

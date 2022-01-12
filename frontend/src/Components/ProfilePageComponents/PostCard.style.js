@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Ali from '../../assets/ali.png';
 import { HiDotsHorizontal, HiDotsVertical } from 'react-icons/hi';
 import { BiLike } from 'react-icons/bi';
-import { DeviceMax, DeviceMin } from '../Breakpoints'
+import { DeviceMax, DeviceMin } from '../../Components/styles/Breakpoints'
 
 
 

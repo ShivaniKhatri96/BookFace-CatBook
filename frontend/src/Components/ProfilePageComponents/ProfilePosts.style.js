@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { DeviceMax, DeviceMin } from '../Breakpoints'
+import { DeviceMax, DeviceMin } from '../../Components/styles/Breakpoints'
 
 export const ProfilePostsMain = styled.div`
   min-height: min-content;
