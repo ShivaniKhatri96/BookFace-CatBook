@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const { CommentSchema } = require("../models/Comment"); //to remove for production
 
 //user schema
 const UserSchema = new Schema({
@@ -14,6 +13,7 @@ const UserSchema = new Schema({
       repliedBy: [String],
       content: String,
       img_link: String,
+      video_link: String,
       likes: { type: Number, default: 0 },
       date: { type: Date, default: Date.now },
     },
