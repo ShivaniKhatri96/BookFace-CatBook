@@ -1,8 +1,10 @@
 import UserPostsTypes from "./UserPosts.types";
 import { removeFromArray } from "./UserPosts.utils";
+import axios from 'axios'
 
-
-
+axios.get('http://localhost:5000/comments/').then((response) => {
+        console.table(response.data)
+    })
 
 
 

@@ -21,7 +21,7 @@ import {
 import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
 import ReactPlayer from 'react-player';
 import { PostContext } from '../../Providers/UserPosts/UserPosts.provider';
-import axios from 'axios'
+
 
 const INITIAL_STATE = {
   postText: "",
@@ -42,9 +42,7 @@ function PostCard() {
   // }
 
   
-    axios.get('http://localhost:5000/comments/').then((response) => {
-        console.table(response.data)
-    })
+    
 
 
   // const handleMenu = (e) => {

@@ -52,6 +52,12 @@ router.get("/", (req, res) => {
 //return all comments from a specific user
 //requires user id as parameter
 router.get("/:userId", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+ res.header(
+   "Access-Control-Allow-Headers",
+   "Origin, X-Requested-With, Content-Type, Accept"
+ );
+
   User.findById(req.params.userId, { comments: 1 }, function (err, data) {
     if (err) res.status(500).send(err);
     res.status(200).send(data);
