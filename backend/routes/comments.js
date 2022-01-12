@@ -75,9 +75,9 @@ router.post("/:userId", (req, res) => {
       $push: {
         comments: {
           replyTo: req.body.replyTo,
-          //repliedBy: req.body.repliedBy,
           content: req.body.content,
-          media_link: req.body.media_link,
+          img_link: req.body.img_link,
+          video_link: req.body.video_link,
         },
       },
     },
