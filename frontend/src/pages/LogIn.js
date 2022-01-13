@@ -10,9 +10,10 @@ import {
   StyledLink,
 } from "../components/styles/StyledLink.styled";
 import { Label } from "../components/styles/Label.styled";
-import Input from "../components/Inputbox";
+// import Input from "../components/Inputbox";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { Input } from "../components/styles/Input.styled";
 const LogIn = () => {
   let navigate = useNavigate();
   const [user, setUser] = useState({
