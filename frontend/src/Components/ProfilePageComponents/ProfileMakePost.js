@@ -32,6 +32,8 @@ import ReactPlayer from "react-player";
 import { v4 as uuidv4 } from "uuid";
 import { PostContext } from "../../Providers/UserPosts/UserPosts.provider";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createPost } from "../../actions/posts";
 
 const INITIAL_STATE = {
   postText: "",
@@ -57,9 +59,20 @@ function ProfileMakePost() {
     `${userProfile.userName} , what's in your mind today?`,
   );
 
+  const dispatch = useDispatch()
+
+
+
   const [newPost, setNewPost] = useState({
-    ...INITIAL_STATE,
-  });
+    userId: "",
+    repliedBy: [],
+    content: "",
+    img_link: "",
+    video_link: "",
+    likes: 0,
+    _id: "",
+    date: ""
+  })
 
   const handleInput = (evt) => {
     if (!evt) return;
@@ -75,23 +88,7 @@ function ProfileMakePost() {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    if (!evt) {
-      setMessage(`We know you want to share something ${userProfile.userName}`);
-    } else {
-      const config = {
-        ...newPost,
-        postId: uuidv4(),
-      };
-      createNewPost(config);
-      setPostOpen(false);
-      setNewPost(
-        newPost.postText = "",
-        newPost.postVideo = "",
-        newPost.postPhoto = ""
-      );
-      
-      // navigate('/')
-    }
+    dispatch(createPost(newPost))
   };
 
   return (
@@ -119,8 +116,8 @@ function ProfileMakePost() {
                 type="text"
                 placeholder={message}
                 name="postText"
-                value={newPost.postText}
-                onChange={handleInput}
+                value={newPost.content}
+                onChange={(e) => setNewPost({...newPost, content: e.target.value})}
               />
               {addVideo && (
                 <>
@@ -128,18 +125,18 @@ function ProfileMakePost() {
                     <GetUrl
                       type="url"
                       name="postVideo"
-                      value={newPost.postVideo}
+                      value={newPost.video_link}
                       placeholder="Copy and paste a video link to add a video to your post."
-                      onChange={handleInput}
+                      onChange={(e) => setNewPost({...newPost, img_video: e.target.value})}
                     />
                     <CloseButtonVideo onClick={() => setAddVideo((e) => !e)} />
                   </AddVideoPhotoContent>
                   <AddVideoPhotoContent>
-                    {newPost.postVideo === "" ? (
+                    {newPost.video_link === "" ? (
                       <EmptyVideoPlayer> Add a Video </EmptyVideoPlayer>
                     ) : (
                       <ReactPlayer
-                        url={newPost.postVideo}
+                        url={newPost.video_link}
                         controls={true}
                         style={{ width: "80%", margin: "auto" }}
                         muted={false}
@@ -155,17 +152,17 @@ function ProfileMakePost() {
                     <GetUrl
                       type="url"
                       name="postPhoto"
-                      value={newPost.postPhoto}
+                      value={newPost.img_link}
                       placeholder="Copy and paste a photo link to add a photo to your post."
-                      onChange={handleInput}
+                      onChange={(e) => setNewPost({...newPost, img_link: e.target.value})}
                     />
                     <CloseButtonVideo onClick={() => setAddPhoto((e) => !e)} />
                   </AddVideoPhotoContent>
                   <AddVideoPhotoContent>
-                    {newPost.postPhoto === "" ? (
+                    {newPost.img_link === "" ? (
                       <EmptyVideoPlayer> Add a Photo </EmptyVideoPlayer>
                     ) : (
-                      <AddedPhoto src={newPost.postPhoto} alt="your post" />
+                      <AddedPhoto src={newPost.img_link} alt="your post" />
                     )}
                   </AddVideoPhotoContent>
                 </>
