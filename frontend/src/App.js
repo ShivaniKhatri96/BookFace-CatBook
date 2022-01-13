@@ -1,28 +1,38 @@
 // import './App.css';
-import * as React from "react";
-import Home from "./pages/Home";
-import Login from "./pages/LogIn";
-import Settings from "./pages/Settings";
-import Notifications from "./pages/Notifications";
-import "./App.css";
-import Profile from "./pages/Profile";
-import { Routes, Route } from "react-router-dom";
-import UserPostsProvider from "./Providers/UserPosts/UserPosts.provider";
-import SignUp from "./pages/Signup";
+import './App.css';
+import React, { useEffect, useState } from 'react';
+import { UidContext } from './Components/AppContext';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { getUser } from './actions/user.actions';
+import Routes from './Components/Routes';
 
 function App() {
+  const [uid, setUid] = useState(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      await axios({
+        method: 'get',
+        url: `${process.env.REACT_APP_API_URL}jwtid`,
+        withCredentials: true,
+      })
+        .then((res) => {
+          setUid(res.data);
+        })
+        .catch((err) => console.log('No token'));
+    };
+    fetchToken();
+
+    if (uid) dispatch(getUser(uid));
+  }, [uid, dispatch]);
+
   return (
     <div className="page-container">
-      <UserPostsProvider>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/Login" element={<Login />} />
-          <Route exact path="/Signup" element={<SignUp />} />
-          <Route exact path="/Profile" element={<Profile />} />
-          <Route exact path="/Settings" element={<Settings />} />
-          <Route exact path="/Notifications" element={<Notifications />} />
-        </Routes>
-      </UserPostsProvider>
+      <UidContext.Provider value={uid}>
+        <Routes />
+      </UidContext.Provider>
     </div>
   );
 }

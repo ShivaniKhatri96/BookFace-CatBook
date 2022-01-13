@@ -64,8 +64,8 @@ function PostCard() {
   
   return (
     <>
-      {posts.map((id, index) => (
-        <UserPostCard key={id.postId}>
+      
+        <UserPostCard >
           <CardMainHeader>
             <CardTitleInfos>
               <CardMainHeaderPhoto />
@@ -86,29 +86,32 @@ function PostCard() {
             </CardTitleChange>
           </CardMainHeader>
           <CardMainContentWrapper>
-            <CardMainContentText>{id.postText}</CardMainContentText>
-            {id.postPhoto !== '' ? (
+            <CardMainContentText></CardMainContentText>
+            {/* {postPhoto !== '' ? (
               <CardMainContextPhoto src={id.postPhoto} />
             ) : (
               <> </>
-            )}
-
-            {id.postVideo !== '' ? (
+            )} */}
+            <CardMainContextPhoto />
+            {/* {id.postVideo !== '' ? (
               <CardMainContentVideo>
                 <ReactPlayer url={id.postVideo} width="100%" height="25rem" />
               </CardMainContentVideo>
             ) : (
               <div></div>
-            )}
+            )} */}
+            <CardMainContentVideo>
+                <ReactPlayer  width="100%" height="25rem" />
+              </CardMainContentVideo>
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
               <LikeButton />
-              <LikeText> {id.postLiked} Likes </LikeText>
+              <LikeText> 0 Likes </LikeText>
             </LikebuttonWrapper>
           </CardCommentLikeWrapper>
         </UserPostCard>
-      ))}
+      
     </>
   );
 }

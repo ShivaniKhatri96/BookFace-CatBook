@@ -12,12 +12,14 @@ const UserPostsProvider = ( { children } ) => {
 
     console.log(store)
 
-    const createNewPost = posts => {
+    const getPosts = posts => {
         dispatch({
            type: UserPostsTypes.CREATE_POST,
            payload: posts
         })
     }
+
+
 
     const removePost = deletes => {
         dispatch({
@@ -34,7 +36,7 @@ const UserPostsProvider = ( { children } ) => {
     }
     return <PostContext.Provider value={{
         posts,
-        createNewPost,
+        
         removePost,
         incrementLikes
     }}>
