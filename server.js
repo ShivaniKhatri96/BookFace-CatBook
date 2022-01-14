@@ -11,7 +11,7 @@ require("./backend/config/passport")(passport);
 app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-const secretCat = require("./backend/config/keys").secret;
+const secretCat = process.env.secret || require("./backend/config/keys").secret;
 app.use(
   session({
     secret: secretCat,
@@ -32,7 +32,7 @@ const catAPI = require("./backend/routes/catAPI");
 app.use("/catAPI", catAPI);
 
 //mongo config and connection
-const db = require("./backend/config/keys").mongoURI;
+const db = process.env.MONGODB_URI || require("./backend/config/keys").mongoURI;
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB."))
