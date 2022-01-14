@@ -19,6 +19,9 @@
     "uuidv4": "^6.2.12",
     "web-vitals": "^2.1.2"
   },
+  "optionalDependencies": {
+    "fsevents": "^2.1.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -42,6 +45,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

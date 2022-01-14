@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === "production") {
 const db = process.env.MONGODB_URI || require("./backend/config/keys").mongoURI;
 mongoose
   .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("Connected to MongoDB."))
+  .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
 //starting server
