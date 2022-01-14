@@ -28,6 +28,7 @@ router.get("/all", (req, res) => {
   User.find({}, { password: 0 }, function (err, people) {
     if (err) res.status(500).send(err);
     res.status(200).send(people);
+    console.log("hola");
     console.log(req.user);
     console.log(req.isAuthenticated());
   });
