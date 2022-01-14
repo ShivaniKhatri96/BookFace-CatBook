@@ -8,7 +8,7 @@ export const RowLogin = styled.div`
   flex-direction: row;
   background: #ffffff;
   margin: auto;
-  box-shadow: 5px 3px 20px 3px #f6f6f6;
+  box-shadow: 5px 3px 20px 3px  #cbcdcf;
   @media ${DeviceMax.sm} {
     background-image: url(${img});
     background-repeat: no-repeat;
