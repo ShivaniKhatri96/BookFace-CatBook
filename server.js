@@ -42,7 +42,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //mongo config and connection
-const db = process.env.MONGODB_URI; //|| require("./backend/config/keys").mongoURI;
+const db = process.env.MONGODB_URI || require("./backend/config/keys").mongoURI;
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB."))
