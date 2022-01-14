@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DeviceMax, DeviceMin } from '../../Components/styles/Breakpoints'
 
-export const ProfilePostsMain = styled.ul`
+export const ProfilePostsMain = styled.div`
   min-height: min-content;
   width: 80%;
   margin: 0 auto 10px auto;

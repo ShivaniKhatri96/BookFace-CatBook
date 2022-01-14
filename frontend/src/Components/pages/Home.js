@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios'
 
 const Home = () => {
-    const [allcomms , setAllComms] = useState(null)
+    const [allcomms , setAllComms] = useState([])
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
@@ -18,12 +18,11 @@ const Home = () => {
         })
         const onlyFilled = justComments.filter(a => a.length !== 0)
         const  merged = [].concat.apply([], onlyFilled);
-        const allCommentsPosts = Object.assign({}, merged);
         
-        setAllComms(allCommentsPosts)
+        // const allCommentsPosts = Object.assign({}, merged);
+        
+        setAllComms(merged)
         console.log(allcomms)
-        
-
        
       });
 
@@ -31,7 +30,7 @@ const Home = () => {
         <>
        <Navbar/>
             <ProfileMakePost />
-            <PostCard />
+            <PostCard comments={allcomms}/>
         <Footer />
         </>
     )
