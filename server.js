@@ -8,10 +8,10 @@ const passport = require("passport");
 require("./backend/config/passport")(passport);
 
 //setting middleware
-app.use(express.static(__dirname));
+//app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-const secretCat = process.env.secret || require("./backend/config/keys").secret;
+const secretCat = process.env.secret; //|| require("./backend/config/keys").secret;
 app.use(
   session({
     secret: secretCat,
@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //mongo config and connection
-const db = process.env.MONGODB_URI || require("./backend/config/keys").mongoURI;
+const db = process.env.MONGODB_URI; //|| require("./backend/config/keys").mongoURI;
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB."))
