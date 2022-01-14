@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const catKey = process.env.CatApiKey; //|| require("../config/keys").catApiKey;
+const catKey = process.env.catApiKey; //|| require("../config/keys").catApiKey;
 const fetch = require("node-fetch");
 
 //returns url to random car picture
