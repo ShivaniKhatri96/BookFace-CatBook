@@ -20,14 +20,14 @@ import {
 } from './PostCard.style';
 import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
 import ReactPlayer from 'react-player';
-import { PostContext } from '../../Providers/UserPosts/UserPosts.provider';
+
 
 function PostCard() {
-  const { posts ,removePost } = useContext(PostContext);
+ 
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
-  const [likedtimes, setLikedTimes] = useState(0);
+ 
   const handleDelete = () => {
-    removePost()
+    
   }
 
   const handleMenu = (e) => {
@@ -36,14 +36,14 @@ function PostCard() {
 
   
   const handleLikes = () => {
-    console.log(posts)
+    
   }
 
   
   return (
     <>
-      {posts.map((id, index) => (
-        <UserPostCard key={id.postId}>
+      
+        <UserPostCard >
           <CardMainHeader>
             <CardTitleInfos>
               <CardMainHeaderPhoto />
@@ -53,40 +53,40 @@ function PostCard() {
               {openedEditMenu ? (
                 <ThreeDotsMenu>
                   <RiEditFill />
-                  <RiDeleteBin5Line onClick={handleDelete(index)}/>
+                  <RiDeleteBin5Line onClick={handleDelete}/>
                   <ThreeDotsVert
-                    onClick={() => handleMenu(index)}
+                    onClick={handleMenu}
                   />
                 </ThreeDotsMenu>
               ) : (
-                <ThreeDots onClick={() => handleMenu(index)}/>
+                <ThreeDots onClick={handleMenu}/>
               )}
             </CardTitleChange>
           </CardMainHeader>
           <CardMainContentWrapper>
-            <CardMainContentText>{id.postText}</CardMainContentText>
-            {id.postPhoto !== '' ? (
+            <CardMainContentText></CardMainContentText>
+            {/* {id.postPhoto !== '' ? (
               <CardMainContextPhoto src={id.postPhoto} />
             ) : (
               <> </>
-            )}
+            )} */}
 
-            {id.postVideo !== '' ? (
+            {/* {id.postVideo !== '' ? (
               <CardMainContentVideo>
                 <ReactPlayer url={id.postVideo} width="100%" height="25rem" />
               </CardMainContentVideo>
             ) : (
               <div></div>
-            )}
+            )} */}
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
               <LikeButton onClick={handleLikes} />
-              <LikeText> {likedtimes} Likes </LikeText>
+              {/* <LikeText> {likedtimes} Likes </LikeText> */}
             </LikebuttonWrapper>
           </CardCommentLikeWrapper>
         </UserPostCard>
-      ))}
+      
     </>
   );
 }

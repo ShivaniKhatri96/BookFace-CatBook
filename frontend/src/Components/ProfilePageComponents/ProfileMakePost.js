@@ -30,8 +30,8 @@ import {
 } from "react-icons/md";
 import ReactPlayer from "react-player";
 import { v4 as uuidv4 } from "uuid";
-import { PostContext } from "../../Providers/UserPosts/UserPosts.provider";
-import { useNavigate } from "react-router-dom";
+
+
 
 const INITIAL_STATE = {
   postText: "",
@@ -40,8 +40,8 @@ const INITIAL_STATE = {
 };
 
 function ProfileMakePost() {
-  const navigate = useNavigate();
-  const { createNewPost } = useContext(PostContext);
+ 
+ 
   const [userProfile, setUserProfile] = useState({
     userId: 1,
     userName: "Alisan",
@@ -81,7 +81,7 @@ function ProfileMakePost() {
         ...newPost,
         postId: uuidv4(),
       };
-      createNewPost(config);
+     
       setPostOpen(false);
       setNewPost(
         newPost.postText = "",
