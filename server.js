@@ -3,22 +3,25 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = process.env.PORT || 5000;
-const session = require("express-session");
+const session = require("cookie-session");
 const passport = require("passport");
 require("./backend/config/passport")(passport);
+const path = require("path");
 
 //setting middleware
-app.use(express.static(__dirname));
+//app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const secretCat = process.env.secret || require("./backend/config/keys").secret;
 app.use(
   session({
-    secret: secretCat,
+    name: "session",
+    keys: [secretCat],
     resave: true,
     saveUninitialized: true,
   })
 );
+//setting passport
 app.use(passport.initialize());
 app.use(passport.session());
 //setting routes
@@ -30,6 +33,16 @@ const pages = require("./backend/routes/pages");
 app.use("/pages", pages);
 const catAPI = require("./backend/routes/catAPI");
 app.use("/catAPI", catAPI);
+
+//serving static files on production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "frontend/build")));
+  app.get("*", function (req, res) {
+    res
+      .status(200)
+      .sendFile(path.join(__dirname, "frontend/build", "index.html"));
+  });
+}
 
 //mongo config and connection
 const db = process.env.MONGODB_URI || require("./backend/config/keys").mongoURI;

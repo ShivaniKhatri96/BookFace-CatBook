@@ -20,11 +20,11 @@ const passport = require("passport");
 
 //return list off all users (without passwords)
 router.get("/all", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "Origin, X-Requested-With, Content-Type, Accept"
+  // );
   User.find({}, { password: 0 }, function (err, people) {
     if (err) res.status(500).send(err);
     res.status(200).send(people);
@@ -34,29 +34,20 @@ router.get("/all", (req, res) => {
 //return info on specific user (without password)
 //requires user id as a parameter
 router.get("/:id", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  User.findOne(
-    { login: req.params.id },
-    { password: 0 },
-    function (err, person) {
-      if (err) res.status(500).send(err);
-      res.status(200).send(person);
-    }
-  );
+  User.findOne({ _id: req.params.id }, { password: 0 }, function (err, person) {
+    if (err) res.status(500).send(err);
+    res.status(200).send(person);
+  });
 });
 
 //return user's friend list
 //requires user id as a parameter
 router.get("/friends/:id", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "Origin, X-Requested-With, Content-Type, Accept"
+  // );
   User.findOne({ _id: req.params.id }, function (err, person) {
     if (err) res.status(500).send(err);
     res.status(200).send(person.friend_list);
@@ -65,11 +56,11 @@ router.get("/friends/:id", (req, res) => {
 
 //logout
 router.get("/logout", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "Origin, X-Requested-With, Content-Type, Accept"
+  // );
   req.logout();
   res.send("User logged out");
   //res.redirect('/login');
@@ -129,10 +120,6 @@ router.post("/", (req, res) => {
 router.post("/login", passport.authenticate("local"), (req, res) => {
   res.send("Authorized");
 });
-
-// post     /users/friends/send/:id             -sends a friend request
-//
-// post     /users/friends/accept/:id           -accepts a friend request
 
 //update user info
 //requires user id as parameter
