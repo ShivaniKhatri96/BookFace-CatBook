@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
+const { CommentSchema } = require("./Comment");
 const Schema = mongoose.Schema;
-const { CommentSchema } = require("../models/Comment"); //to remove for production
 
-//user schema
 const UserSchema = new Schema({
   login: { type: String, required: true, lowercase: true },
   password: { type: String, required: true },

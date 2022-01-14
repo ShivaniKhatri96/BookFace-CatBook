@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import img5 from "../../pictures/signup5.jpg";
 import {BsCheckCircleFill } from "react-icons/bs";
-import { DeviceMax, DeviceMin } from "../Breakpoints";
+import { DeviceMax, DeviceMin } from "./Breakpoints";
 export const GridSignup = styled.div``;
 
 export const RowSignup = styled.div`
