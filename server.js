@@ -15,7 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 const secretCat = process.env.secret; //|| require("./backend/config/keys").secret;
 app.use(
   session({
-    secret: secretCat,
+    name: "session",
+    keys: [secretCat],
     resave: true,
     saveUninitialized: true,
   })
@@ -35,10 +36,9 @@ app.use("/catAPI", catAPI);
 //serving static files on production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "frontend/build")));
-
-  // app.get("*", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
-  // });
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
+  });
 }
 
 //mongo config and connection
