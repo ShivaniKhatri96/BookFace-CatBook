@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { DeviceMin, DeviceMax } from "./Breakpoints";
+import { DeviceMin, DeviceMax } from "../Breakpoints";
 export const StyledLinkDiv = styled.div`
 
   @media ${DeviceMax.sm} {

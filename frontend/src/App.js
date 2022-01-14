@@ -7,7 +7,6 @@ import SignUp from "./Components/pages/Signup";
 import Settings from "./Components/pages/Settings";
 import Notifications from "./Components/pages/Notifications";
 import "./App.css";
-// import Profile from "./pages/Profile";
 import { Routes, Route } from "react-router-dom";
 // import Navbar from "./Components/Navbar";
 // import Footer from "./Components/Footer";

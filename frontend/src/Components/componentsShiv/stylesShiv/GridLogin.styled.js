@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import img from "../../pictures/catlogin.jpg";
-import { DeviceMax, DeviceMin } from "./Breakpoints";
+import { DeviceMax, DeviceMin } from "../Breakpoints";
 export const GridLogin = styled.div``;
 
 export const RowLogin = styled.div`
