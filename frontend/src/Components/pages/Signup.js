@@ -13,16 +13,17 @@ import {
   TextContent,
   TextHeading,
   CircleIcon,
-} from "../components/styles/GridSignup.styled";
-import { StyledButton } from "../components/styles/Button.styled";
+} from "../componentsShiv/stylesShiv/GridSignup.styled";
+
+import { StyledButton } from "../componentsShiv/stylesShiv/Button.styled";
 import {
   StyledLinkDiv,
   StyledLink,
-} from "../components/styles/StyledLink.styled";
-import { Label } from "../components/styles/Label.styled";
-import { Div } from "../components/styles/Div.styled";
+} from "../componentsShiv/stylesShiv/StyledLink.styled";
+import { Label } from "../componentsShiv/stylesShiv/Label.styled";
+import { Div } from "../componentsShiv/stylesShiv/Div.styled";
 // import Input from "../components/Inputbox";
-import { Input } from "../components/styles/Input.styled";
+import { Input } from "../componentsShiv/stylesShiv/Input.styled";
 // import InputPassword from "../components/Inputbox";
 const SignUp = () => {
   // //password validation

@@ -3,17 +3,17 @@ import {
   RowLogin,
   Col1Login,
   Col2Login,
-} from "../components/styles/GridLogin.styled";
-import { StyledButton } from "../components/styles/Button.styled";
+} from "../componentsShiv/stylesShiv/GridLogin.styled";
+import { StyledButton } from "../componentsShiv/stylesShiv/Button.styled";
 import {
   StyledLinkDiv,
   StyledLink,
-} from "../components/styles/StyledLink.styled";
-import { Label } from "../components/styles/Label.styled";
+} from "../componentsShiv/stylesShiv/StyledLink.styled";
+import { Label } from "../componentsShiv/stylesShiv/Label.styled";
 // import Input from "../components/Inputbox";
 import { useNavigate } from "react-router";
 import { useState } from "react";
-import { Input } from "../components/styles/Input.styled";
+import { Input } from "../componentsShiv/stylesShiv/Input.styled";
 const LogIn = () => {
   let navigate = useNavigate();
   const [user, setUser] = useState({
