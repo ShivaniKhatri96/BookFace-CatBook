@@ -31,6 +31,14 @@ app.use("/pages", pages);
 const catAPI = require("./backend/routes/catAPI");
 app.use("/catAPI", catAPI);
 
+//serving static files on production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "frontend/build")));
+  // app.get("*", function (req, res) {
+  //   res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
+  // });
+}
+
 //mongo config and connection
 const db = process.env.MONGODB_URI || require("./backend/config/keys").mongoURI;
 mongoose
