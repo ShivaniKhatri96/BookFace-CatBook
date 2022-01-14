@@ -125,7 +125,7 @@ const SignUp = () => {
             </Div>
             <StyledLinkDiv>
               Already have an account?{" "}
-              <StyledLink to="./Login">Log In</StyledLink>
+              <StyledLink to="/Login">Log In</StyledLink>
             </StyledLinkDiv>
           </Col2Signup>
         </RowSignup>

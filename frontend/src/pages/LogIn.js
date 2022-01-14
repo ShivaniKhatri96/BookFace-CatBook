@@ -40,7 +40,7 @@ const LogIn = () => {
             </form>
             <StyledLinkDiv>
               Don't have an account?{" "}
-              <StyledLink to="./Signup">Sign Up</StyledLink>
+              <StyledLink to="/Signup">Sign Up</StyledLink>
             </StyledLinkDiv>
           </Col2Login>
         </RowLogin>
