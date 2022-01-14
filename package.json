@@ -23,6 +23,7 @@
   "homepage": "https://github.com/ShivaniKhatri96/BookFace-CatBook#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cookie-session": "^2.0.0",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "mongoose": "^6.1.4",
