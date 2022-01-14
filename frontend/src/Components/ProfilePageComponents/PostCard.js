@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect } from "react";
 import {
   UserPostCard,
   CardMainHeader,
@@ -17,63 +17,82 @@ import {
   LikeButton,
   LikebuttonWrapper,
   LikeText,
-} from './PostCard.style';
-import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
-import ReactPlayer from 'react-player';
-import { PostContext } from '../../Providers/UserPosts/UserPosts.provider';
+} from "./PostCard.style";
+import { RiEditFill, RiDeleteBin5Line } from "react-icons/ri";
+import ReactPlayer from "react-player";
+import axios from "axios";
+
+const template = [
+  {
+    userId: "",
+    repliedBy: [],
+    content: "",
+    img_link: "",
+    likes: 0,
+    _id: "",
+    date: "",
+  },
+];
 
 function PostCard() {
-  const { posts ,removePost } = useContext(PostContext);
+  const [posts, setPosts] = useState([]);
+  const [user, setUser] = useState()
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
-  const [likedtimes, setLikedTimes] = useState(0);
-  const handleDelete = () => {
-    removePost()
-  }
+  
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `http://localhost:5000/comments/61de9db14a69b84c1ed6c5fe`,
+      );
+      const username = result.data.login;
+      setUser(username)
+
+      const commentatorCom = result.data.comments;
+      setPosts(commentatorCom)
+    }; 
+    fetchData();
+  }, [posts]);
 
   const handleMenu = (e) => {
-    setOpenedEditMenu(!e)
-  }
+    setOpenedEditMenu(!e);
+  };
 
-  
-  const handleLikes = () => {
-    console.log(posts)
-  }
+  const handleLikes = () => {};
 
-  
   return (
     <>
       {posts.map((id, index) => (
-        <UserPostCard key={id.postId}>
+        <UserPostCard key={id._id}>
           <CardMainHeader>
             <CardTitleInfos>
               <CardMainHeaderPhoto />
-              <CardTitleName> Alisan </CardTitleName>
+              <CardTitleName> {user} </CardTitleName>
             </CardTitleInfos>
             <CardTitleChange>
               {openedEditMenu ? (
                 <ThreeDotsMenu>
                   <RiEditFill />
-                  <RiDeleteBin5Line onClick={handleDelete(index)}/>
-                  <ThreeDotsVert
-                    onClick={() => handleMenu(index)}
-                  />
+                  <RiDeleteBin5Line />
+                  <ThreeDotsVert onClick={handleMenu} />
                 </ThreeDotsMenu>
               ) : (
-                <ThreeDots onClick={() => handleMenu(index)}/>
+                <ThreeDots onClick={handleMenu} />
               )}
             </CardTitleChange>
           </CardMainHeader>
           <CardMainContentWrapper>
-            <CardMainContentText>{id.postText}</CardMainContentText>
-            {id.postPhoto !== '' ? (
-              <CardMainContextPhoto src={id.postPhoto} />
+            <CardMainContentText>{id.content}</CardMainContentText>
+            {id.img_link !== "" ? (
+              <CardMainContextPhoto src={id.img_link} />
             ) : (
               <> </>
             )}
 
-            {id.postVideo !== '' ? (
+            {id.video_link !== "" ? (
               <CardMainContentVideo>
-                <ReactPlayer url={id.postVideo} width="100%" height="25rem" />
+                <ReactPlayer url={id.video_link} width="100%" height="25rem" />
               </CardMainContentVideo>
             ) : (
               <div></div>
@@ -82,7 +101,7 @@ function PostCard() {
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
               <LikeButton onClick={handleLikes} />
-              <LikeText> {likedtimes} Likes </LikeText>
+              <LikeText> {posts.likes} Likes </LikeText>
             </LikebuttonWrapper>
           </CardCommentLikeWrapper>
         </UserPostCard>

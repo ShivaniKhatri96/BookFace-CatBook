@@ -7,15 +7,13 @@ import Notifications from "./pages/Notifications";
 import "./App.css";
 import Profile from "./pages/Profile";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
-import UserPostsProvider from "./Providers/UserPosts/UserPosts.provider";
+
 import SignUp from "./pages/Signup";
 
 function App() {
   return (
     <div className="page-container">
-      <UserPostsProvider>
+      
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Login" element={<Login />} />
@@ -24,7 +22,7 @@ function App() {
           <Route exact path="/Settings" element={<Settings />} />
           <Route exact path="/Notifications" element={<Notifications />} />
         </Routes>
-      </UserPostsProvider>
+      
     </div>
   );
 }
