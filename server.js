@@ -38,17 +38,9 @@ app.use("/catAPI", catAPI);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "frontend/build")));
   app.get("*", function (req, res) {
-    if (req.isAuthenticated()) {
-      //diff header depending on authentication
-      res
-        .status(200)
-        .sendFile(path.join(__dirname, "frontend/build", "index.html"));
-    } else {
-      res
-        .status(400)
-        .sendFile(path.join(__dirname, "frontend/build", "index.html"));
-      console.log(res.status);
-    }
+    res
+      .status(200)
+      .sendFile(path.join(__dirname, "frontend/build", "index.html"));
   });
 }
 
