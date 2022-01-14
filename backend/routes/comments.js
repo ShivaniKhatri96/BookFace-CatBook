@@ -13,28 +13,16 @@ const { User } = require("../models/User");
 
 //return all comments from all users
 router.get("/", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+  User.find(
+    {},
+    { comments: 1 },
+    { sort: { "comments.date": -1 } },
+    function (err, comments) {
+      if (err) res.status(500).send(err);
+      res.status(200).send(comments);
+    }
   );
-  User.find({}, { _id: 1, login: 1, comments: 1 }, function (err, comments) {
-    if (err) res.status(500).send(err);
-    res.status(200).send(comments);
-  });
 });
-
-// router.get("/", (req, res) => {
-//   User.find(
-//     {},
-//     { _id: 0, comments: 1 },
-//     { sort: { "comments.date": -1 } },
-//     function (err, comments) {
-//       if (err) res.status(500).send(err);
-//       res.status(200).send(comments);
-//     }
-//   );
-// });
 
 //return all comments from a specific user
 //requires user id as parameter
