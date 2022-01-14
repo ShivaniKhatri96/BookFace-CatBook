@@ -24,7 +24,12 @@ import { useSelector } from 'react-redux';
 
 
 function PostCard() {
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => {
+    console.log(state);
+    
+     return state.posts
+  
+  });
   // const { posts , removePost, incrementLikes } = useContext(PostContext);
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
   // const [likedTimes, setLikedTimes] = useState({

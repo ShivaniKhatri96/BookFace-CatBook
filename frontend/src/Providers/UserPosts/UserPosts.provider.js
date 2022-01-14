@@ -14,7 +14,7 @@ const UserPostsProvider = ( { children } ) => {
 
     const getPosts = posts => {
         dispatch({
-           type: UserPostsTypes.CREATE_POST,
+           type: UserPostsTypes.GET_ALL_POSTS,
            payload: posts
         })
     }
