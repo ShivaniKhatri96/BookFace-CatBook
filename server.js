@@ -12,7 +12,7 @@ const path = require("path");
 //app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-const secretCat = process.env.secret; //|| require("./backend/config/keys").secret;
+const secretCat = process.env.secret || require("./backend/config/keys").secret;
 app.use(
   session({
     name: "session",
