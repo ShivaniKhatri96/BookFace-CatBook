@@ -1,24 +1,24 @@
 import styled from "styled-components";
 import img5 from "../../pictures/signup5.jpg";
-import {BsCheckCircleFill } from "react-icons/bs";
-import { DeviceMax, DeviceMin } from"../Breakpoints";
-export const GridSignup = styled.div``;
+import { BsCheckCircleFill } from "react-icons/bs";
+import { DeviceMax, DeviceMin } from "../Breakpoints";
+export const GridSignup = styled.div`
+`;
 
 export const RowSignup = styled.div`
   display: flex;
   flex-direction: row;
   background: #ffffff;
   margin: auto;
-  box-shadow: 5px 3px 20px 3px #f6f6f6;
+  box-shadow: 5px 3px 20px 3px #cbcdcf;
   @media ${DeviceMax.sm} {
     background-image: url(${img5});
     background-repeat: no-repeat;
     background-size: cover;
     width: 92vw;
-    height: 92vh;
+    height: 94vh;
     border-radius: 0.2rem;
-    margin: 4vh auto 4vh auto;
-  
+    margin: 2vh auto 2vh auto;
   }
   @media ${DeviceMin.sm} {
     // height: 90vh;
@@ -69,6 +69,10 @@ export const Col2Signup = styled.div`
   height: 100%;
   border-radius: 0.2rem;
   padding: 2% 0 0 8.5%;
+  h1 {
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
 }
 @media ${DeviceMin.sm} {
   width: 50%;
@@ -76,7 +80,7 @@ export const Col2Signup = styled.div`
   padding-left: 5%;
   font-weight: bold;
   h1 {
-    font-size: 26px;
+    font-size: 23px;
     margin-bottom: 1rem;
   }
   //same for all sizes
@@ -86,13 +90,13 @@ export const Col2Signup = styled.div`
   margin: 1% 0 1.5% 0;
   padding-left: 5.5%;
   h1 {
-    font-size: 28px;
+    font-size: 25px;
     margin-bottom: 1.4rem;
   }
 }
 @media ${DeviceMin.lg} {
   h1 {
-    font-size: 32px;
+    font-size: 29px;
     margin-bottom: 1.6rem;
   }
 }

@@ -24,8 +24,10 @@ import { Label } from "../componentsShiv/stylesShiv/Label.styled";
 import { Div } from "../componentsShiv/stylesShiv/Div.styled";
 // import Input from "../components/Inputbox";
 import { Input } from "../componentsShiv/stylesShiv/Input.styled";
+// import { Mesg } from "../componentsShiv/stylesShiv/message.styled";
 // import InputPassword from "../components/Inputbox";
 const SignUp = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   // //password validation
   // const validationSchema = Yup.object().shape({
   //   password: Yup.string()
@@ -115,7 +117,7 @@ const SignUp = () => {
   //   }
   const postData = async (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(newUser, null, 2));
+    // console.log(JSON.stringify(newUser, null, 2));
     const { login, email, password } = newUser;
     // const {name, email, password, cPassword} = newUser;
     if (passwordMatch.current !== false) {
@@ -134,12 +136,12 @@ const SignUp = () => {
         //moving to login page once signup is successful using navigate
         navigate("../Login");
       } else {
+        setErrorMessage("User name / Email already in use!");
         console.log("Invalid Registration");
       }
       console.log("register");
     }
     else {
-
       console.log("Invalid Registration due to password mismatch");
     }
 
@@ -230,6 +232,7 @@ const SignUp = () => {
               {/* <Div className="invalid-feedback">{errors.cPassword?.message}</Div> */}
               <br />
               {/* <StyledButton disabled={disable} onClick={handleButton} >Sign Up</StyledButton> */}
+              <p style={{color:"#9B0000"}}> {errorMessage}</p>
               <StyledButton>Sign Up</StyledButton>
             </form>
             <Div>

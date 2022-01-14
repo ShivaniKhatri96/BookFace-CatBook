@@ -70,12 +70,17 @@ export const Col2Login = styled.div`
     height: 100%;
     border-radius: 0.2rem;
     padding: 15% 0 0 8.5%;
+    h1 {
+      font-size: 20px;
+      margin-bottom: 0.5rem;
+    }
   }
   @media ${DeviceMin.sm} {
     width: 60%;
     margin: 0 0 2.5% 0;
     padding-left: 5%;
     h1 {
+      font-size: 23px;
       margin-bottom: 1rem;
     }
     //same for all sizes
@@ -86,16 +91,19 @@ export const Col2Login = styled.div`
     margin: 5.5% 0 10% 0;
     padding-left: 5.5%;
     h1 {
+      font-size: 25px;
       margin-bottom: 1.2rem;
     }
   }
   @media ${DeviceMin.lg} {
     h1 {
+      font-size: 29px;
       margin-bottom: 1.4rem;
     }
   }
   @media ${DeviceMin.xl} {
     h1 {
+      font-size: 32px;
       margin-bottom: 2rem;
     }
   }

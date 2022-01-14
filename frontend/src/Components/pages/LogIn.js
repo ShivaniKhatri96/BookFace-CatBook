@@ -14,34 +14,40 @@ import { Label } from "../componentsShiv/stylesShiv/Label.styled";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { Input } from "../componentsShiv/stylesShiv/Input.styled";
+// import { Mesg } from "../componentsShiv/stylesShiv/message.styled";
 const LogIn = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
   const [user, setUser] = useState({
-    login:"", password:""
+    login: "", password: ""
   });
   let name, value;
-  const handleInputs= (e) => {
-    console.log(e);
-    name= e.target.name;
+  const handleInputs = (e) => {
+    // console.log(e);
+    name = e.target.name;
     value = e.target.value;
-    setUser({...user, [name]: value});
+    setUser({ ...user, [name]: value });
   }
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(user, null, 2));
-    const {login, password} = user;
-    const res= await fetch("/users/login", {
-      method:"POST",
+    // console.log(JSON.stringify(user, null, 2));
+    const { login, password } = user;
+    const res = await fetch("/users/login", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        login,password
+        login, password
       })
     });
-    if(res.ok){
+    if (res.ok) {
       console.log("Successfully logged in");
       navigate("../");
+    }
+    else {
+      setErrorMessage("User name or Password is wrong!");
+      console.log("login or password is wrong");
     }
   }
   return (
@@ -73,6 +79,8 @@ const LogIn = () => {
                 title="User name or password is incorrect!"
               ></Input>
               <br />
+              <p style={{color:"#9B0000"}}> {errorMessage}</p>
+              {/* <br /> */}
               <StyledButton>Log In</StyledButton>
             </form>
             <StyledLinkDiv>
