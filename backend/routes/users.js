@@ -28,6 +28,8 @@ router.get("/all", (req, res) => {
   User.find({}, { password: 0 }, function (err, people) {
     if (err) res.status(500).send(err);
     res.status(200).send(people);
+    console.log(req.user);
+    console.log(req.isAuthenticated());
   });
 });
 
@@ -129,10 +131,6 @@ router.post("/", (req, res) => {
 router.post("/login", passport.authenticate("local"), (req, res) => {
   res.send("Authorized");
 });
-
-// post     /users/friends/send/:id             -sends a friend request
-//
-// post     /users/friends/accept/:id           -accepts a friend request
 
 //update user info
 //requires user id as parameter
