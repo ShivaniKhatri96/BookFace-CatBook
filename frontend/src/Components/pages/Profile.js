@@ -1,8 +1,8 @@
-import ProfilePosts from "../Components/ProfilePageComponents/ProfilePosts";
-import ProfileCard from "../Components/ProfilePageComponents/ProfileCard";
-import ProfileMakePost from "../Components/ProfilePageComponents/ProfileMakePost";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import ProfilePosts from "../ProfilePageComponents/ProfilePosts";
+import ProfileCard from "../ProfilePageComponents/ProfileCard";
+import ProfileMakePost from "../ProfilePageComponents/ProfileMakePost";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
 
 const Profile = () => {
     return (

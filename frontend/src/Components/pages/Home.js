@@ -1,7 +1,7 @@
-import PostCard from "../Components/ProfilePageComponents/PostCard";
-import ProfileMakePost from "../Components/ProfilePageComponents/ProfileMakePost";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import PostCard from "../ProfilePageComponents/PostCard";
+import ProfileMakePost from "../ProfilePageComponents/ProfileMakePost";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
 
 const Home = () => {
     return (
