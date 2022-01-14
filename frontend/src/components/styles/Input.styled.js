@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { DeviceMax, DeviceMin } from "../Breakpoints";
+import { DeviceMax, DeviceMin } from "./Breakpoints";
 export const StyledInput = styled.input`
   width: 80%;
   border: 2px solid #eaeaea;
