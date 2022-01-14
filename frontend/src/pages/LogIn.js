@@ -70,6 +70,7 @@ const LogIn = () => {
                 placeholder="Enter your password"
                 // value={newUser.password}
                 onChange={handleInputs}
+                title="User name or password is incorrect!"
               ></Input>
               <br />
               <StyledButton>Log In</StyledButton>

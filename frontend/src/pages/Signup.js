@@ -206,6 +206,8 @@ const SignUp = () => {
                 placeholder="Type to create a password"
                 value={newUser.password}
                 onChange={handleInputs}
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                title="Must contain atleast 1 number, 1 uppercase, 1 lowercase letter, and >= 6 characters."
               // {...register('password')}
               // className={`form-control $(errors.password ? 'is-invalid)' : ''}`}
               ></Input>
@@ -217,6 +219,8 @@ const SignUp = () => {
                 type="password"
                 name="cPassword"
                 placeholder="Enter your password again"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                title="Repeat the password you entered above!"
                 value={newUser.cPassword}
                 onChange={handleInputs}
               // {...register('cPassword')}
