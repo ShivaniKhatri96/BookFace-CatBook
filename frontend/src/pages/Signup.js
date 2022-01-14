@@ -8,15 +8,15 @@ import {
   TextContent,
   TextHeading,
   CircleIcon,
-} from "../components/styles/GridSignup.styled";
-import { StyledButton } from "../components/styles/Button.styled";
+} from "../Components/styles/GridSignup.styled";
+import { StyledButton } from "../Components/styles/Button.styled";
 import {
   StyledLinkDiv,
   StyledLink,
-} from "../components/styles/StyledLink.styled";
-import { Label } from "../components/styles/Label.styled";
-import { Div } from "../components/styles/Div.styled";
-import Input from "../components/Inputbox";
+} from "../Components/styles/StyledLink.styled";
+import { Label } from "../Components/styles/Label.styled";
+import { Div } from "../Components/styles/Div.styled";
+import Input from "../Components/Inputbox";
 const SignUp = () => {
   const [newUser, setNewUser]= useState ({
     name:"", email:"",password:"",cPassword:""
@@ -47,7 +47,7 @@ const SignUp = () => {
   }
 
   return (
-    <div>
+    <>
       <GridSignup>
         <RowSignup>
           <Col1Signup>
@@ -125,12 +125,12 @@ const SignUp = () => {
             </Div>
             <StyledLinkDiv>
               Already have an account?{" "}
-              <StyledLink to="./Login">Log In</StyledLink>
+              <StyledLink to="/Login">Log In</StyledLink>
             </StyledLinkDiv>
           </Col2Signup>
         </RowSignup>
       </GridSignup>
-    </div>
+    </>
   );
 };
 export default SignUp;

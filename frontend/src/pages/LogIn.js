@@ -3,14 +3,14 @@ import {
   RowLogin,
   Col1Login,
   Col2Login,
-} from "../components/styles/GridLogin.styled";
-import { StyledButton } from "../components/styles/Button.styled";
+} from "../Components/styles/GridLogin.styled";
+import { StyledButton } from "../Components/styles/Button.styled";
 import {
   StyledLinkDiv,
   StyledLink,
-} from "../components/styles/StyledLink.styled";
-import { Label } from "../components/styles/Label.styled";
-import Input from "../components/Inputbox";
+} from "../Components/styles/StyledLink.styled";
+import { Label } from "../Components/styles/Label.styled";
+import Input from "../Components/Inputbox";
 const LogIn = () => {
   return (
     <div>
@@ -40,7 +40,7 @@ const LogIn = () => {
             </form>
             <StyledLinkDiv>
               Don't have an account?{" "}
-              <StyledLink to="./Signup">Sign Up</StyledLink>
+              <StyledLink to="/Signup">Sign Up</StyledLink>
             </StyledLinkDiv>
           </Col2Login>
         </RowLogin>

@@ -1,17 +1,3 @@
-//REQUESTS AND RESPONSES
-//React-router
-//------------
-// get /                -main page. Redirects to login if user not logged in
-// get /login           -login/signup page
-// get /profile/:login  -user profile page
-
-//backend/routes/comments
-//-----------------------
-// get /comments/       -returns list of all comments
-// get /comments/:id    -returns information of a specific comment
-// post /comments/      -creates a new comment
-// delete /comments/:id -deletes comment
-
 //setting the server
 const express = require("express");
 const mongoose = require("mongoose");
@@ -25,9 +11,10 @@ require("./backend/config/passport")(passport);
 app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+const secretCat = process.env.secret || require("./backend/config/keys").secret;
 app.use(
   session({
-    secret: "secret", //this will come from env file
+    secret: secretCat,
     resave: true,
     saveUninitialized: true,
   })
@@ -36,14 +23,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 //setting routes
 const users = require("./backend/routes/users");
-const comments = require("./backend/routes/comments");
-const pages = require("./backend/routes/pages");
 app.use("/users", users);
+const comments = require("./backend/routes/comments");
 app.use("/comments", comments);
+const pages = require("./backend/routes/pages");
 app.use("/pages", pages);
+const catAPI = require("./backend/routes/catAPI");
+app.use("/catAPI", catAPI);
 
 //mongo config and connection
-const db = require("./backend/config/keys").mongoURI;
+const db = process.env.MONGODB_URI || require("./backend/config/keys").mongoURI;
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB."))
