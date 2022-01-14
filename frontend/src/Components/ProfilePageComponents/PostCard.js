@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {
   UserPostCard,
   CardMainHeader,
@@ -31,7 +31,7 @@ function PostCard() {
   }
 
   const handleMenu = (e) => {
-    setOpenedEditMenu(!e)
+    setOpenedEditMenu(!openedEditMenu)
   }
 
   

@@ -6,7 +6,7 @@ import { DeviceMax, DeviceMin } from '../../Components/styles/Breakpoints'
 
 
 
-export const UserPostCard = styled.div`
+export const UserPostCard = styled.ul`
   width: 80%;
   margin: 10px auto;
   min-height: max content;

@@ -88,7 +88,7 @@ function ProfileMakePost() {
         newPost.postVideo = "",
       newPost.postPhoto = ""
       );
-      console.log(newPost);
+      
       // navigate('/')
     }
   };
