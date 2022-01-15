@@ -1,4 +1,4 @@
-import PostCard from "../ProfilePageComponents/PostCard";
+import HomePostCard from "../ProfilePageComponents/HomePostCard";
 import ProfileMakePost from "../ProfilePageComponents/ProfileMakePost";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
@@ -13,24 +13,28 @@ const Home = () => {
         const result = await axios(
           "http://localhost:5000/comments"
         );
+       
+
+        
         const  justComments = result.data.map((id) => {
             return id.comments
         })
         const onlyFilled = justComments.filter(a => a.length !== 0)
         const  merged = [].concat.apply([], onlyFilled);
-        
+        setAllComms(merged)
         // const allCommentsPosts = Object.assign({}, merged);
         
-        setAllComms(merged)
-        console.log(allcomms)
+        
        
-      });
+      },[]);
+      
+        
 
     return (
         <>
        <Navbar/>
             <ProfileMakePost />
-            <PostCard comments={allcomms}/>
+            <HomePostCard comments={allcomms}/>
         <Footer />
         </>
     )

@@ -5,10 +5,6 @@ import {
   CardMainHeaderPhoto,
   CardTitleName,
   CardTitleInfos,
-  ThreeDots,
-  ThreeDotsMenu,
-  CardTitleChange,
-  ThreeDotsVert,
   CardMainContentWrapper,
   CardMainContentText,
   CardMainContextPhoto,
@@ -18,44 +14,24 @@ import {
   LikebuttonWrapper,
   LikeText,
 } from "./PostCard.style";
-import { RiEditFill, RiDeleteBin5Line } from "react-icons/ri";
 import ReactPlayer from "react-player";
 
 function PostCard(props) {
-  const comsAll = props.comments;
+
 
   
-
-  const [openedEditMenu, setOpenedEditMenu] = useState(false);
-
-  const handleDelete = () => {};
-
-  const handleMenu = (e) => {
-    setOpenedEditMenu(!openedEditMenu);
-  };
 
   const handleLikes = () => {};
 
   return (
     <>
       {props.comments.map((com) => (
-        <UserPostCard >
+        <UserPostCard key={com._id}>
           <CardMainHeader>
             <CardTitleInfos>
               <CardMainHeaderPhoto />
               <CardTitleName> </CardTitleName>
             </CardTitleInfos>
-            <CardTitleChange>
-              {openedEditMenu ? (
-                <ThreeDotsMenu>
-                  <RiEditFill />
-                  <RiDeleteBin5Line onClick={handleDelete} />
-                  <ThreeDotsVert onClick={handleMenu} />
-                </ThreeDotsMenu>
-              ) : (
-                <ThreeDots onClick={handleMenu} />
-              )}
-            </CardTitleChange>
           </CardMainHeader>
           <CardMainContentWrapper>
             <CardMainContentText>{com.content}</CardMainContentText>
