@@ -22,7 +22,7 @@ import {
   SendButton,
   OpenedSecondRow,
 } from "./ProfileMakePost.style";
-import { useState,useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   MdOutlineInsertPhoto,
   MdSend,
@@ -34,13 +34,13 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 
 
-const userID = "61de9db14a69b84c1ed6c5fe"
-
-
+// const userID = "61de9db14a69b84c1ed6c5fe"
+const userID = "61dec5dc91821f6ecd34227e"
+//username: mouse , password: mouse for this id
 
 function ProfileMakePost() {
- 
- 
+
+
   const [userProfile, setUserProfile] = useState({
     userId: 1,
     userName: "Alisan",
@@ -58,15 +58,15 @@ function ProfileMakePost() {
   );
 
   const [newPost, setNewPost] = useState({
-    
-      userID: `${userID}`,
-      content: '',
-      img_link: '',
-      video_link: '',
-      _id:'',
-      date: '',
-      likes: 0
-    
+    // userID: `${userID}`,
+    userId: `${userID}`,
+    content: '',
+    img_link: '',
+    video_link: '',
+    _id: '',
+    date: '',
+    likes: 0
+
   });
 
   //  name = e.target.name;
@@ -86,11 +86,11 @@ function ProfileMakePost() {
     console.log(newPost);
   };
 
-  
 
-  
 
-  
+
+
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -105,45 +105,67 @@ function ProfileMakePost() {
       console.log(config)
 
       console.log(newPost)
-      const addComment = async () => { 
-    
+      const addComment = async () => {
+
         console.log(JSON.stringify(newPost, null, 2));
-        const { context, img_link, video_link} = newPost;
-         await axios({
-         method: "post",
-         url: `http://localhost:5000/comments/${userID}`,
-         body: JSON.stringify({
-           context, img_link, video_link
-         }),
-         headers: {
-           "Content-Type": "application/json"
-         },
-       })
-         .then(function (response) {
-           //handle success
-           console.log(response);
-         })
-         .catch(function (response) {
-           //handle error
-           console.log(response);
-         });
-   
-     }
+
+
+       const {userId, content, img_link, video_link } = newPost;
+       const res= await fetch(`comments/${userID}`, {
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          userId, content, img_link, video_link
+        })
+      });
+      if(res.ok){
+        console.log("posted");
+      }
+else{
+  console.log("not posted");
+}
+        // // const {userID, context, img_link, video_link } = newPost;
+        // await axios({
+        //   method: "post",
+        //   url: `comments/${userID}`,
+        //   // url: `http://localhost:5000/comments/${userID}`,
+        //   body: JSON.stringify({
+        //     // context, img_link, video_link
+        //     userId, content, img_link, video_link
+        //   }),
+        //   headers: {
+        //     "Content-Type": "application/json"
+        //   },
+        // })
+        //   .then(function (response) {
+        //     //handle success
+        //     console.log(response);
+        //     console.log("posted");
+        //   })
+        //   .catch(function (response) {
+        //     //handle error
+        //     console.log(response);
+        //     console.log("not posted");
+        //   });
+
+      }
       addComment()
-     
+
       setPostOpen(false);
       setNewPost(
         newPost.content = "",
         newPost.img_link = "",
         newPost.video_link = ""
       );
-      
-     
+
+
     }
   };
 
 
-  
+
   return (
     <form onSubmit={handleSubmit}>
       <Main>
