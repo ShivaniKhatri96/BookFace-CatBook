@@ -57,7 +57,7 @@ function PostCard(props) {
             </CardTitleChange>
           </CardMainHeader>
           <CardMainContentWrapper>
-            <CardMainContentText>content</CardMainContentText>
+            <CardMainContentText>{post.content}</CardMainContentText>
             {post.img_link === "" ? (
               <div>No photo added</div>
             ) : (

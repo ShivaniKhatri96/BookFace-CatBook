@@ -6,7 +6,7 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 import axios from 'axios';
 
-export const userID = "61de9db14a69b84c1ed6c5fe"
+const userID = "61de9db14a69b84c1ed6c5fe"
 
 const Profile = () => {
 

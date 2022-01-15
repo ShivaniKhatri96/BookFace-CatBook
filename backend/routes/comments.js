@@ -71,6 +71,11 @@ router.get("/single/:commentId", (req, res) => {
 //  'img_link'  -url of the image
 //  'video_link'  -url of the video
 router.post("/:userId", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   var repliedById = "hola";
   const test = User.findByIdAndUpdate(
     req.params.userId,
