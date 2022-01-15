@@ -25,6 +25,7 @@ router.get("/all", (req, res) => {
   //   "Access-Control-Allow-Headers",
   //   "Origin, X-Requested-With, Content-Type, Accept"
   // );
+  console.log(req.user);
   User.find({}, { password: 0 }, function (err, people) {
     if (err) res.status(500).send(err);
     res.status(200).send(people);

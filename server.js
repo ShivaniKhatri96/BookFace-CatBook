@@ -3,10 +3,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = process.env.PORT || 5000;
-const session = require("cookie-session");
 const passport = require("passport");
 require("./backend/config/passport")(passport);
 const path = require("path");
+const session = require("cookie-session");
 
 //setting middleware
 //app.use(express.static(__dirname));
@@ -24,6 +24,12 @@ app.use(
 //setting passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+//setting authentication route (no router)\
+app.get("/authentication", function (req, res) {
+  req.user ? res.send("Authenticated") : res.send("Login needed");
+});
+
 //setting routes
 const users = require("./backend/routes/users");
 app.use("/users", users);
