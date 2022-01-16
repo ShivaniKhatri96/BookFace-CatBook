@@ -30,8 +30,14 @@ import { CgProfile } from 'react-icons/cg';
 import { AiFillSetting } from 'react-icons/ai'
 import { HiOutlineMenu, HiOutlineMenuAlt4 } from 'react-icons/hi';
 import SearchBar from './SearchBar';
-
+// import logout from './pages/Logout';
 function Navbar() {
+  //{ auth, setAuth }
+  // let navigate = useNavigate;
+// const clicked = () => {
+//     setAuth("Login needed");
+//     navigate("./pages/LogIn.js");
+//   }
   const [extendNav, setExtendNav] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
@@ -70,9 +76,13 @@ function Navbar() {
                   {isActive && (
                     <DropdownMenu>
                       <NavbarLinkDrop to="/Settings"><AiFillSetting/> Settings </NavbarLinkDrop>
-                      <NavbarLinklog>
+                      <NavbarLinkDrop> 
+                        {/* onClick= {clicked} */}
+                        <RiLogoutCircleRLine  /> Logout
+                     </NavbarLinkDrop>
+                      {/* <NavbarLinklog>
                         <RiLogoutCircleRLine /> Logout
-                      </NavbarLinklog>
+                      </NavbarLinklog> */}
                     </DropdownMenu>
                   )}
                 </Dropdown>
@@ -109,7 +119,8 @@ function Navbar() {
             <NavbarLinkExtended to="/Settings">Settings</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-              <NavbarLinkExtended to="/">Logout</NavbarLinkExtended>
+                {/* onClick= {clicked} */}
+              <NavbarLinkExtended >Logout</NavbarLinkExtended>
             </NavbarListItems>
           </NavbarList>
         </NavbarExtended>

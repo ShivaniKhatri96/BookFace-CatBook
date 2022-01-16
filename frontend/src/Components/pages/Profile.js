@@ -7,11 +7,12 @@ import Footer from "../Footer";
 const Profile = () => {
     return (
         <>
-        <Navbar />
-        <ProfileCard/>
+         <Navbar  />
+         <ProfileCard/>
         <ProfileMakePost/>
         <ProfilePosts />
-        <Footer />
+            <Footer />
+       
         </>
         )
 }

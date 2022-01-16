@@ -4,9 +4,10 @@ import Footer from "../Footer";
 function Notifications() {
   return (
     <>
-      <Navbar />
+     
+      <Navbar  />
       Notifications
-      <Footer />
+            <Footer />
     </>
   );
 }

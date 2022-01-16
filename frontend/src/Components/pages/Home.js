@@ -6,10 +6,10 @@ import Footer from "../Footer";
 const Home = () => {
     return (
         <>
-       <Navbar/>
+        <Navbar  />
             <ProfileMakePost />
             <PostCard />
-        <Footer />
+            <Footer />
         </>
     )
 }

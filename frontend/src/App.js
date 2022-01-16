@@ -8,15 +8,15 @@ import Settings from "./Components/pages/Settings";
 import Notifications from "./Components/pages/Notifications";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-// import Navbar from "./Components/Navbar";
-// import Footer from "./Components/Footer";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 import { useState, useEffect } from "react";
 
 function App() {
   const [auth, setAuth] = useState("");
 
   useEffect(async () => {
-    const response = await fetch("http://localhost:5000/authentication").then(
+    const response = await fetch("/authentication").then(
       (res) => res.text()
     );
     setAuth(response);
@@ -26,20 +26,28 @@ function App() {
   if (auth === "Authenticated") {
     return (
       <div className="page-container">
+        {/* auth={auth} setAuth={setAuth} */}
+          {/* <Navbar  /> */}
         <Routes>
+        {/* <Route exact path="/Login" element={<LogIn />} /> */}
+          {/* <Route exact path="/Signup" element={<SignUp />} /> */}
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/Login" element={<LogIn />} />
-          <Route exact path="/Signup" element={<SignUp />} />
           <Route exact path="/Profile" element={<Profile />} />
           <Route exact path="/Settings" element={<Settings />} />
           <Route exact path="/Notifications" element={<Notifications />} />
         </Routes>
+        {/* <Footer /> */}
       </div>
     );
   } else {
     return (
       <div className="page-container">
-        <LogIn auth={auth} setAuth={setAuth} />
+         <Routes>
+         <Route exact path="/" element={<LogIn auth={auth} setAuth={setAuth}/>} />
+         <Route exact path="/Signup" element={<SignUp />} />
+         </Routes>
+     
+       
       </div>
     );
   }
