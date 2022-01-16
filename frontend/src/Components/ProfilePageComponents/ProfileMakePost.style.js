@@ -344,7 +344,6 @@ export const GetUrl = styled.input`
   min-height: 2rem;
   margin: 0.5rem auto;
   align-self: center;
-  content: "Add a video";
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   font-weight: 300;
