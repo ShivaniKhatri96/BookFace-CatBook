@@ -16,7 +16,7 @@ function App() {
   const [auth, setAuth] = useState("");
 
   useEffect(async () => {
-    const response = await fetch("http://localhost:5000/authentication").then(
+    const response = await fetch("/authentication").then(
       (res) => res.text()
     );
     setAuth(response);
@@ -39,7 +39,10 @@ function App() {
   } else {
     return (
       <div className="page-container">
-        <LogIn auth={auth} setAuth={setAuth} />
+        <Routes> 
+          <Route exact path="/" element={<LogIn auth={auth} setAuth={setAuth} />} />
+          <Route exact path="/Signup" element={<SignUp />} />
+        </Routes>
       </div>
     );
   }
