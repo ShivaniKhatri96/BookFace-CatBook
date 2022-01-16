@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   UserPostCard,
   CardMainHeader,
@@ -20,7 +19,7 @@ function PostCard(props) {
   return (
     <>
       {props.comments.map((com) => (
-        <UserPostCard key={com._id}>
+        <UserPostCard key={com._id} >
           <CardMainHeader>
             <CardTitleInfos>
               <CardMainHeaderPhoto />
