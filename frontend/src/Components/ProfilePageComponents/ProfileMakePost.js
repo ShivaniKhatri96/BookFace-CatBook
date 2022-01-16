@@ -1,4 +1,4 @@
-import { Main } from "./ProfileCard.style";
+import { Main } from './ProfileCard.style';
 import {
   InputPost,
   OpenedPostHeader,
@@ -21,40 +21,36 @@ import {
   AddedPhoto,
   SendButton,
   OpenedSecondRow,
-} from "./ProfileMakePost.style";
-import { useState, useRef, useEffect } from "react";
+} from './ProfileMakePost.style';
+import { useState, useRef, useEffect } from 'react';
 import {
   MdOutlineInsertPhoto,
   MdSend,
   MdVideoCameraBack,
-} from "react-icons/md";
-import ReactPlayer from "react-player";
-import { v4 as uuidv4 } from "uuid";
-import { useNavigate } from "react-router";
-import axios from "axios";
-
+} from 'react-icons/md';
+import ReactPlayer from 'react-player';
+import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 // const userID = "61de9db14a69b84c1ed6c5fe"
-const userID = "61dec5dc91821f6ecd34227e"
+const userID = '61dec5dc91821f6ecd34227e';
 //username: mouse , password: mouse for this id
 
 function ProfileMakePost() {
-
-
   const [userProfile, setUserProfile] = useState({
     userId: 1,
-    userName: "Alisan",
-    userSurname: "Cavus",
-    userAboutMe: "Hi I am Levi. The cutest cat in da world!!",
+    userName: 'Alisan',
+    userSurname: 'Cavus',
+    userAboutMe: 'Hi I am Levi. The cutest cat in da world!!',
     userPosts: [],
   });
-
 
   const [postOpen, setPostOpen] = useState(false);
   const [addVideo, setAddVideo] = useState(false);
   const [addPhoto, setAddPhoto] = useState(false);
   const [message, setMessage] = useState(
-    `${userProfile.userName} , what's in your mind today?`,
+    `${userProfile.userName} , what's in your mind today?`
   );
 
   const [newPost, setNewPost] = useState({
@@ -65,8 +61,7 @@ function ProfileMakePost() {
     video_link: '',
     _id: '',
     date: '',
-    likes: 0
-
+    likes: 0,
   });
 
   //  name = e.target.name;
@@ -81,90 +76,56 @@ function ProfileMakePost() {
     value = evt.target.value;
     setNewPost({
       ...newPost,
-      [name]: value
+      [name]: value,
     });
     console.log(newPost);
   };
 
-
-
-
-
-
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    if (!evt) {
+    if (newPost.content === '') {
       setMessage(`We know you want to share something ${userProfile.userName}`);
     } else {
       const config = {
-        ...newPost
+        ...newPost,
       };
 
-      console.log(config)
+      console.log(config);
 
-      console.log(newPost)
+      console.log(newPost);
       const addComment = async () => {
-
         console.log(JSON.stringify(newPost, null, 2));
 
-
-       const {userId, content, img_link, video_link } = newPost;
-       const res= await fetch(`comments/${userID}`, {
-        method:"POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          userId, content, img_link, video_link
-        })
-      });
-      if(res.ok){
-        console.log("posted");
-      }
-else{
-  console.log("not posted");
-}
-        // // const {userID, context, img_link, video_link } = newPost;
-        // await axios({
-        //   method: "post",
-        //   url: `comments/${userID}`,
-        //   // url: `http://localhost:5000/comments/${userID}`,
-        //   body: JSON.stringify({
-        //     // context, img_link, video_link
-        //     userId, content, img_link, video_link
-        //   }),
-        //   headers: {
-        //     "Content-Type": "application/json"
-        //   },
-        // })
-        //   .then(function (response) {
-        //     //handle success
-        //     console.log(response);
-        //     console.log("posted");
-        //   })
-        //   .catch(function (response) {
-        //     //handle error
-        //     console.log(response);
-        //     console.log("not posted");
-        //   });
-
-      }
-      addComment()
+        const { userId, content, img_link, video_link } = newPost;
+        const res = await fetch(`comments/${userID}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId,
+            content,
+            img_link,
+            video_link,
+          }),
+        });
+        if (res.ok) {
+          console.log('posted');
+        } else {
+          console.log('not posted');
+        }
+      };
+      addComment();
 
       setPostOpen(false);
       setNewPost(
-        newPost.content = "",
-        newPost.img_link = "",
-        newPost.video_link = ""
+        (newPost.content = ''),
+        (newPost.img_link = ''),
+        (newPost.video_link = '')
       );
-
-
     }
   };
-
-
 
   return (
     <form onSubmit={handleSubmit}>
@@ -200,20 +161,20 @@ else{
                     <GetUrl
                       type="url"
                       name="video_link"
-                      value={newPost.video_link}
+                      value={newPost.video_link + ' '}
                       placeholder="Copy and paste a video link to add a video to your post."
                       onChange={handleInput}
                     />
                     <CloseButtonVideo onClick={() => setAddVideo((e) => !e)} />
                   </AddVideoPhotoContent>
                   <AddVideoPhotoContent>
-                    {newPost.video_link === "" ? (
+                    {newPost.video_link === '' ? (
                       <EmptyVideoPlayer> Add a Video </EmptyVideoPlayer>
                     ) : (
                       <ReactPlayer
                         url={newPost.video_link}
                         controls={true}
-                        style={{ width: "80%", margin: "auto" }}
+                        style={{ width: '80%', margin: 'auto' }}
                         muted={false}
                         playing={false}
                       />
@@ -234,7 +195,7 @@ else{
                     <CloseButtonVideo onClick={() => setAddPhoto((e) => !e)} />
                   </AddVideoPhotoContent>
                   <AddVideoPhotoContent>
-                    {newPost.img_link === "" ? (
+                    {newPost.img_link === '' ? (
                       <EmptyVideoPlayer> Add a Photo </EmptyVideoPlayer>
                     ) : (
                       <AddedPhoto src={newPost.img_link} alt="your post" />

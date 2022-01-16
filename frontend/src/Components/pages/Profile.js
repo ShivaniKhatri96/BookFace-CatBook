@@ -19,10 +19,14 @@ const Profile = () => {
           `http://localhost:5000/comments/${userID}`
         );
         const  justUserComments = result.data.comments
-        
+        const sorted = justUserComments.sort(function( a, b) {
+          var c = new Date(a.date)
+          var d = new Date(b.date)
+          return d-c
+        })
 
-        setUserComms(justUserComments)
-        },[])
+        setUserComms(sorted)
+        },[userComms])
 
         console.log(userComms)
         

@@ -21,10 +21,19 @@ const Home = () => {
         })
         const onlyFilled = justComments.filter(a => a.length !== 0)
         const  merged = [].concat.apply([], onlyFilled);
-        setAllComms(merged)
+
+        const sorted = merged.sort(function( a, b) {
+          var c = new Date(a.date)
+          var d = new Date(b.date)
+          return d-c
+        })
+
+        console.log(sorted)
+        // console.log(merged)
+        setAllComms(sorted)
         // const allCommentsPosts = Object.assign({}, merged);
         
-        console.log(allcomms)
+        
        
       },[allcomms]);
       

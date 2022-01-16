@@ -36,18 +36,19 @@ function PostCard(props) {
           <CardMainContentWrapper>
             <CardMainContentText>{com.content}</CardMainContentText>
             {com.img_link === "" ? (
-              <div>No photo added</div>
+              <div height="1rem"></div>
             ) : (
               <CardMainContextPhoto src={com.img_link} />
             )}
-
+            <CardMainContentVideo>  
             {com.video_link === "" ? (
-              <div>No video Added</div>
+              <ReactPlayer url={com.video_link} width="100%" height="20rem" />
             ) : (
-              <CardMainContentVideo>
-                <ReactPlayer url={com.video_link} width="100%" height="25rem" />
+              
+                <ReactPlayer url={com.video_link} width="auto" height="auto" />
+                )}
               </CardMainContentVideo>
-            )}
+            
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   UserPostCard,
   CardMainHeader,
@@ -17,13 +17,12 @@ import {
   LikeButton,
   LikebuttonWrapper,
   LikeText,
-} from "./PostCard.style";
-import { RiEditFill, RiDeleteBin5Line } from "react-icons/ri";
-import ReactPlayer from "react-player";
+} from './PostCard.style';
+import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
+import ReactPlayer from 'react-player';
 
 function PostCard(props) {
-
-  console.log(props.userposts)
+  console.log(props.userposts);
 
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
 
@@ -38,7 +37,7 @@ function PostCard(props) {
   return (
     <>
       {props.userposts.map((post) => (
-        <UserPostCard key={post._id} >
+        <UserPostCard key={post._id}>
           <CardMainHeader>
             <CardTitleInfos>
               <CardMainHeaderPhoto />
@@ -58,19 +57,22 @@ function PostCard(props) {
           </CardMainHeader>
           <CardMainContentWrapper>
             <CardMainContentText>{post.content}</CardMainContentText>
-            {post.img_link === "" ? (
-              <div>No photo added</div>
+            {post.img_link === '' ? (
+              <div></div>
             ) : (
               <CardMainContextPhoto src={post.img_link} />
             )}
-
-            {post.video_link === "" ? (
-              <div>No video Added</div>
-            ) : (
-              <CardMainContentVideo>
-                <ReactPlayer url={post.video_link} width="100%" height="25rem" />
-              </CardMainContentVideo>
-            )}
+            <CardMainContentVideo>
+              {post.video_link === '' ? (
+                <div></div>
+              ) : (
+                <ReactPlayer
+                  url={post.video_link + ' '}
+                  width="100%"
+                  height="auto"
+                />
+              )}
+            </CardMainContentVideo>
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
