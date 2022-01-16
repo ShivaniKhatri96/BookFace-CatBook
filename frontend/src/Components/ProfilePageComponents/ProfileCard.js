@@ -13,14 +13,7 @@ import { useState } from 'react'
 
 function ProfileCard() {
 
-  const [ userProfile , setUserProfile ] = useState({
-    userId: 1,
-    userName: 'Alisan',
-    userSurname: 'Cavus',
-    userAboutMe: 'Hi I am Levi. The cutest cat in da world!!',
-    userPosts: [],
-    
-})
+ 
   return (
     <>
     <Main>
@@ -28,9 +21,9 @@ function ProfileCard() {
       <ProfileMain>
         <ProfilePhoto> </ProfilePhoto>
         <ProfileName>
-          <Spa> {`${userProfile.userName} ${userProfile.userSurname}` } </Spa>
+          <Spa> name surname </Spa>
           <SpaTitle> About Me </SpaTitle>
-          <SpaText> {userProfile.userAboutMe} </SpaText>
+          <SpaText> about me text </SpaText>
         </ProfileName>
       </ProfileMain>
     </Main>
