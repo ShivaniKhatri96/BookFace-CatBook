@@ -24,9 +24,9 @@ const Home = () => {
         setAllComms(merged)
         // const allCommentsPosts = Object.assign({}, merged);
         
-        
+        console.log(allcomms)
        
-      },[]);
+      },[allcomms]);
       
         
 
