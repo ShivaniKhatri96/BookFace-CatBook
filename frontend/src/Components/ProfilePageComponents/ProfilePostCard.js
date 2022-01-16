@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {
   UserPostCard,
   CardMainHeader,
@@ -21,72 +21,55 @@ import {
 import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
 import ReactPlayer from 'react-player';
 
+function PostCard(props) {
+  
 
-function PostCard() {
- 
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
- 
-  const handleDelete = () => {
-    
-  }
 
-  const handleMenu = (e) => {
-    setOpenedEditMenu(!e)
-  }
 
-  
-  const handleLikes = () => {
-    
-  }
-
-  
   return (
     <>
-      
-        <UserPostCard >
+      {props.userposts.map((post) => (
+        <UserPostCard key={post._id}>
           <CardMainHeader>
             <CardTitleInfos>
               <CardMainHeaderPhoto />
-              <CardTitleName> Alisan </CardTitleName>
+              <CardTitleName> </CardTitleName>
             </CardTitleInfos>
             <CardTitleChange>
               {openedEditMenu ? (
                 <ThreeDotsMenu>
-                  <RiEditFill />
-                  <RiDeleteBin5Line onClick={handleDelete}/>
-                  <ThreeDotsVert
-                    onClick={handleMenu}
-                  />
+                  <RiDeleteBin5Line  />
+                  <ThreeDotsVert onClick={(e) => setOpenedEditMenu(!e)} />
                 </ThreeDotsMenu>
               ) : (
-                <ThreeDots onClick={handleMenu}/>
+                <ThreeDots onClick={(e) => setOpenedEditMenu(!e)} />
               )}
             </CardTitleChange>
           </CardMainHeader>
           <CardMainContentWrapper>
-            <CardMainContentText></CardMainContentText>
-            {/* {id.postPhoto !== '' ? (
-              <CardMainContextPhoto src={id.postPhoto} />
-            ) : (
-              <> </>
-            )} */}
-
-            {/* {id.postVideo !== '' ? (
-              <CardMainContentVideo>
-                <ReactPlayer url={id.postVideo} width="100%" height="25rem" />
-              </CardMainContentVideo>
-            ) : (
+            <CardMainContentText>{post.content}</CardMainContentText>
+            {post.img_link === '' ? (
               <div></div>
-            )} */}
+            ) : (
+              <CardMainContextPhoto src={post.img_link} />
+            )}
+            <CardMainContentVideo>  
+            {post.video_link === "" ? (
+              <div></div>
+            ) : (
+                <ReactPlayer url={post.video_link} width="auto" height="auto" />
+                )}
+              </CardMainContentVideo>
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
-              <LikeButton onClick={handleLikes} />
-              {/* <LikeText> {likedtimes} Likes </LikeText> */}
+              <LikeButton  />
+              <LikeText> {post.likes} Likes </LikeText>
             </LikebuttonWrapper>
           </CardCommentLikeWrapper>
         </UserPostCard>
-      
+      ))}
     </>
   );
 }

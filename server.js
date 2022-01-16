@@ -27,6 +27,11 @@ app.use(passport.session());
 
 //setting authentication route (no router)\
 app.get("/authentication", function (req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   req.user ? res.send("Authenticated") : res.send("Login needed");
 });
 
