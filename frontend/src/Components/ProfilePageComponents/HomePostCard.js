@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   UserPostCard,
   CardMainHeader,
@@ -13,16 +13,10 @@ import {
   LikeButton,
   LikebuttonWrapper,
   LikeText,
-} from "./PostCard.style";
-import ReactPlayer from "react-player";
+} from './PostCard.style';
+import ReactPlayer from 'react-player';
 
 function PostCard(props) {
-
-
-  
-
-  const handleLikes = () => {};
-
   return (
     <>
       {props.comments.map((com) => (
@@ -35,24 +29,22 @@ function PostCard(props) {
           </CardMainHeader>
           <CardMainContentWrapper>
             <CardMainContentText>{com.content}</CardMainContentText>
-            {com.img_link === "" ? (
+            {com.img_link === '' ? (
               <div height="1rem"></div>
             ) : (
               <CardMainContextPhoto src={com.img_link} />
             )}
-            <CardMainContentVideo>  
-            {com.video_link === "" ? (
-              <ReactPlayer url={com.video_link} width="100%" height="20rem" />
-            ) : (
-              
+            <CardMainContentVideo>
+              {com.video_link === '' ? (
+                <div></div>
+              ) : (
                 <ReactPlayer url={com.video_link} width="auto" height="auto" />
-                )}
-              </CardMainContentVideo>
-            
+              )}
+            </CardMainContentVideo>
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
-              <LikeButton onClick={handleLikes} />
+              <LikeButton />
               <LikeText> {com.likes} Likes </LikeText>
             </LikebuttonWrapper>
           </CardCommentLikeWrapper>

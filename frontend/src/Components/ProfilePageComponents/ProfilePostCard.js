@@ -22,17 +22,10 @@ import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
 import ReactPlayer from 'react-player';
 
 function PostCard(props) {
-  console.log(props.userposts);
+  
 
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
 
-  const handleDelete = () => {};
-
-  const handleMenu = (e) => {
-    setOpenedEditMenu(!openedEditMenu);
-  };
-
-  const handleLikes = () => {};
 
   return (
     <>
@@ -46,12 +39,11 @@ function PostCard(props) {
             <CardTitleChange>
               {openedEditMenu ? (
                 <ThreeDotsMenu>
-                  <RiEditFill />
-                  <RiDeleteBin5Line onClick={handleDelete} />
-                  <ThreeDotsVert onClick={handleMenu} />
+                  <RiDeleteBin5Line  />
+                  <ThreeDotsVert onClick={(e) => setOpenedEditMenu(!e)} />
                 </ThreeDotsMenu>
               ) : (
-                <ThreeDots onClick={handleMenu} />
+                <ThreeDots onClick={(e) => setOpenedEditMenu(!e)} />
               )}
             </CardTitleChange>
           </CardMainHeader>
@@ -62,21 +54,17 @@ function PostCard(props) {
             ) : (
               <CardMainContextPhoto src={post.img_link} />
             )}
-            <CardMainContentVideo>
-              {post.video_link === '' ? (
-                <div></div>
-              ) : (
-                <ReactPlayer
-                  url={post.video_link + ' '}
-                  width="100%"
-                  height="auto"
-                />
-              )}
-            </CardMainContentVideo>
+            <CardMainContentVideo>  
+            {post.video_link === "" ? (
+              <div></div>
+            ) : (
+                <ReactPlayer url={post.video_link} width="auto" height="auto" />
+                )}
+              </CardMainContentVideo>
           </CardMainContentWrapper>
           <CardCommentLikeWrapper>
             <LikebuttonWrapper>
-              <LikeButton onClick={handleLikes} />
+              <LikeButton  />
               <LikeText> {post.likes} Likes </LikeText>
             </LikebuttonWrapper>
           </CardCommentLikeWrapper>

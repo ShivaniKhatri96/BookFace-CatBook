@@ -28,10 +28,10 @@ const Profile = () => {
         setUserComms(sorted)
         },[userComms])
 
-        console.log(userComms)
+        
         
        
-      ;
+      
     return (
         <>
         <Navbar />
