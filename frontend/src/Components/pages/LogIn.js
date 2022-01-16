@@ -10,40 +10,44 @@ import {
   StyledLink,
 } from "../componentsShiv/stylesShiv/StyledLink.styled";
 import { Label } from "../componentsShiv/stylesShiv/Label.styled";
-// import Input from "../components/Inputbox";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { Input } from "../componentsShiv/stylesShiv/Input.styled";
-const LogIn = () => {
+const LogIn = ({ auth, setAuth }) => {
+  const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
   const [user, setUser] = useState({
-    login:"", password:""
+    login: "",
+    password: "",
   });
   let name, value;
-  const handleInputs= (e) => {
-    console.log(e);
-    name= e.target.name;
+  const handleInputs = (e) => {
+    name = e.target.name;
     value = e.target.value;
-    setUser({...user, [name]: value});
-  }
+    setUser({ ...user, [name]: value });
+  };
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(user, null, 2));
-    const {login, password} = user;
-    const res= await fetch("/users/login", {
-      method:"POST",
+    const { login, password } = user;
+    const res = await fetch("/users/login", {
+      method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        login,password
-      })
+        login,
+        password,
+      }),
     });
-    if(res.ok){
+    if (res.ok) {
       console.log("Successfully logged in");
+      setAuth("Authenticated");
       navigate("../");
+    } else {
+      setErrorMessage("User name or Password is wrong!");
+      console.log("login or password is wrong");
     }
-  }
+  };
   return (
     <div>
       <GridLogin>
@@ -58,7 +62,6 @@ const LogIn = () => {
                 type="text"
                 name="login"
                 placeholder="Enter your user name"
-                // value={newUser.email}
                 onChange={handleInputs}
               ></Input>
               <br />
@@ -68,11 +71,11 @@ const LogIn = () => {
                 type="password"
                 name="password"
                 placeholder="Enter your password"
-                // value={newUser.password}
                 onChange={handleInputs}
                 title="User name or password is incorrect!"
               ></Input>
               <br />
+              <p style={{ color: "#9B0000" }}> {errorMessage}</p>
               <StyledButton>Log In</StyledButton>
             </form>
             <StyledLinkDiv>

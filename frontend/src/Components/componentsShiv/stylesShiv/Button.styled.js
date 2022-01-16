@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { DeviceMax, DeviceMin } from "../Breakpoints";
-// import { DeviceMax, DeviceMin } from "./Breakpoints";
+import {  DeviceMin } from "../Breakpoints";
 export const StyledButton = styled.button`
 border: 2px solid #A94F2F;
 background: #A94F2F;
@@ -9,7 +8,7 @@ color: white;
 box-shadow: 5px 10px 25px -12px  #A94F2F; 
 cursor: pointer;
 @media ${DeviceMin.xs} {
-    width: 88%;
+    width: 87%;
     border-radius: 0.3rem;
     font-size: 14px;
     margin: 0 0 0.4rem 0;

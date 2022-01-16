@@ -1,8 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router";
-// import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as Yup from 'yup';
 import { useEffect } from "react";
 import {
   GridSignup,
@@ -22,23 +19,9 @@ import {
 } from "../componentsShiv/stylesShiv/StyledLink.styled";
 import { Label } from "../componentsShiv/stylesShiv/Label.styled";
 import { Div } from "../componentsShiv/stylesShiv/Div.styled";
-// import Input from "../components/Inputbox";
 import { Input } from "../componentsShiv/stylesShiv/Input.styled";
-// import InputPassword from "../components/Inputbox";
 const SignUp = () => {
-  // //password validation
-  // const validationSchema = Yup.object().shape({
-  //   password: Yup.string()
-  //     .required('Password is required')
-  //     .min(4, 'Password length should be at least 4 characters'),
-  //   cPassword: Yup.string()
-  //     .required('Confirm Password is required')
-  //     .oneOf([Yup.ref('password')], 'Passwords must match!'),
-  // })
-  // const formOptions = { resolver: yupResolver(validationSchema) };
-  // const { register, formState } = useForm(formOptions);
-  // const { errors } = formState;
-
+  const [errorMessage, setErrorMessage] = useState("");
 
   //navigation to go to login page after sign up
   let navigate = useNavigate();
@@ -49,75 +32,25 @@ const SignUp = () => {
   let name, value;
   const handleInputs = (e) => {
     //e= event
-    // console.log(e);
     name = e.target.name;
     value = e.target.value;
     setNewUser({ ...newUser, [name]: value });
     //[name]: if I am getting value from name= email, [name] will be email
   }
   //password validation
-  //   let condition = {
-  // accept: true
-  //   };
-  // const [disable,setDisable]= React.useState({
-  // disable: true
-  // });
-  // const handleButton = (e) => {
-  //   console.log(e);
-  //   name = e.target.name;
-  //   value = e.target.value;
-  //   setDisable(false);
-  //   console.log("button enabled");
-  // }
   let passwordMatch = useRef(false);
   useEffect(() => {
     if (newUser.password === newUser.cPassword && newUser.password !== "" && newUser.cPassword !== "") {
-      // console.log("matched");
-      // console.log(JSON.stringify(newUser.password, null, 2));
-      // console.log(JSON.stringify(newUser.cPassword, null, 2));
       passwordMatch.current = true;
-      // console.log(passwordMatch.current);
-      // newUser.btn.enabled;
     }
     else {
-      // console.log("unmatched");
-      // console.log(JSON.stringify(newUser.password, null, 2));
-      // console.log(JSON.stringify(newUser.cPassword, null, 2));
       passwordMatch.current = false;
-      // console.log(passwordMatch.current);
     }
-    // console.log(passwordMatch.current);
-    // console.log(typeof(passwordMatch.current));
   }, [newUser.password, newUser.cPassword])
-  // if ((passwordMatch.current) === (condition.accept)) {
-  //   console.log("send");
-  //   console.log((passwordMatch.current));
-  // }
-  // else {
-  //   console.log("don't send");
-  //   console.log((passwordMatch.current));
-  // }
-  //fetch is utilized to connect to database via server and push the data
-  //
-  //here passwordMatch.current gives previous value
-  //so condition is opposite
-  //   if(passwordMatch.current === false){
-  //     console.log(":"+ passwordMatch.current);
-  //     console.log(typeof(passwordMatch.current));
-  // console.log("register");
-  // console.log(" ");
-  //   }
-  //   else {
-  //     console.log("::"+ passwordMatch.current);
-  //     console.log(typeof(passwordMatch.current));
-  //     console.log("Invalid Registration due to password mismatch");
-  //     console.log(" ");
-  //   }
+
   const postData = async (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(newUser, null, 2));
     const { login, email, password } = newUser;
-    // const {name, email, password, cPassword} = newUser;
     if (passwordMatch.current !== false) {
       const res = await fetch("/users/", {
         method: "POST",
@@ -125,7 +58,6 @@ const SignUp = () => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          // name, email, password, cPassword
           login, email, password
         })
       });
@@ -134,12 +66,12 @@ const SignUp = () => {
         //moving to login page once signup is successful using navigate
         navigate("../Login");
       } else {
+        setErrorMessage("User name / Email already in use!");
         console.log("Invalid Registration");
       }
       console.log("register");
     }
     else {
-
       console.log("Invalid Registration due to password mismatch");
     }
 
@@ -209,10 +141,7 @@ const SignUp = () => {
                 onChange={handleInputs}
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                 title="Must contain atleast 1 number, 1 uppercase, 1 lowercase letter, and >= 6 characters."
-              // {...register('password')}
-              // className={`form-control $(errors.password ? 'is-invalid)' : ''}`}
               ></Input>
-              {/* <Div className="invalid-feedback">{errors.password?.message}</Div> */}
               <br />
               <Label>Confirm Password</Label>
               <br />
@@ -224,12 +153,9 @@ const SignUp = () => {
                 title="Repeat the password you entered above!"
                 value={newUser.cPassword}
                 onChange={handleInputs}
-              // {...register('cPassword')}
-              // className={`form-control $(errors.cPassword ? 'is-invalid)' : ''}`}
               ></Input>
-              {/* <Div className="invalid-feedback">{errors.cPassword?.message}</Div> */}
               <br />
-              {/* <StyledButton disabled={disable} onClick={handleButton} >Sign Up</StyledButton> */}
+              <p style={{color:"#9B0000"}}> {errorMessage}</p>
               <StyledButton>Sign Up</StyledButton>
             </form>
             <Div>
