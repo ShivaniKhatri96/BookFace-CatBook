@@ -119,7 +119,10 @@ router.post("/", (req, res) => {
 
 //log user in
 router.post("/login", passport.authenticate("local"), (req, res) => {
-  res.send("Authorized");
+  User.findOne({ login: req.body.login }, { _id: 1 }, function (err, person) {
+    if (err) res.status(500).send(err);
+    res.status(200).send(person);
+  });
 });
 
 //update user info

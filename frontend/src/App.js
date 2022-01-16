@@ -16,12 +16,10 @@ function App() {
   const [auth, setAuth] = useState("");
 
   useEffect(async () => {
-    const response = await fetch("/authentication").then(
-      (res) => res.text()
-    );
+    const response = await fetch("/authentication").then((res) => res.text());
     setAuth(response);
     console.log(response);
-  }, []);
+  }, [auth]);
 
   if (auth === "Authenticated") {
     return (
@@ -42,7 +40,11 @@ function App() {
     return (
       <div className="page-container">
         <Routes>
-          <Route exact path="/Login" element={<LogIn auth={auth} setAuth={setAuth} />} />
+          <Route
+            exact
+            path="/Login"
+            element={<LogIn auth={auth} setAuth={setAuth} />}
+          />
           <Route exact path="/Signup" element={<SignUp />} />
         </Routes>
       </div>

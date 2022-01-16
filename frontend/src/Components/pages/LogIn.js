@@ -41,7 +41,7 @@ const LogIn = ({ auth, setAuth }) => {
     });
     if (res.ok) {
       console.log("Successfully logged in");
-      setAuth("Authenticated");
+      setAuth("");
       navigate("../");
     } else {
       setErrorMessage("User name or Password is wrong!");
