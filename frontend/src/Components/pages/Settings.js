@@ -4,9 +4,9 @@ import Footer from "../Footer";
 function Settings() {
     return (
         <>
-        <Navbar  />
+        {/* <Navbar  /> */}
         Settings
-            <Footer />
+            {/* <Footer /> */}
           
         </>
     )

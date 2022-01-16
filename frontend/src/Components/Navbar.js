@@ -30,14 +30,8 @@ import { CgProfile } from 'react-icons/cg';
 import { AiFillSetting } from 'react-icons/ai'
 import { HiOutlineMenu, HiOutlineMenuAlt4 } from 'react-icons/hi';
 import SearchBar from './SearchBar';
-// import logout from './pages/Logout';
 function Navbar() {
-  //{ auth, setAuth }
-  // let navigate = useNavigate;
-// const clicked = () => {
-//     setAuth("Login needed");
-//     navigate("./pages/LogIn.js");
-//   }
+
   const [extendNav, setExtendNav] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
@@ -76,13 +70,10 @@ function Navbar() {
                   {isActive && (
                     <DropdownMenu>
                       <NavbarLinkDrop to="/Settings"><AiFillSetting/> Settings </NavbarLinkDrop>
-                      <NavbarLinkDrop> 
-                        {/* onClick= {clicked} */}
-                        <RiLogoutCircleRLine  /> Logout
-                     </NavbarLinkDrop>
-                      {/* <NavbarLinklog>
-                        <RiLogoutCircleRLine /> Logout
-                      </NavbarLinklog> */}
+                      {/* onClick={clicked} */}
+                      <NavbarLinklog  >
+                        <RiLogoutCircleRLine to="/Login"/> Logout
+                      </NavbarLinklog>
                     </DropdownMenu>
                   )}
                 </Dropdown>
@@ -119,8 +110,8 @@ function Navbar() {
             <NavbarLinkExtended to="/Settings">Settings</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-                {/* onClick= {clicked} */}
-              <NavbarLinkExtended >Logout</NavbarLinkExtended>
+              {/* onClick={clicked} */}
+              <NavbarLinkExtended to="/Login">Logout</NavbarLinkExtended>
             </NavbarListItems>
           </NavbarList>
         </NavbarExtended>

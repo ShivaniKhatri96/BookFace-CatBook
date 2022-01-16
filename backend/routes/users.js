@@ -56,15 +56,15 @@ router.get("/friends/:id", (req, res) => {
 });
 
 //logout
+
 router.get("/logout", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  req.logout();
+   req.logout();
   res.send("User logged out");
-  //res.redirect('/login');
 });
 
 //create a new user

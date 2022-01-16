@@ -27,23 +27,22 @@ function App() {
     return (
       <div className="page-container">
         {/* auth={auth} setAuth={setAuth} */}
-          {/* <Navbar  /> */}
+        <Navbar  />
         <Routes>
-        {/* <Route exact path="/Login" element={<LogIn />} /> */}
-          {/* <Route exact path="/Signup" element={<SignUp />} /> */}
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Profile" element={<Profile />} />
           <Route exact path="/Settings" element={<Settings />} />
           <Route exact path="/Notifications" element={<Notifications />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
-  } else {
+  } 
+  else {
     return (
       <div className="page-container">
-        <Routes> 
-          <Route exact path="/" element={<LogIn auth={auth} setAuth={setAuth} />} />
+        <Routes>
+          <Route exact path="/Login" element={<LogIn auth={auth} setAuth={setAuth} />} />
           <Route exact path="/Signup" element={<SignUp />} />
         </Routes>
       </div>

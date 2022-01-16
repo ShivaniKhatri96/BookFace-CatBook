@@ -5,9 +5,9 @@ function Notifications() {
   return (
     <>
      
-      <Navbar  />
+      {/* <Navbar  /> */}
       Notifications
-            <Footer />
+            {/* <Footer /> */}
     </>
   );
 }

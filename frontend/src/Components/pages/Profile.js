@@ -34,11 +34,11 @@ const Profile = () => {
       
     return (
         <>
-         <Navbar  />
+         {/* <Navbar  /> */}
          <ProfileCard/>
         <ProfileMakePost/>
         <ProfilePostCard userposts={userComms}/>
-        <Footer />
+        {/* <Footer /> */}
         </>
         )
 }

@@ -30,10 +30,10 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <ProfileMakePost />
       <HomePostCard comments={allcomms} />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
