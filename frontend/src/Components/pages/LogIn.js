@@ -13,39 +13,41 @@ import { Label } from "../componentsShiv/stylesShiv/Label.styled";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { Input } from "../componentsShiv/stylesShiv/Input.styled";
-const LogIn = () => {
+const LogIn = ({ auth, setAuth }) => {
   const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
   const [user, setUser] = useState({
-    login: "", password: ""
+    login: "",
+    password: "",
   });
   let name, value;
   const handleInputs = (e) => {
     name = e.target.name;
     value = e.target.value;
     setUser({ ...user, [name]: value });
-  }
+  };
   const submitHandler = async (e) => {
     e.preventDefault();
     const { login, password } = user;
     const res = await fetch("/users/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        login, password
-      })
+        login,
+        password,
+      }),
     });
     if (res.ok) {
       console.log("Successfully logged in");
+      setAuth("Authenticated");
       navigate("../");
-    }
-    else {
+    } else {
       setErrorMessage("User name or Password is wrong!");
       console.log("login or password is wrong");
     }
-  }
+  };
   return (
     <div>
       <GridLogin>
@@ -73,7 +75,7 @@ const LogIn = () => {
                 title="User name or password is incorrect!"
               ></Input>
               <br />
-              <p style={{color:"#9B0000"}}> {errorMessage}</p>
+              <p style={{ color: "#9B0000" }}> {errorMessage}</p>
               <StyledButton>Log In</StyledButton>
             </form>
             <StyledLinkDiv>
