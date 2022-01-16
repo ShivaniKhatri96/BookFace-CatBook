@@ -78,8 +78,10 @@ function ProfileMakePost() {
       ...newPost,
       [name]: value,
     });
-    console.log(newPost);
+    
   };
+
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -161,7 +163,7 @@ function ProfileMakePost() {
                     <GetUrl
                       type="url"
                       name="video_link"
-                      value={newPost.video_link + ' '}
+                      value={newPost.video_link}
                       placeholder="Copy and paste a video link to add a video to your post."
                       onChange={handleInput}
                     />

@@ -13,15 +13,16 @@ import Footer from "./Components/Footer";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [auth, setAuth] = useState("");
+  const [auth, setAuth] = useState('');
 
-  useEffect(async () => {
-    const response = await fetch("/authentication").then((res) => res.text());
-    setAuth(response);
-    console.log(response);
+  useEffect(() => {
+    (async () => {
+      const response = await fetch('/authentication').then((res) => res.text());
+      setAuth(response);
+    })();
   }, [auth]);
 
-  if (auth === "Authenticated") {
+  if (auth === 'Authenticated') {
     return (
       <div className="page-container">
         {/* auth={auth} setAuth={setAuth} */}
@@ -40,6 +41,11 @@ function App() {
     return (
       <div className="page-container">
         <Routes>
+        <Route
+            exact
+            path="/"
+            element={<LogIn auth={auth} setAuth={setAuth} />}
+          />
           <Route
             exact
             path="/Login"

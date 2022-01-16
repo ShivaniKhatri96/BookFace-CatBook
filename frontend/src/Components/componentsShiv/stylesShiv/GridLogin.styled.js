@@ -14,7 +14,7 @@ export const RowLogin = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     width: 85vw;
-    height: 90vh;
+    // height: 90vh;
     border-radius: 0.2rem;
     margin: 4vh auto 4vh auto;
   }
@@ -40,7 +40,7 @@ export const RowLogin = styled.div`
     margin: 10vh auto 3vh auto;
   }
   @media ${DeviceMin.xl} {
-    height: 75vh;
+    // height: 75vh;
     margin: 10vh auto 6vh auto;
   }
   @media ${DeviceMin.xxl} {

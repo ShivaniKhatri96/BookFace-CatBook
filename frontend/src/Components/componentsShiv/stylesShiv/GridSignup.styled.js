@@ -16,7 +16,7 @@ export const RowSignup = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     width: 92vw;
-    height: 94vh;
+    // height: 94vh;
     border-radius: 0.2rem;
     margin: 2vh auto 2vh auto;
   }
@@ -41,7 +41,7 @@ export const RowSignup = styled.div`
     margin: 6vh auto 3vh auto;
   }
   @media ${DeviceMin.xl} {
-    height: 90vh;
+    // height: 90vh;
     width: 65vw;
     margin-top: 4vh;
   }
