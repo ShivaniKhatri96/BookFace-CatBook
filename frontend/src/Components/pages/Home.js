@@ -1,9 +1,8 @@
 import HomePostCard from '../ProfilePageComponents/HomePostCard';
 import ProfileMakePost from '../ProfilePageComponents/ProfileMakePost';
-import Navbar from '../Navbar';
-import Footer from '../Footer';
+
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+
 
 const Home = () => {
   const [allcomms, setAllComms] = useState([]);
@@ -12,9 +11,8 @@ const Home = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     (async () => {
-      const result = await axios('http://localhost:5000/comments');
-
-      const justComments = result.data.map((id) => {
+      const result = await fetch('/comments').then((res) => res.json());
+      const justComments = result.map((id) => {
         return id.comments;
       });
       const onlyFilled = justComments.filter((a) => a.length !== 0);
