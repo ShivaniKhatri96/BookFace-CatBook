@@ -16,7 +16,7 @@ export const RowLogin = styled.div`
     width: 85vw;
     // height: 90vh;
     border-radius: 0.2rem;
-    margin: 4vh auto 4vh auto;
+    margin: 10vh auto 4vh auto;
   }
   @media ${DeviceMin.sm} {
     width: 90vw;
@@ -69,7 +69,7 @@ export const Col2Login = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 0.2rem;
-    padding: 15% 0 0 8.5%;
+    padding: 15% 0 35% 8.5%;
     h1 {
       font-size: 20px;
       margin-bottom: 0.5rem;

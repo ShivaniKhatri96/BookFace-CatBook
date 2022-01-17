@@ -18,7 +18,7 @@ export const RowSignup = styled.div`
     width: 92vw;
     // height: 94vh;
     border-radius: 0.2rem;
-    margin: 2vh auto 2vh auto;
+    margin: 5vh auto 2vh auto;
   }
   @media ${DeviceMin.sm} {
     // height: 90vh;
@@ -68,7 +68,7 @@ export const Col2Signup = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 0.2rem;
-  padding: 2% 0 0 8.5%;
+  padding: 10% 0 10% 8.5%;
   h1 {
     font-size: 20px;
     margin-bottom: 1rem;
