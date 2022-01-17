@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   NavbarContainer,
   NavbarLeft,
@@ -18,42 +18,31 @@ import {
   SearchDiv,
   NavbarLinklog,
   NavbarLinkDrop,
-} from './Navbar.style';
+} from "./Navbar.style";
 
-import LogoImg from '../assets/catbook.svg';
-import { HiMenu } from 'react-icons/hi';
-import { GrClose } from 'react-icons/gr';
-import { FaHome } from 'react-icons/fa';
-import { RiLogoutCircleRLine } from 'react-icons/ri';
-import { MdNotificationsNone } from 'react-icons/md';
-import { CgProfile } from 'react-icons/cg';
-import { AiFillSetting } from 'react-icons/ai'
-import { HiOutlineMenu, HiOutlineMenuAlt4 } from 'react-icons/hi';
-import SearchBar from './SearchBar';
-<<<<<<< HEAD
-function Navbar() {
+import LogoImg from "../assets/catbook.svg";
+import { HiMenu } from "react-icons/hi";
+import { GrClose } from "react-icons/gr";
+import { FaHome } from "react-icons/fa";
+import { RiLogoutCircleRLine } from "react-icons/ri";
+import { MdNotificationsNone } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
+import { AiFillSetting } from "react-icons/ai";
+import { HiOutlineMenu, HiOutlineMenuAlt4 } from "react-icons/hi";
+import SearchBar from "./SearchBar";
+import { useNavigate } from "react-router";
 
-=======
-import { useNavigate} from 'react-router';
+function Navbar({ auths }) {
+  let navTo = useNavigate();
+  console.log(auths);
 
-function Navbar( {auths} ) {
-  let navTo = useNavigate()
-  console.log(auths)
-  
->>>>>>> ccd41d1 ( logout)
   const [extendNav, setExtendNav] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
   const logOut = async () => {
-
-    const resp =  await fetch('/users/logout')
-    auths("Login needed")
-    console.log("hi")
-    
-    
-    
-  }
-
+    const resp = await fetch("/users/logout");
+    auths("Login needed");
+  };
 
   return (
     <NavbarContainer extendNavBar={extendNav}>
@@ -89,15 +78,11 @@ function Navbar( {auths} ) {
                   </DropdownBtn>
                   {isActive && (
                     <DropdownMenu>
-                      <NavbarLinkDrop to="/Settings"><AiFillSetting/> Settings </NavbarLinkDrop>
-<<<<<<< HEAD
-                      {/* onClick={clicked} */}
-                      <NavbarLinklog  >
-                        <RiLogoutCircleRLine to="/Login"/> Logout
-=======
+                      <NavbarLinkDrop to="/Settings">
+                        <AiFillSetting /> Settings{" "}
+                      </NavbarLinkDrop>
                       <NavbarLinklog onClick={logOut}>
                         <RiLogoutCircleRLine /> Logout
->>>>>>> ccd41d1 ( logout)
                       </NavbarLinklog>
                     </DropdownMenu>
                   )}
@@ -124,7 +109,7 @@ function Navbar( {auths} ) {
               <NavbarLinkExtended to="/">Home</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-            <NavbarLinkExtended to="/Profile">Profile</NavbarLinkExtended>
+              <NavbarLinkExtended to="/Profile">Profile</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
               <NavbarLinkExtended to="/Notifications">
@@ -132,7 +117,7 @@ function Navbar( {auths} ) {
               </NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
-            <NavbarLinkExtended to="/Settings">Settings</NavbarLinkExtended>
+              <NavbarLinkExtended to="/Settings">Settings</NavbarLinkExtended>
             </NavbarListItems>
             <NavbarListItems>
               {/* onClick={clicked} */}

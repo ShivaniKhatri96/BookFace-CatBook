@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import ProfilePostCard from '../ProfilePageComponents/ProfilePostCard';
-import ProfileCard from '../ProfilePageComponents/ProfileCard';
-import ProfileMakePost from '../ProfilePageComponents/ProfileMakePost';
+import { useState, useEffect } from "react";
+import ProfilePostCard from "../ProfilePageComponents/ProfilePostCard";
+import ProfileCard from "../ProfilePageComponents/ProfileCard";
+import ProfileMakePost from "../ProfilePageComponents/ProfileMakePost";
 // import Navbar from '../Navbar';
 // import Footer from '../Footer';
-import axios from 'axios';
+import axios from "axios";
 
-const userID = '61dec5dc91821f6ecd34227e';
+const userID = "61dec5dc91821f6ecd34227e";
 
 const Profile = () => {
   const [userComms, setUserComms] = useState([]);
@@ -28,17 +28,11 @@ const Profile = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <ProfileCard />
-      <ProfileMakePost />
-      <ProfilePostCard userposts={userComms} />
-=======
       {/* <Navbar /> */}
       <ProfileCard />
       <ProfileMakePost />
       <ProfilePostCard userposts={userComms} />
       {/* <Footer /> */}
->>>>>>> ccd41d1 ( logout)
     </>
   );
 };
