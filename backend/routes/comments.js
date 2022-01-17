@@ -18,7 +18,6 @@ router.get("/", (req, res) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-
   User.find(
     {},
     { _id: 1, login: 1, profile_pic: 1, comments: 1 },
