@@ -32,7 +32,7 @@ router.get("/all", (req, res) => {
   });
 });
 
-//logout
+//user logout
 router.get("/logout", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.header(
