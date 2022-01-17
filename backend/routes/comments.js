@@ -13,16 +13,15 @@ const { User } = require("../models/User");
 
 //return all comments from all users
 router.get("/", (req, res) => {
-   
-res.setHeader("Access-Control-Allow-Origin", "*");
-res.header(
-  "Access-Control-Allow-Headers",
-  "Origin, X-Requested-With, Content-Type, Accept"
-);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
 
   User.find(
     {},
-    { comments: 1 },
+    { _id: 1, login: 1, profile_pic: 1, comments: 1 },
     { sort: { "comments.date": -1 } },
     function (err, comments) {
       if (err) res.status(500).send(err);

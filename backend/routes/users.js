@@ -32,6 +32,17 @@ router.get("/all", (req, res) => {
   });
 });
 
+//logout
+router.get("/logout", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  req.logout();
+  res.send("Unauthorized");
+});
+
 //return info on specific user (without password)
 //requires user id as a parameter
 router.get("/:id", (req, res) => {
@@ -53,18 +64,6 @@ router.get("/friends/:id", (req, res) => {
     if (err) res.status(500).send(err);
     res.status(200).send(person.friend_list);
   });
-});
-
-//logout
-
-router.get("/logout", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-   req.logout();
-  res.send("User logged out");
 });
 
 //create a new user
