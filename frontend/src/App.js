@@ -11,10 +11,10 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const [auth, setAuth] = useState('');
-
   useEffect(() => {
     (async () => {
       const response = await fetch('/authentication').then((res) => res.text());
@@ -32,6 +32,8 @@ function App() {
           <Route exact path="/Profile" element={<Profile />} />
           <Route exact path="/Settings" element={<Settings />} />
           <Route exact path="/Notifications" element={<Notifications />} />
+            {/* this is a  way to redirect to home page when people try to access unathorized links */}
+          <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
         <Footer />
       </div>
@@ -41,17 +43,19 @@ function App() {
     return (
       <div className="page-container">
         <Routes>
-        <Route
+        {/* <Route
             exact
             path="/"
             element={<LogIn auth={auth} setAuth={setAuth} />}
-          />
+          /> */}
           <Route
             exact
             path="/Login"
             element={<LogIn auth={auth} setAuth={setAuth} />}
           />
           <Route exact path="/Signup" element={<SignUp />} />
+          {/* this is a better way to redirect when people try to access unathorized links */}
+          <Route path="*" element={<Navigate replace to="/Login" />} />
         </Routes>
       </div>
     );
