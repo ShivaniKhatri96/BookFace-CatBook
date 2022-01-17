@@ -66,18 +66,6 @@ router.get("/friends/:id", (req, res) => {
 });
 
 //logout
-<<<<<<< HEAD
-
-router.get("/logout", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-   req.logout();
-  res.send("User logged out");
-});
-=======
 // router.get("/logout", (req, res) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
 //   res.header(
@@ -88,7 +76,6 @@ router.get("/logout", (req, res) => {
 //   res.send("User logged out");
 //   //res.redirect('/login');
 // });
->>>>>>> ccd41d1 ( logout)
 
 //create a new user
 //requires 'login', 'email' and 'password' fields in the request body
