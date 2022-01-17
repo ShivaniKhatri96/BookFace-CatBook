@@ -22,7 +22,7 @@ res.header(
 
   User.find(
     {},
-    { comments: 1 },
+    { _id: 1, login: 1, profile_pic: 1, comments: 1 },
     { sort: { "comments.date": -1 } },
     function (err, comments) {
       if (err) res.status(500).send(err);

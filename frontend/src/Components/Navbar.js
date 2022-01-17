@@ -30,10 +30,30 @@ import { CgProfile } from 'react-icons/cg';
 import { AiFillSetting } from 'react-icons/ai'
 import { HiOutlineMenu, HiOutlineMenuAlt4 } from 'react-icons/hi';
 import SearchBar from './SearchBar';
+<<<<<<< HEAD
 function Navbar() {
 
+=======
+import { useNavigate} from 'react-router';
+
+function Navbar( {auths} ) {
+  let navTo = useNavigate()
+  console.log(auths)
+  
+>>>>>>> ccd41d1 ( logout)
   const [extendNav, setExtendNav] = useState(false);
   const [isActive, setIsActive] = useState(false);
+
+  const logOut = async () => {
+
+    const resp =  await fetch('/users/logout')
+    auths("Login needed")
+    console.log("hi")
+    
+    
+    
+  }
+
 
   return (
     <NavbarContainer extendNavBar={extendNav}>
@@ -70,9 +90,14 @@ function Navbar() {
                   {isActive && (
                     <DropdownMenu>
                       <NavbarLinkDrop to="/Settings"><AiFillSetting/> Settings </NavbarLinkDrop>
+<<<<<<< HEAD
                       {/* onClick={clicked} */}
                       <NavbarLinklog  >
                         <RiLogoutCircleRLine to="/Login"/> Logout
+=======
+                      <NavbarLinklog onClick={logOut}>
+                        <RiLogoutCircleRLine /> Logout
+>>>>>>> ccd41d1 ( logout)
                       </NavbarLinklog>
                     </DropdownMenu>
                   )}
