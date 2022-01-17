@@ -20,29 +20,35 @@ import {
   NavbarLinkDrop,
 } from "./Navbar.style";
 
-import LogoImg from "../assets/catbook.svg";
-import { HiMenu } from "react-icons/hi";
-import { GrClose } from "react-icons/gr";
-import { FaHome } from "react-icons/fa";
-import { RiLogoutCircleRLine } from "react-icons/ri";
-import { MdNotificationsNone } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
-import { AiFillSetting } from "react-icons/ai";
-import { HiOutlineMenu, HiOutlineMenuAlt4 } from "react-icons/hi";
-import SearchBar from "./SearchBar";
-import { useNavigate } from "react-router";
+import LogoImg from '../assets/catbook.svg';
+import { HiMenu } from 'react-icons/hi';
+import { GrClose } from 'react-icons/gr';
+import { FaHome } from 'react-icons/fa';
+import { RiLogoutCircleRLine } from 'react-icons/ri';
+import { MdNotificationsNone } from 'react-icons/md';
+import { CgProfile } from 'react-icons/cg';
+import { AiFillSetting } from 'react-icons/ai'
+import { HiOutlineMenu, HiOutlineMenuAlt4 } from 'react-icons/hi';
+import SearchBar from './SearchBar';
+import { useNavigate} from 'react-router';
 
-function Navbar({ auths }) {
-  let navTo = useNavigate();
-  console.log(auths);
-
+function Navbar( {auths} ) {
+  let navTo = useNavigate()
+  console.log(auths)
+  
   const [extendNav, setExtendNav] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
   const logOut = async () => {
-    const resp = await fetch("/users/logout");
-    auths("Login needed");
-  };
+
+    const resp =  await fetch('/users/logout')
+    auths("Login needed")
+    console.log("hi")
+    
+    
+    
+  }
+
 
   return (
     <NavbarContainer extendNavBar={extendNav}>
@@ -78,9 +84,7 @@ function Navbar({ auths }) {
                   </DropdownBtn>
                   {isActive && (
                     <DropdownMenu>
-                      <NavbarLinkDrop to="/Settings">
-                        <AiFillSetting /> Settings{" "}
-                      </NavbarLinkDrop>
+                      <NavbarLinkDrop to="/Settings"><AiFillSetting/> Settings </NavbarLinkDrop>
                       <NavbarLinklog onClick={logOut}>
                         <RiLogoutCircleRLine /> Logout
                       </NavbarLinklog>

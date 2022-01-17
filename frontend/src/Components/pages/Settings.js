@@ -2,13 +2,13 @@
 // import Footer from "../Footer";
 
 function Settings() {
-  return (
-    <>
-      {/* <Navbar /> */}
-      Settings
-      {/* <Footer /> */}
-    </>
-  );
+    return (
+        <>
+        {/* <Navbar /> */}
+            Settings
+        {/* <Footer /> */}
+        </>
+    )
 }
 
 export default Settings;
