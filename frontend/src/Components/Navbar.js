@@ -34,7 +34,7 @@ import { useNavigate} from 'react-router';
 
 function Navbar( {auths} ) {
   let navTo = useNavigate()
-  console.log(auths)
+ 
   
   const [extendNav, setExtendNav] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -43,7 +43,7 @@ function Navbar( {auths} ) {
 
     const resp =  await fetch('/users/logout')
     auths("Login needed")
-    console.log("hi")
+    
     
     
     

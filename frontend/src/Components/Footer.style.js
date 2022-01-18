@@ -112,6 +112,7 @@ export const Lnk = styled.a`
   justify-content: center;
   margin: 5px;
   align-items: center;
+  color: black;
 
   &:visited {
     color: black;
@@ -128,6 +129,7 @@ export const Lnk = styled.a`
     justify-content: center;
 
     &:hover ${Spa} {
+      color: black;
       transition: none;
     }
   }

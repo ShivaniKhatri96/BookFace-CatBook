@@ -13,15 +13,40 @@ import Footer from "./Components/Footer";
 import { useState, useEffect } from "react";
 import { Navigate } from "react-router";
 
+
 function App() {
   document.title = "The Catbook";
-  const [auth, setAuth] = useState("");
+  const [auth, setAuth] = useState("Login needed");
+  const [user, setUser] = useState({
+    login: "",
+    password: "",
+    _id: ""
+  });
+
+  
   useEffect(() => {
-    (async () => {
+    let isCancelled = false;
+    const userAuth = async () => {
+      
       const response = await fetch("/authentication").then((res) => res.text());
       setAuth(response);
-    })();
-  }, [auth]);
+      
+      if(!isCancelled) {
+        console.log(user._id)
+      }
+      setAuth(response);
+      
+    };
+  
+    userAuth()
+    return () => {
+      isCancelled = true;
+    }
+    
+  });
+
+
+  
 
   if (auth === "Authenticated") {
     return (
@@ -52,7 +77,7 @@ function App() {
           <Route
             exact
             path="/Login"
-            element={<LogIn auth={auth} setAuth={setAuth} />}
+            element={<LogIn auth={auth} setAuth={setAuth} user={user} setUser={setUser}/>}
           />
           <Route exact path="/Signup" element={<SignUp />} />
           {/* this is a better way to redirect when people try to access unathorized links */}

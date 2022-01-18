@@ -1,3 +1,4 @@
+import React from "react";
 import {
   GridLogin,
   RowLogin,
@@ -13,13 +14,14 @@ import { Label } from "../componentsShiv/stylesShiv/Label.styled";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { Input } from "../componentsShiv/stylesShiv/Input.styled";
-const LogIn = ({ auth, setAuth }) => {
+import { response } from "express";
+const LogIn = ({ auth, setAuth, user, setUser }) => {
   const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
-  const [user, setUser] = useState({
-    login: "",
-    password: "",
-  });
+  // const [user, setUser] = useState({
+  //   login: "",
+  //   password: "",
+  // });
   let name, value;
   const handleInputs = (e) => {
     name = e.target.name;
@@ -38,14 +40,15 @@ const LogIn = ({ auth, setAuth }) => {
         login,
         password,
       }),
-    });
+    })
     if (res.ok) {
       console.log("Successfully logged in");
-      setAuth("");
+      setAuth("Authenticated");
       navigate("../");
     } else {
       setErrorMessage("User name or Password is wrong!");
       console.log("login or password is wrong");
+      setAuth("Login needed")
     }
   };
   return (

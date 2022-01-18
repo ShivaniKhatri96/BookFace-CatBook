@@ -2,15 +2,15 @@ import HomePostCard from '../ProfilePageComponents/HomePostCard';
 import ProfileMakePost from '../ProfilePageComponents/ProfileMakePost';
 
 import { useEffect, useState } from 'react';
-
+import React from 'react';
 
 const Home = () => {
   const [allcomms, setAllComms] = useState([]);
   
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    (async () => {
+    let isCancelled = false;
+    const getAllComms = async () => {
+      
       const result = await fetch('/comments').then((res) => res.json());
       const justComments = result.map((id) => {
         return id.comments;
@@ -22,13 +22,18 @@ const Home = () => {
         var d = new Date(b.date);
         return d - c;
       });
-
-      // console.log(merged)
+      if(!isCancelled) {
+        
+      }
       setAllComms(sorted);
-      // const allCommentsPosts = Object.assign({}, merged);})
-    })();
+    };
+  
+    getAllComms()
+    return () => {
+      isCancelled = true;
+    }
+    
   }, [allcomms]);
-
 
 
 
