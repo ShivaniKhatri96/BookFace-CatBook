@@ -14,13 +14,14 @@ import { Label } from "../componentsShiv/stylesShiv/Label.styled";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { Input } from "../componentsShiv/stylesShiv/Input.styled";
-const LogIn = ({ auth, setAuth, user, setUser }) => {
+
+const LogIn = ({ auth, setAuth }) => {
   const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
-  // const [user, setUser] = useState({
-  //   login: "",
-  //   password: "",
-  // });
+  const [user, setUser] = useState({
+    login: "",
+    password: "",
+  });
   let name, value;
   const handleInputs = (e) => {
     name = e.target.name;
@@ -39,7 +40,9 @@ const LogIn = ({ auth, setAuth, user, setUser }) => {
         login,
         password,
       }),
-    });
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
     if (res.ok) {
       console.log("Successfully logged in");
       setAuth("Authenticated");
@@ -47,7 +50,6 @@ const LogIn = ({ auth, setAuth, user, setUser }) => {
     } else {
       setErrorMessage("User name or Password is wrong!");
       console.log("login or password is wrong");
-      setAuth("Login needed");
     }
   };
   return (
