@@ -7,11 +7,14 @@ import ProfileMakePost from '../ProfilePageComponents/ProfileMakePost';
 // import Footer from '../Footer';
 
 
-const userID = "61dec5dc91821f6ecd34227e";
 
-const Profile = () => {
+
+const Profile = ( {coolDan} ) => {
   const [userComms, setUserComms] = useState([]);
+  const [veli, setVeli] = useState(false)
 
+  const userID = `${coolDan}`;
+  console.log(userID)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   // useEffect(() => {
   //   let isCancelled = false;
@@ -37,13 +40,34 @@ const Profile = () => {
     
   // }, [userComms]);
 
+  useEffect(() => {
+    getUserComms()
+    // setAli(true)
+    
+    console.log(veli)
+  },[veli])
+
+  const getUserComms = async () => {
+      
+    const result = await fetch(`comments/${userID}`).then((res) => res.json());
+      const justUserComments = result.comments;
+      console.log(justUserComments)
+      const sorted = justUserComments.sort(function (a, b) {
+        var c = new Date(a.date);
+        var d = new Date(b.date);
+        return d - c;
+      });
+    setUserComms(sorted);
+    
+  }
+
 
 
   return (
     <>
       {/* <Navbar /> */}
       <ProfileCard />
-      <ProfileMakePost />
+      <ProfileMakePost veli={veli} setVeli={setVeli}/>
       <ProfilePostCard userposts={userComms} />
       {/* <Footer /> */}
     </>

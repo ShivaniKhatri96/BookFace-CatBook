@@ -15,6 +15,7 @@ import { Navigate } from "react-router";
 
 function App() {
   document.title = "The Catbook";
+  const [coolDan, setCoolDan] = useState("");
   const [auth, setAuth] = useState("Login needed");
   const [user, setUser] = useState({
     login: "",
@@ -45,7 +46,7 @@ function App() {
   //     isCancelled = true;
   //   };
   // });
-
+  console.log(coolDan)
   if (auth === "Authenticated") {
     return (
       <div className="page-container">
@@ -54,7 +55,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           {/* <Route exact path="/Login" element={<LogIn />} /> */}
           {/* <Route exact path="/Signup" element={<SignUp />} /> */}
-          <Route exact path="/Profile" element={<Profile />} />
+          <Route exact path="/Profile" element={<Profile coolDan={coolDan} />} />
           <Route exact path="/Settings" element={<Settings />} />
           <Route exact path="/Notifications" element={<Notifications />} />
           {/* this is a  way to redirect to home page when people try to access unathorized links */}
@@ -81,6 +82,8 @@ function App() {
                 setAuth={setAuth}
                 user={user}
                 setUser={setUser}
+                coolDan={coolDan}
+                setCoolDan={setCoolDan}
               />
             }
           />

@@ -14,15 +14,16 @@ import { Label } from "../componentsShiv/stylesShiv/Label.styled";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { Input } from "../componentsShiv/stylesShiv/Input.styled";
-const LogIn = ({ auth, setAuth, user, setUser }) => {
+const LogIn = ({ auth, setAuth, user, setUser, coolDan, setCoolDan}) => {
   // const [userId, setUserId] = useState("");
-  const [coolDan, setCoolDan] = useState("");
+  
   const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
   // const [user, setUser] = useState({
   //   login: "",
   //   password: "",
   // });
+  
   let name, value;
   const handleInputs = (e) => {
     name = e.target.name;

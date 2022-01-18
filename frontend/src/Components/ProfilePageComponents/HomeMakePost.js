@@ -36,7 +36,7 @@ import ReactPlayer from 'react-player';
 const userID = '61dec5dc91821f6ecd34227e';
 //username: mouse , password: mouse for this id
 
-function ProfileMakePost({veli, setVeli}) {
+function ProfileMakePost({setAli, ali}) {
   
   // console.log(setAli)
   const [userProfile, setUserProfile] = useState({
@@ -112,7 +112,7 @@ function ProfileMakePost({veli, setVeli}) {
         });
         if (res.ok) {
           console.log('posted');
-          setVeli(!veli)
+          setAli(!ali)
           
         } else {
           console.log('not posted');

@@ -21,15 +21,15 @@ import {
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import ReactPlayer from 'react-player';
 
-function PostCard(props) {
-  
+function PostCard({userposts}) {
+  console.log(userposts)
 
   const [openedEditMenu, setOpenedEditMenu] = useState(false);
 
 
   return (
     <>
-      {props.userposts.map((post, index) => (
+      {userposts.map((post, index) => (
         <UserPostCard key={post._id}>
           <CardMainHeader>
             <CardTitleInfos>
