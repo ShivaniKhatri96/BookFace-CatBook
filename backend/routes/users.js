@@ -48,10 +48,14 @@ router.get("/logout", (req, res) => {
 //return info on specific user (without password)
 //requires user id as a parameter
 router.get("/:id", (req, res) => {
-  User.findOne({ _id: req.params.id }, { password: 0 }, function (err, person) {
-    if (err) res.status(500).send(err);
-    res.status(200).send(person);
-  });
+  User.findOne(
+    { login: req.params.id },
+    { password: 0 },
+    function (err, person) {
+      if (err) res.status(500).send(err);
+      res.status(200).send(person);
+    }
+  );
 });
 
 //return user's friend list
