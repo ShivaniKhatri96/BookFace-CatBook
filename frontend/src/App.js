@@ -19,8 +19,7 @@ function App() {
   const [auth, setAuth] = useState("Login needed");
   const [user, setUser] = useState({
     login: "",
-    password: "",
-    _id: "",
+    password: ""
   });
 
   useEffect(() => {
