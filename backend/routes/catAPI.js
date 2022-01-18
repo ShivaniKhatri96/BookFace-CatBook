@@ -3,7 +3,7 @@ const router = express.Router();
 const catKey = process.env.catApiKey || require("../config/keys").catApiKey;
 const fetch = require("node-fetch");
 
-//returns url to random car picture
+//returns url to random cat picture
 router.get("/", (req, res) => {
   fetch("https://api.thecatapi.com/v1/images/search", {
     headers: {

@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+
   User.find(
     {},
     { _id: 1, login: 1, profile_pic: 1, comments: 1 },
@@ -27,6 +28,8 @@ router.get("/", (req, res) => {
       res.status(200).send(comments);
     }
   );
+  console.log(req.session);
+  console.log(req.user);
 });
 
 //return all comments from a specific user
@@ -66,7 +69,7 @@ router.get("/single/:commentId", (req, res) => {
 //requires user id as parameter
 //requires 'content' field in the request body. Optional fields:
 //  'replyTo'     -id of the comment it's replying to. If it's a reply, this field is required.
-//  'img_link'  -url of the image
+//  'img_link'    -url of the image
 //  'video_link'  -url of the video
 router.post("/:userId", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

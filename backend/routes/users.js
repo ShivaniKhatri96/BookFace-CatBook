@@ -1,8 +1,8 @@
 // IN THIS FILE:
 // get      /users/all                          -returns list of all users
+// get      /users/logout                       -logs user out
 // get      /users/:id                          -returns information on a specific user
 // get      /users/friends/:id                  -returns user's friend list
-// get      /users/logout                       -logs user out
 // post     /users/                             -creates a new user
 // post     /users/login                        -logs user in
 // post     /users/friends/send/:id             -sends a friend request
@@ -74,8 +74,7 @@ router.post("/", (req, res) => {
   //deconstruct body
   var { login, email, password } = req.body;
   //check if all fields are filled out
-  if (login || email || password) {
-    //password validation on front end
+  if (login && email && password) {
     //search if login or email already exist
     User.find(
       { $or: [{ login: login }, { email: email }] },
