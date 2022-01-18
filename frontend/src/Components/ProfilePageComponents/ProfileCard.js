@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   CoverPhoto,
   Main,
@@ -8,7 +9,7 @@ import {
   SpaTitle,
   SpaText,
 } from './ProfileCard.style';
-import { useState } from 'react'
+
 
 
 function ProfileCard() {

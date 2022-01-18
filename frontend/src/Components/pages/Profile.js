@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import ProfilePostCard from '../ProfilePageComponents/ProfilePostCard';
 import ProfileCard from '../ProfilePageComponents/ProfileCard';
@@ -13,7 +14,9 @@ const Profile = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    (async () => {
+    let isCancelled = false;
+    const getUserComms = async () => {
+      
       const result = await fetch(`comments/${userID}`).then((res) => res.json());
       const justUserComments = result.comments;
       const sorted = justUserComments.sort(function (a, b) {
@@ -21,10 +24,20 @@ const Profile = () => {
         var d = new Date(b.date);
         return d - c;
       });
-
+      if(!isCancelled) {
+        
+      }
       setUserComms(sorted);
-    })();
+    };
+  
+    getUserComms()
+    return () => {
+      isCancelled = true;
+    }
+    
   }, [userComms]);
+
+
 
   return (
     <>

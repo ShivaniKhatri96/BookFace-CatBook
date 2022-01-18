@@ -18,7 +18,7 @@ import {
   LikebuttonWrapper,
   LikeText,
 } from './PostCard.style';
-import { RiEditFill, RiDeleteBin5Line } from 'react-icons/ri';
+import { RiDeleteBin5Line } from 'react-icons/ri';
 import ReactPlayer from 'react-player';
 
 function PostCard(props) {
@@ -29,7 +29,7 @@ function PostCard(props) {
 
   return (
     <>
-      {props.userposts.map((post) => (
+      {props.userposts.map((post, index) => (
         <UserPostCard key={post._id}>
           <CardMainHeader>
             <CardTitleInfos>

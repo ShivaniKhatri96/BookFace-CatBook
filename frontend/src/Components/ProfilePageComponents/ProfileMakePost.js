@@ -1,4 +1,5 @@
 import { Main } from './ProfileCard.style';
+import React from 'react';
 import {
   InputPost,
   OpenedPostHeader,
@@ -29,9 +30,7 @@ import {
   MdVideoCameraBack,
 } from 'react-icons/md';
 import ReactPlayer from 'react-player';
-import { v4 as uuidv4 } from 'uuid';
-import { useNavigate } from 'react-router';
-import axios from 'axios';
+
 
 // const userID = "61de9db14a69b84c1ed6c5fe"
 const userID = '61dec5dc91821f6ecd34227e';
@@ -93,9 +92,6 @@ function ProfileMakePost() {
         ...newPost,
       };
 
-      console.log(config);
-
-      console.log(newPost);
       const addComment = async () => {
         console.log(JSON.stringify(newPost, null, 2));
 
