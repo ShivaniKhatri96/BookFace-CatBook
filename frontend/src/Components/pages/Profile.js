@@ -13,29 +13,29 @@ const Profile = () => {
   const [userComms, setUserComms] = useState([]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    let isCancelled = false;
-    const getUserComms = async () => {
+  // useEffect(() => {
+  //   let isCancelled = false;
+  //   const getUserComms = async () => {
       
-      const result = await fetch(`comments/${userID}`).then((res) => res.json());
-      const justUserComments = result.comments;
-      const sorted = justUserComments.sort(function (a, b) {
-        var c = new Date(a.date);
-        var d = new Date(b.date);
-        return d - c;
-      });
-      if(!isCancelled) {
+  //     const result = await fetch(`comments/${userID}`).then((res) => res.json());
+  //     const justUserComments = result.comments;
+  //     const sorted = justUserComments.sort(function (a, b) {
+  //       var c = new Date(a.date);
+  //       var d = new Date(b.date);
+  //       return d - c;
+  //     });
+  //     if(!isCancelled) {
         
-      }
-      setUserComms(sorted);
-    };
+  //     }
+  //     setUserComms(sorted);
+  //   };
   
-    getUserComms()
-    return () => {
-      isCancelled = true;
-    }
+  //   getUserComms()
+  //   return () => {
+  //     isCancelled = true;
+  //   }
     
-  }, [userComms]);
+  // }, [userComms]);
 
 
 

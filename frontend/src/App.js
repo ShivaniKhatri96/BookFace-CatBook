@@ -1,54 +1,53 @@
 // import './App.css';
-import * as React from "react";
-import Home from "./Components/pages/Home";
-import LogIn from "./Components/pages/LogIn";
-import Profile from "./Components/pages/Profile";
-import SignUp from "./Components/pages/Signup";
-import Settings from "./Components/pages/Settings";
-import Notifications from "./Components/pages/Notifications";
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
-import { useState, useEffect } from "react";
-import { Navigate } from "react-router";
-
+import * as React from 'react';
+import Home from './Components/pages/Home';
+import LogIn from './Components/pages/LogIn';
+import Profile from './Components/pages/Profile';
+import SignUp from './Components/pages/Signup';
+import Settings from './Components/pages/Settings';
+import Notifications from './Components/pages/Notifications';
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
+import { useState, useEffect } from 'react';
+import { Navigate } from 'react-router';
 
 function App() {
-  document.title = "The Catbook";
-  const [auth, setAuth] = useState("Login needed");
+  document.title = 'The Catbook';
+  const [auth, setAuth] = useState('Login needed');
   const [user, setUser] = useState({
-    login: "",
-    password: "",
-    _id: ""
+    login: '',
+    password: '',
+    _id: '',
   });
 
-  
+
   useEffect(() => {
-    let isCancelled = false;
-    const userAuth = async () => {
-      
-      const response = await fetch("/authentication").then((res) => res.text());
+    (async () => {
+      const response = await fetch('/authentication').then((res) => res.text());
       setAuth(response);
-      
-      if(!isCancelled) {
-        console.log(user._id)
-      }
-      setAuth(response);
-      
-    };
-  
-    userAuth()
-    return () => {
-      isCancelled = true;
-    }
-    
-  });
+    })();
+  }, [auth]);
+  // useEffect(() => {
+  //   let isCancelled = false;
+  //   const userAuth = async () => {
+  //     const response = await fetch('/authentication').then((res) => res.text());
+  //     setAuth(response);
 
+  //     if (!isCancelled) {
+  //       console.log(user._id);
+  //     }
+  //     setAuth(response);
+  //   };
 
-  
+  //   userAuth();
+  //   return () => {
+  //     isCancelled = true;
+  //   };
+  // });
 
-  if (auth === "Authenticated") {
+  if (auth === 'Authenticated') {
     return (
       <div className="page-container">
         <Navbar auths={setAuth} />
@@ -77,7 +76,14 @@ function App() {
           <Route
             exact
             path="/Login"
-            element={<LogIn auth={auth} setAuth={setAuth} user={user} setUser={setUser}/>}
+            element={
+              <LogIn
+                auth={auth}
+                setAuth={setAuth}
+                // user={user}
+                // setUser={setUser}
+              />
+            }
           />
           <Route exact path="/Signup" element={<SignUp />} />
           {/* this is a better way to redirect when people try to access unathorized links */}
