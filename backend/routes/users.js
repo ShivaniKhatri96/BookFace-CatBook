@@ -17,6 +17,8 @@ const router = express.Router();
 const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
+const fetch = require("node-fetch");
+const catKey = process.env.catApiKey || require("../config/keys").catApiKey;
 
 //return list off all users (without passwords)
 router.get("/all", (req, res) => {
@@ -32,6 +34,7 @@ router.get("/all", (req, res) => {
   });
 });
 
+//logout user
 router.get("/logout", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.header(
@@ -40,8 +43,8 @@ router.get("/logout", (req, res) => {
   );
   req.logout();
   res.send("User logged out");
-  //res.redirect('/login');
 });
+
 //return info on specific user (without password)
 //requires user id as a parameter
 router.get("/:id", (req, res) => {
@@ -64,18 +67,6 @@ router.get("/friends/:id", (req, res) => {
     res.status(200).send(person.friend_list);
   });
 });
-
-//logout
-// router.get("/logout", (req, res) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   req.logout();
-//   res.send("User logged out");
-//   //res.redirect('/login');
-// });
 
 //create a new user
 //requires 'login', 'email' and 'password' fields in the request body
@@ -120,6 +111,20 @@ router.post("/", (req, res) => {
                 );
               })
             );
+            //call the cat API to generate the profile picture
+            fetch("https://api.thecatapi.com/v1/images/search", {
+              headers: {
+                "Content-Type": "application/json",
+                "x-api-key": catKey,
+              },
+            })
+              .then((cat) => cat.json())
+              .then((cat) =>
+                User.updateOne(
+                  { login: req.body.login },
+                  { profile_pic: cat[0].url }
+                )
+              );
           }
         }
       }
