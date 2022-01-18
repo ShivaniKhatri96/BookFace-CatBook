@@ -5,16 +5,18 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   login: { type: String, required: true, lowercase: true },
   password: { type: String, required: true },
-  email: { type: String, required: true, lowercase: true },
+  email: { type: String, required: true },
   profile_pic: String,
-  comments: [{
-    replyTo: String,
-    repliedBy: [String],
-    content: String,
-    img_link: String,
-    likes: { type: Number, default: 0 },
-    date: { type: Date, default: Date.now },
-  }],
+  comments: [
+    {
+      replyTo: String,
+      repliedBy: [String],
+      content: String,
+      img_link: String,
+      likes: { type: Number, default: 0 },
+      date: { type: Date, default: Date.now },
+    },
+  ],
   profile_pic: String,
   cover_pic: String,
   friend_list: [String],

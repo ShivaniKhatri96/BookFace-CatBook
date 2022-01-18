@@ -77,7 +77,7 @@ router.post("/", (req, res) => {
   if (login && email && password) {
     //search if login or email already exist
     User.find(
-      { $or: [{ login: login }, { email: email }] },
+      { $or: [{ login: login.toLowerCase() }, { email: email.toLowerCase() }] },
       function (err, data) {
         if (err) {
           res.send(err);
@@ -98,9 +98,9 @@ router.post("/", (req, res) => {
                 console.log(password);
                 User.create(
                   {
-                    login: login,
+                    login: login.toLowerCase(),
                     password: password,
-                    email: email,
+                    email: email.toLowerCase(),
                   },
                   function (err, result) {
                     if (err) res.status(500).send(err);
@@ -133,10 +133,15 @@ router.post("/", (req, res) => {
 
 //log user in
 router.post("/login", passport.authenticate("local"), (req, res) => {
-  User.findOne({ login: req.body.login }, { _id: 1 }, function (err, person) {
-    if (err) res.status(500).send(err);
-    res.status(200).send(person);
-  });
+  User.findOne(
+    { login: req.body.login.toLowerCase() },
+    { _id: 1 },
+    function (err, person) {
+      if (err) res.status(500).send(err);
+      res.status(200).send(person);
+    }
+  );
+  console.log(req.body.login.toLowerCase());
 });
 
 //update user info

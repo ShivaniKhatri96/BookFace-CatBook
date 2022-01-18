@@ -79,8 +79,8 @@ function App() {
               <LogIn
                 auth={auth}
                 setAuth={setAuth}
-                // user={user}
-                // setUser={setUser}
+                user={user}
+                setUser={setUser}
               />
             }
           />
