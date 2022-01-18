@@ -43,7 +43,7 @@ const LogIn = ({ auth, setAuth }) => {
     })
       .then((res) => res.json())
       .then((res) => console.log(res));
-    if (res.ok) {
+    if (res.id) {
       console.log("Successfully logged in");
       setAuth("Authenticated");
       navigate("../");
