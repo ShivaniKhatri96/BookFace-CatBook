@@ -17,7 +17,6 @@ import { Input } from "../componentsShiv/stylesShiv/Input.styled";
 const LogIn = ({ auth, setAuth, user, setUser }) => {
   // const [userId, setUserId] = useState("");
   const [coolDan, setCoolDan] = useState("");
-  console.log(coolDan);
   const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
   // const [user, setUser] = useState({
@@ -44,7 +43,7 @@ const LogIn = ({ auth, setAuth, user, setUser }) => {
       }),
     });
 
-    const testDan = await fetch(`/users/${login}`)
+    const testDan = await fetch(`/users/login/${login}`)
       .then((r) => r.json())
       .then((r) => setCoolDan(r._id));
 
