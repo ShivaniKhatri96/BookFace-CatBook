@@ -45,7 +45,8 @@ function App() {
   //     isCancelled = true;
   //   };
   // });
-  console.log(coolDan)
+  //  console.log(user);
+  // console.log(coolDan)
   if (auth === "Authenticated") {
     return (
       <div className="page-container">
@@ -55,7 +56,7 @@ function App() {
           {/* <Route exact path="/Login" element={<LogIn />} /> */}
           {/* <Route exact path="/Signup" element={<SignUp />} /> */}
           <Route exact path="/Profile" element={<Profile coolDan={coolDan} />} />
-          <Route exact path="/Settings" element={<Settings />} />
+          <Route exact path="/Settings" element={<Settings coolDan={coolDan} props= {user}/>} />
           <Route exact path="/Notifications" element={<Notifications />} />
           {/* this is a  way to redirect to home page when people try to access unathorized links */}
           <Route path="*" element={<Navigate replace to="/" />} />
@@ -63,7 +64,7 @@ function App() {
         <Footer />
       </div>
     );
-  } else {
+  } else{
     return (
       <div className="page-container">
         <Routes>
