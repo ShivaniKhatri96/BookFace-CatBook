@@ -65,6 +65,7 @@ const SignUp = () => {
         console.log("Successful Registration");
         //moving to login page once signup is successful using navigate
         navigate("../Login");
+       
       } else {
         setErrorMessage("User name / Email already in use!");
         console.log("Invalid Registration");
@@ -72,6 +73,7 @@ const SignUp = () => {
       console.log("register");
     }
     else {
+      setErrorMessage("Passwords do not match!");
       console.log("Invalid Registration due to password mismatch");
     }
 
