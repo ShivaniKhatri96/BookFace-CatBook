@@ -164,47 +164,46 @@ router.patch("/:id", (req, res) => {
   //check if login or body are not empty
   if (req.body.login || req.body.email) {
     //search for users with the login or email
-    User.findOne(
-      { $or: [{ login: req.body.login }, { email: req.body.email }] },
-      function (err, data) {
-        if (err) {
-          res.send(err);
+    // User.findOne(
+    //   { $or: [{ login: req.body.login }, { email: req.body.email }] },
+    User.findOne({ login: req.params.id.toLowerCase }, function (err, data) {
+      if (err) {
+        res.send(err);
+      } else {
+        //check if the search returned any matches (meaning login/email already in use)
+        if (data) {
+          res
+            .status(400)
+            .send("Update failed: Login or email already in use")
+            .end();
         } else {
-          //check if the search returned any matches (meaning login/email already in use)
-          if (data) {
-            res
-              .status(400)
-              .send("Update failed: Login or email already in use")
-              .end();
-          } else {
-            //if login is not empty, update login
-            if (req.body.login) {
-              User.updateOne(
-                { _id: req.params.id },
-                { login: req.body.login },
-                function (err, result) {
-                  if (err) {
-                    res.status(500).send(err).end();
-                  }
-                }
-              );
-            }
-            //if email is not empty, update email
-            if (req.body.email) {
-              User.updateOne(
-                { _id: req.params.id },
-                { email: req.body.email },
-                function (err, result) {
-                  if (err) {
-                    res.status(500).send(err).end();
-                  }
-                }
-              );
-            }
-          }
+          //if login is not empty, update login
+          // if (req.body.login) {
+          //   User.updateOne(
+          //     { _id: req.params.id },
+          //     { login: req.body.login },
+          //     function (err, result) {
+          //       if (err) {
+          //         res.status(500).send(err).end();
+          //       }
+          //     }
+          //   );
+          // }
+          // //if email is not empty, update email
+          // if (req.body.email) {
+          //   User.updateOne(
+          //     { _id: req.params.id },
+          //     { email: req.body.email },
+          //     function (err, result) {
+          //       if (err) {
+          //         res.status(500).send(err).end();
+          //       }
+          //     }
+          //   );
+          // }
         }
       }
-    );
+    });
   }
 
   //if password is not empty, update password (validation on front end)
@@ -214,7 +213,7 @@ router.patch("/:id", (req, res) => {
         if (err) throw err;
         req.body.password = hash;
         User.updateOne(
-          { _id: req.params.id },
+          { login: req.params.id },
           { password: req.body.password },
           function (err, result) {
             if (err) {
