@@ -125,7 +125,7 @@ function Navbar( {auths} ) {
             </NavbarListItems>
             <NavbarListItems>
               {/* onClick={clicked} */}
-              <NavbarLinkExtended to="/Login">Logout</NavbarLinkExtended>
+              <NavbarLinkExtended to="/Login" onClick={logOut}>Logout</NavbarLinkExtended>
             </NavbarListItems>
           </NavbarList>
         </NavbarExtended>
